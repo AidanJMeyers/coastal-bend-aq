@@ -327,6 +327,6 @@ ORDER BY aqsid, pollutant_group, yr, method_code;
 ```
 
 For a Python + pandas + matplotlib version that regenerates the mermaid
-Gantt charts and the color-coded matrix, see
-[Aidan's helper notebook](../../notebooks/data_availability.ipynb)
-(TBD — coming with the first analysis PR).
+Gantt charts and the color-coded matrix, see the helper notebook that
+will land with the first analysis PR (`notebooks/data_availability.ipynb`
+in the project tree; not yet on the docs site).
