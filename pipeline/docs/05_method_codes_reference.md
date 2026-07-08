@@ -192,7 +192,7 @@ ORDER BY aqsid, pollutant_group, yr;
 ## Open questions (for team follow-up)
 
 - [ ] **Confirm method-code semantics against TCEQ Annual Network Plans**
-      2015–2025 (11 PDFs from tceq.texas.gov). Aidan, Manasseh, Jasmine
+      2015–2025 (11 PDFs from tceq.texas.gov). Aidan, Manasa, Jasmine
       to split by pollutant.
 - [ ] **Contact Delaney (TCEQ)** for guidance on cross-method comparability
       per the 2026-07-08 meeting discussion.

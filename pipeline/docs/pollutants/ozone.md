@@ -1,6 +1,6 @@
 # Ozone (O₃) — Deep Dive
 
-**Lead:** Manasseh Kuchavaram
+**Lead:** Manasa Kuchavaram
 **Target:** filled draft by 2026-07-15
 **Coastal Bend coverage:** 2 sites, 22 site-years (clean data)
 

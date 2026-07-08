@@ -6,7 +6,7 @@
 **Attendees:**
 - Aidan Meyers
 - Jasmine Trevino
-- Manasseh Kuchavaram
+- Manasa Kuchavaram
 - (guests, if any)
 
 **Length:** ~X min

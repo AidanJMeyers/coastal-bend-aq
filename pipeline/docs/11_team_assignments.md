@@ -1,14 +1,14 @@
 # 11 — Team Assignments
 
-Locked in during the 2026-07-08 Aidan × Jasmine sync (Manasseh was
+Locked in during the 2026-07-08 Aidan × Jasmine sync (Manasa was
 managing a mosquito-abatement public event and joined asynchronously).
 
 ## Pollutant leads
 
 | Pollutant | Lead | Notes |
 |---|---|---|
-| **Ozone (44201)** | Manasseh Kuchavaram | 2 sites in Coastal Bend (CC West, CC Tuloso). Clean data, single method code (87). |
-| **CO (42101)** | Manasseh Kuchavaram | **⚠ No CO monitors in the Coastal Bend.** Deliverable = write the reference page + confirm gap. |
+| **Ozone (44201)** | Manasa Kuchavaram | 2 sites in Coastal Bend (CC West, CC Tuloso). Clean data, single method code (87). |
+| **CO (42101)** | Manasa Kuchavaram | **⚠ No CO monitors in the Coastal Bend.** Deliverable = write the reference page + confirm gap. |
 | **PM2.5 (88101, 88502)** | Aidan Meyers | 3 sites (Kingsville, CC Dona Park, CC Holly). Multiple method transitions to audit. |
 | **PM10 (81102)** | Aidan Meyers | 1 site (CC Holly), fundamental discontinuity 2019-2023. Critical to document. |
 | **NOx family (42601/2/3)** | Aidan Meyers | **⚠ No NOx monitors in the Coastal Bend.** Deliverable = confirm gap + describe upstream Bexar sites for context. |
@@ -18,7 +18,7 @@ managing a mosquito-abatement public event and joined asynchronously).
 ## Working cadence
 
 - **Weekly sync:** Wednesday, same time. Recurring calendar invite covers
-  Aidan + Jasmine; Manasseh joins by phone if her public-health schedule
+  Aidan + Jasmine; Manasa joins by phone if her public-health schedule
   allows.
 - **Dr. Melaram check-ins:** Aidan calls Dr. Melaram nightly; team
   updates roll up through those calls.
@@ -38,7 +38,7 @@ managing a mosquito-abatement public event and joined asynchronously).
 
 | Deliverable | Lead | Reviewers |
 |---|---|---|
-| [Data availability page](./04_data_availability.md) | Aidan | Manasseh, Jasmine |
+| [Data availability page](./04_data_availability.md) | Aidan | Manasa, Jasmine |
 | [Method-code reference](./05_method_codes_reference.md) | Aidan | Pollutant leads confirm their own sections |
 | Neon `aq_coastal_bend` schema + Data API | Aidan | — |
 | Weekly meeting minutes → pipeline docs | Rotating | Whole team |

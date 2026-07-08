@@ -10,6 +10,57 @@ supersede.
 
 ---
 
+## 2026-07-08 · v0.1.2 — Interactive meeting dashboard + Manasa spelling
+
+**What changed**
+
+- **Interactive meeting-notes dashboard** at
+  [`meeting_notes/`](./meeting_notes/index.md). Kanban board with Open /
+  In Progress / Done columns, filter chips (owner, meeting, overdue,
+  free-text search), progress bars per owner and overall, click-to-open
+  cards for status changes and progress notes, one-click add-item,
+  export-to-JSON for team-wide sync.
+- Vanilla JS + CSS in `pipeline/docs/javascripts/meeting_dashboard.js`
+  and `pipeline/docs/stylesheets/meeting_dashboard.css`, wired via
+  `mkdocs.yml`.
+- Data model: single JSON block on the meeting-notes index page is the
+  source of truth. Individual browsers hold ephemeral edits in
+  `localStorage`; Export JSON generates the block to paste back and
+  commit for permanent state.
+- **Fixed "Manasseh" / "Manassa" → "Manasa"** across all 10 files where
+  it appeared (mkdocs nav, index, meeting notes, team assignments,
+  method-code reference, pollutant deep-dives, README, config).
+
+**Why**
+
+- Direct request: make the meeting minutes actually interactive —
+  check items off, log notes, log when things are complete. Aidan will
+  regenerate the JSON weekly from meeting transcripts.
+- Manasa's name was misspelled in the transcript-based initial
+  extraction. Fixed at the source.
+
+**Where the current product lives**
+
+- **Live dashboard:** [aidanjmeyers.github.io/coastal-bend-aq/meeting_notes/](https://aidanjmeyers.github.io/coastal-bend-aq/meeting_notes/)
+- **JSON source of truth:** the `<script id="action-items">` block in
+  `pipeline/docs/meeting_notes/index.md` — always the "committed" state
+- **Per-user drafts:** browser `localStorage` key `cb-meeting-notes-v1`
+- Everything else unchanged from v0.1.1.
+
+**How weekly regeneration works**
+
+1. Aidan drops a meeting transcript into the conversation.
+2. Claude creates `meeting_notes/YYYY-MM-DD.md` with the write-up.
+3. Claude appends to the meetings array and items array in the JSON
+   block on the meeting-notes index. Prior items keep their `id` so
+   `localStorage` stays in sync — team members' unfinished edits
+   don't get clobbered.
+4. Claude adds a row to the archive table and (if a schema/architecture
+   change happened) an entry to this file.
+5. `git commit && git push` → GH Pages rebuilds → team sees updates.
+
+---
+
 ## 2026-07-08 · v0.1.1 — API/DB-only framing + meeting-notes infra + Pipeline Updates page
 
 **What changed**
@@ -135,5 +186,6 @@ manuscript methods section later.
 
 | Version | Date | Headline |
 |---|---|---|
+| v0.1.2 | 2026-07-08 | Interactive meeting dashboard + Manasa spelling fix |
 | v0.1.1 | 2026-07-08 | API/DB-only framing + meeting-notes infra + Pipeline Updates page |
 | v0.1.0 | 2026-07-08 | Initial Coastal Bend fork (8 sites, ~1.3 M rows) |

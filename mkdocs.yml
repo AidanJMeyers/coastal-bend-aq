@@ -112,9 +112,11 @@ plugins:
 
 extra_css:
   - stylesheets/extra.css
+  - stylesheets/meeting_dashboard.css
 
 extra_javascript:
   - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+  - javascripts/meeting_dashboard.js
 
 extra:
   social:
@@ -145,8 +147,8 @@ nav:
       - 6. Pipeline architecture (maintainers): 06_pipeline_architecture.md
       - 7. Methodology: 07_methodology.md
   - Pollutant deep-dives:
-      - Ozone (Manasseh): pollutants/ozone.md
-      - CO (Manasseh): pollutants/co.md
+      - Ozone (Manasa): pollutants/ozone.md
+      - CO (Manasa): pollutants/co.md
       - PM2.5 (Aidan): pollutants/pm25.md
       - PM10 (Aidan): pollutants/pm10.md
       - NOx (Aidan): pollutants/nox.md

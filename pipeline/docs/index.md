@@ -20,7 +20,7 @@ hide:
 
     **Lab:** Melaram Lab, Texas A&M University–Corpus Christi
     **Principal Investigator:** Dr. Rajesh Melaram, TAMU-CC
-    **Leads:** Aidan Meyers, Manasseh Kuchavaram, Jasmine Trevino
+    **Leads:** Aidan Meyers, Manasa Kuchavaram, Jasmine Trevino
     **Contact:** [aidan.meyers@tamucc.edu](mailto:aidan.meyers@tamucc.edu)
     **License:** MIT
 
@@ -161,8 +161,8 @@ flowchart LR
 
 | Pollutant | Lead | Status |
 |---|---|---|
-| Ozone | Manasseh Kuchavaram | template ready, deep-dive due 2026-07-15 |
-| CO | Manasseh Kuchavaram | ⚠ gap statement — no CO in Coastal Bend |
+| Ozone | Manasa Kuchavaram | template ready, deep-dive due 2026-07-15 |
+| CO | Manasa Kuchavaram | ⚠ gap statement — no CO in Coastal Bend |
 | PM2.5 | Aidan Meyers | template ready, deep-dive due 2026-07-15 |
 | PM10 | Aidan Meyers | template ready, deep-dive due 2026-07-15 |
 | NOx family | Aidan Meyers | ⚠ gap statement — no NOx in Coastal Bend |
@@ -197,8 +197,8 @@ Why the fork:
 
 See the [Pipeline Updates](./pipeline_updates.md) page. Newest entry:
 
-- **2026-07-08 · v0.1.1** — API/DB-only framing + meeting-notes infra
-  + Pipeline Updates page
+- **2026-07-08 · v0.1.2** — Interactive meeting dashboard + Manasa
+  spelling fix throughout
 
 ---
 

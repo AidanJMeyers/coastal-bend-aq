@@ -1,6 +1,6 @@
 # CO (Carbon Monoxide) — Deep Dive
 
-**Lead:** Manasseh Kuchavaram
+**Lead:** Manasa Kuchavaram
 **Target:** filled draft by 2026-07-15
 **Coastal Bend coverage:** ⚠ **ZERO SITES — no CO monitoring**
 
@@ -57,7 +57,7 @@ decommissioned.
 
 ## 5. Deliverable status
 
-Manasseh: consider closing this out with a **short "no data" reference
+Manasa: consider closing this out with a **short "no data" reference
 page** and reallocating your effort to a deeper ozone deep-dive. If
 `aq.pollutant_hourly` (upstream) has Bexar CO data, it may be useful
 context for the ozone chemistry story.

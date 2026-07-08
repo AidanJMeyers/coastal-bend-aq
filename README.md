@@ -18,7 +18,7 @@ Kingsville) have data. All spatial analysis must acknowledge this.
 
 - **Lead / pipeline / data engineering:** Aidan Meyers
   ([aidan.meyers@tamucc.edu](mailto:aidan.meyers@tamucc.edu))
-- **Ozone / CO:** Manasseh Kuchavaram
+- **Ozone / CO:** Manasa Kuchavaram
 - **SO₂ / VOCs:** Jasmine Trevino
 - **PI:** Dr. Rajesh Melaram, TAMU-CC
 
