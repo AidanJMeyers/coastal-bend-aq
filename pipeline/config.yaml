@@ -175,7 +175,7 @@ expected:
 # step 07 logs a warning and is skipped (not a failure).
 postgres:
   enabled:      true
-  schema:       "aq"          # v0.4.0 schema. Old EPA-blended state is in aq_v0_3_7_epa.
+  schema:       "aq_coastal_bend"  # Coastal Bend fork v0.1.0. Full South Texas at aq.*
   chunksize:    50000          # Rows per INSERT batch
   if_exists:    "replace"      # 'replace' | 'append' — replace is idempotent
   # Tables to load into the aq schema. v0.4.0 set:
