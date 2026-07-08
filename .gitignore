@@ -1,0 +1,49 @@
+# =============================================================================
+# Coastal Bend Air Quality Pipeline — Git ignore rules
+# =============================================================================
+
+# -- Pipeline outputs (generated, reproducible, never commit) ---------------
+data/
+data/**
+site/
+
+# -- Raw data (immutable, large, not project IP) ----------------------------
+!Final Raw Data/
+!Final Raw Data/**
+01_Data/
+!01_Data/Reference/
+!01_Data/Reference/**
+
+# -- Project artifacts we don't need to version ----------------------------
+_Archive/
+*.backup
+*.bak
+
+# -- Python -----------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+.env
+.env.*
+!.env.example
+
+# -- Jupyter ----------------------------------------------------------------
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# -- IDE / OS ---------------------------------------------------------------
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# -- MkDocs -----------------------------------------------------------------
+/site

@@ -1,0 +1,156 @@
+# =============================================================================
+# Coastal Bend Air Quality Pipeline — MkDocs site config
+# -----------------------------------------------------------------------------
+# Builds the pipeline/docs/ markdown into a static site with the Material theme.
+# Deployed automatically to GitHub Pages via .github/workflows/docs.yml.
+# =============================================================================
+
+site_name: "Coastal Bend Air Quality Pipeline"
+site_description: "Reproducible ambient air quality data pipeline for 11 Coastal Bend counties (2015–2025). Melaram Lab, TAMU-CC."
+site_author: "Melaram Lab, Texas A&M University–Corpus Christi"
+site_url: "https://aidanjmeyers.github.io/coastal-bend-aq/"
+
+repo_name: "AidanJMeyers/coastal-bend-aq"
+repo_url: "https://github.com/AidanJMeyers/coastal-bend-aq"
+edit_uri: "edit/main/pipeline/docs/"
+
+docs_dir: "pipeline/docs"
+site_dir: "site"
+
+theme:
+  name: material
+  language: en
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: custom
+      accent: deep orange
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: custom
+      accent: deep orange
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  font:
+    text: Arial
+    code: JetBrains Mono
+  logo: assets/melaram-lab-logo.png
+  favicon: assets/melaram-lab-logo.png
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.indexes
+    - navigation.top
+    - navigation.tracking
+    - toc.follow
+    - toc.integrate
+    - search.suggest
+    - search.highlight
+    - search.share
+    - content.code.copy
+    - content.code.annotate
+    - content.tabs.link
+    - content.action.edit
+    - header.autohide
+  icon:
+    repo: fontawesome/brands/github
+    edit: material/pencil
+    view: material/eye
+
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+      toc_depth: 4
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+  - pymdownx.snippets
+
+plugins:
+  - search:
+      separator: '[\s\-,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
+  - git-revision-date-localized:
+      enable_creation_date: true
+      enable_git_follow: false
+      type: timeago
+      fallback_to_build_date: true
+
+extra_css:
+  - stylesheets/extra.css
+
+extra_javascript:
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/AidanJMeyers
+    - icon: fontawesome/solid/flask
+      link: https://www.melaramlab.com
+      name: Melaram Lab
+    - icon: fontawesome/solid/university
+      link: https://www.tamucc.edu/
+      name: Texas A&M University–Corpus Christi
+  generator: false
+
+nav:
+  - Home: index.md
+  - Project:
+      - 1. Overview: 01_overview.md
+      - 2. Data sources: 02_data_sources.md
+      - 3. Data schemas: 03_data_schemas.md
+  - Data availability (KEY):
+      - 4. Site × Year × Pollutant matrix: 04_data_availability.md
+      - 5. Method-code timelines: 05_method_codes_reference.md
+  - Pipeline:
+      - 6. Pipeline architecture: 06_pipeline_architecture.md
+      - 7. Methodology: 07_methodology.md
+  - Access:
+      - 8. Neon SQL access: 08_usage_neon.md
+      - 9. Python / R examples: 09_usage_python_r.md
+  - Pollutant deep-dives:
+      - Ozone (Manasseh): pollutants/ozone.md
+      - CO (Manasseh): pollutants/co.md
+      - PM2.5 (Aidan): pollutants/pm25.md
+      - PM10 (Aidan): pollutants/pm10.md
+      - NOx (Aidan): pollutants/nox.md
+      - SO2 (Jasmine): pollutants/so2.md
+      - VOCs (Jasmine): pollutants/vocs.md
+  - Project management:
+      - 10. Timeline & deliverables: 10_project_timeline.md
+      - 11. Team assignments: 11_team_assignments.md
