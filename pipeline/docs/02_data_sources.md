@@ -1,5 +1,11 @@
 # 02 — Data Sources
 
+> **This page documents where the data originates for reproducibility
+> and manuscript-methods purposes.** You don't need to touch any of the
+> files below — everything is already ingested into
+> `aq_coastal_bend` on Neon. See [08 Neon access](./08_usage_neon.md)
+> to query it.
+
 ## 1. TCEQ TAMIS (sole pollutant source)
 
 **Network:** Texas Commission on Environmental Quality — TAMIS web portal.

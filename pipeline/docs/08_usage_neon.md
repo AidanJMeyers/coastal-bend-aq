@@ -1,134 +1,75 @@
-# 08 — Neon SQL Access (`aq_coastal_bend`)
+# 08 — Neon Access
 
-## Connection
+**Two ways to hit the `aq_coastal_bend` schema over the network:**
 
-Same credentials as the upstream `south-texas-aq-pipeline` project — the
-Coastal Bend fork lives in the **same Neon project** (`aged-salad-62359207`)
-under a **different schema** (`aq_coastal_bend` instead of `aq`).
+1. **Direct SQL** — the recommended path. Fast, indexed, works from
+   Python / R / any BI tool. Everything below defaults to this.
+2. **Neon Data API (HTTP REST)** — for lightweight web-app / notebook
+   contexts where you don't want a Postgres client on the box. Uses
+   PostgREST, returns JSON, JWT-gated when you need per-user auth.
 
-Set the environment variable (from your Neon console → Connection
-Details):
+Both paths hit the same tables and see the same data. Same
+credentials (`AQ_POSTGRES_URL` for SQL, JWT from Neon Auth for REST).
+
+## Connection setup (one time)
+
+The Coastal Bend fork lives in the **same Neon project** as
+south-texas-aq (`aged-salad-62359207`), just in a different schema
+(`aq_coastal_bend`).
+
+### Get the credentials
+
+- **SQL URL:** Neon console →
+  [aged-salad-62359207](https://console.neon.tech/app/projects/aged-salad-62359207)
+  → Connection Details → copy the `postgresql://...` URL.
+- **Data API base URL + Auth URL:** Neon console → same project →
+  Data API tab.
+
+### Store as environment variables
+
+Linux / macOS / WSL:
 
 ```bash
 export AQ_POSTGRES_URL='postgresql://neondb_owner:npg_...@ep-....neon.tech/neondb?sslmode=require'
 ```
 
-Or add it as a Colab Secret (🔑 icon → `AQ_POSTGRES_URL`).
+Windows PowerShell:
 
-## Tables at a glance
-
-```
-aq_coastal_bend.site_registry            8 rows
-aq_coastal_bend.parameter_reference      57 rows
-aq_coastal_bend.naaqs_design_values      129 rows
-aq_coastal_bend.pollutant_hourly         768,243 rows
-aq_coastal_bend.pollutant_daily          31,015 rows
-aq_coastal_bend.pollutant_daily_24hr     0 rows (empty in Coastal Bend)
-aq_coastal_bend.pollutant_monthly        1,035 rows
-aq_coastal_bend.vocs_1hr                 336,922 rows
-aq_coastal_bend.vocs_24hr                7,152 rows
-aq_coastal_bend.weather_hourly           197,124 rows
+```powershell
+[Environment]::SetEnvironmentVariable("AQ_POSTGRES_URL",
+    "postgresql://neondb_owner:npg_...@ep-....neon.tech/neondb?sslmode=require",
+    "User")
 ```
 
-All read grants applied to `anonymous` and `authenticated` Data API
-roles.
+Colab: 🔑 icon → add secret `AQ_POSTGRES_URL`, then toggle
+**Notebook access** on.
 
-## Canonical starter queries
+## Tables available (v0.1.0)
 
-### Q1 — What monitors what in the Coastal Bend
+| Table | Rows | Use for |
+|---|---:|---|
+| `aq_coastal_bend.site_registry` | 8 | Site metadata + pollutant coverage + coordinates |
+| `aq_coastal_bend.parameter_reference` | 57 | AQS code lookup (name, chemical family, HAP flag) |
+| `aq_coastal_bend.naaqs_design_values` | 129 | Per-site NAAQS values + exceedance flags |
+| `aq_coastal_bend.pollutant_daily` | 31k | Daily aggregates with completeness flags (most common) |
+| `aq_coastal_bend.pollutant_daily_24hr` | 0 | Empty in Coastal Bend (no 24hr-only sites here) |
+| `aq_coastal_bend.pollutant_monthly` | 1k | Monthly rollups |
+| `aq_coastal_bend.pollutant_hourly` | 768k | Hourly criteria pollutants — the workhorse |
+| `aq_coastal_bend.vocs_1hr` | 337k | Hourly VOC AutoGC (CC Palm, 2025, 46 chemicals) |
+| `aq_coastal_bend.vocs_24hr` | 7k | 24hr VOC AutoGC (3 sites, 2025, 48 chemicals) |
+| `aq_coastal_bend.weather_hourly` | 197k | Hourly OpenWeather + Solcast (Nueces + Kleberg) |
 
-```sql
-SELECT aqsid, site_name, county_name,
-       pollutant_groups_hourly,
-       voc_cadence,
-       first_date, last_date, n_records
-FROM   aq_coastal_bend.site_registry
-ORDER  BY county_code, aqsid;
-```
+All schemas documented in [03 Data Schemas](./03_data_schemas.md).
 
-### Q2 — 2024 NAAQS results
+`SELECT` + `USAGE` granted to `anonymous` (public Data API) and
+`authenticated` (JWT-gated Data API) roles. `ALTER DEFAULT PRIVILEGES`
+set so future tables inherit.
 
-```sql
-SELECT site_name, metric,
-       ROUND(value::numeric, 4) AS value,
-       naaqs_level, exceeds
-FROM   aq_coastal_bend.naaqs_design_values
-WHERE  year = 2024
-ORDER  BY pollutant_group, exceeds DESC, value DESC;
-```
+---
 
-Expected finding: **all 3 PM2.5 sites exceed the new 9.0 µg/m³ annual
-NAAQS in 2024.** No exceedances for ozone or SO₂.
+## Path 1 — Direct SQL (recommended)
 
-### Q3 — Daily ozone at CC Tuloso vs meteorology
-
-```sql
-WITH ozone_daily AS (
-    SELECT date_local::date AS day, AVG(sample_measurement) AS ozone_ppm
-    FROM   aq_coastal_bend.pollutant_hourly
-    WHERE  aqsid = '483550026' AND pollutant_group = 'Ozone'
-    GROUP  BY day
-),
-wx_daily AS (
-    SELECT date_local::date AS day,
-           AVG(temp_c) AS temp_c,
-           AVG(humidity) AS humidity,
-           AVG(wind_speed) AS wind_speed,
-           SUM(rain_1h) AS rain_1h
-    FROM   aq_coastal_bend.weather_hourly
-    WHERE  county_name = 'Nueces'
-    GROUP  BY day
-)
-SELECT o.day, o.ozone_ppm, w.temp_c, w.humidity, w.wind_speed, w.rain_1h
-FROM   ozone_daily o
-JOIN   wx_daily    w USING (day)
-ORDER  BY o.day;
-```
-
-### Q4 — Benzene at CC Palm (2025 hourly)
-
-```sql
-SELECT v.date_local, v.time_local,
-       v.sample_measurement AS benzene_ppbC,
-       p.is_hap
-FROM   aq_coastal_bend.vocs_1hr v
-JOIN   aq_coastal_bend.parameter_reference p USING (parameter_code)
-WHERE  v.aqsid = '483550083'
-  AND  v.parameter_code = 45201       -- Benzene
-ORDER  BY v.date_local, v.time_local;
-```
-
-### Q5 — Method-code timeline for any site (audit prep)
-
-```sql
-SELECT pollutant_group,
-       EXTRACT(year FROM date_local::date)::int AS yr,
-       method_code,
-       COUNT(*) AS n_rows
-FROM   aq_coastal_bend.pollutant_hourly
-WHERE  aqsid = '483550034'   -- CC Holly, notorious for method changes
-GROUP  BY pollutant_group, yr, method_code
-ORDER  BY pollutant_group, yr, method_code;
-```
-
-## Cross-schema comparisons (Coastal Bend vs the full South Texas)
-
-Any query can join across schemas. Example: how does CC Tuloso ozone
-compare to the top ozone-exceeding sites in Bexar?
-
-```sql
-SELECT year, aqsid, site_name, value AS ozone_8hr_ppm, exceeds
-FROM   aq.naaqs_design_values          -- full South Texas
-WHERE  metric = 'ozone_8hr_4th_max' AND year = 2024
-UNION ALL
-SELECT year, aqsid, site_name, value, exceeds
-FROM   aq_coastal_bend.naaqs_design_values   -- Coastal Bend subset
-WHERE  metric = 'ozone_8hr_4th_max' AND year = 2024
-ORDER  BY value DESC
-LIMIT 10;
-```
-
-## Python + SQLAlchemy quick start
+### From Python (SQLAlchemy)
 
 ```python
 import os, pandas as pd
@@ -136,13 +77,155 @@ from sqlalchemy import create_engine
 
 engine = create_engine(os.environ['AQ_POSTGRES_URL'], pool_pre_ping=True)
 
-sites = pd.read_sql('SELECT * FROM aq_coastal_bend.site_registry', engine)
+sites = pd.read_sql("SELECT * FROM aq_coastal_bend.site_registry", engine)
 print(sites)
 ```
 
-## Read-only user for collaborators
+### From R (DBI + RPostgres)
 
-Same procedure as the upstream project (see the
-[upstream doc](https://aidanjmeyers.github.io/south-texas-aq-pipeline/17_colab_database_guide/#read-only-users-for-collaborators)).
-Grant `USAGE` on `aq_coastal_bend` and `SELECT` on all tables in the
-schema.
+```r
+library(DBI); library(RPostgres); library(data.table)
+# parse AQ_POSTGRES_URL into fields for dbConnect(...)
+con <- dbConnect(RPostgres::Postgres(),
+                 dbname = "neondb", sslmode = "require",
+                 host = "...", user = "...", password = "...")
+sites <- as.data.table(dbGetQuery(con, "SELECT * FROM aq_coastal_bend.site_registry"))
+```
+
+### From a BI tool
+
+- **Tableau / Power BI / Metabase / DataGrip:** add a PostgreSQL data
+  source, paste the URL fields, set SSL mode = `require`. Point the
+  schema selector at `aq_coastal_bend`.
+- **DBeaver:** New connection → PostgreSQL → paste URL fields → in the
+  driver properties set `sslmode=require`.
+
+### Canonical starter queries
+
+```sql
+-- Q1  What monitors what
+SELECT aqsid, site_name, county_name,
+       pollutant_groups_hourly, voc_cadence
+FROM   aq_coastal_bend.site_registry
+WHERE  data_status = 'active'
+ORDER  BY county_code, aqsid;
+
+-- Q2  2024 NAAQS results
+SELECT site_name, metric,
+       ROUND(value::numeric, 4) AS value,
+       naaqs_level, exceeds
+FROM   aq_coastal_bend.naaqs_design_values
+WHERE  year = 2024
+ORDER  BY pollutant_group, exceeds DESC, value DESC;
+
+-- Q3  Method-code audit for any site
+SELECT pollutant_group,
+       EXTRACT(year FROM date_local::date)::int AS yr,
+       method_code, COUNT(*) AS n_rows
+FROM   aq_coastal_bend.pollutant_hourly
+WHERE  aqsid = '483550034'                -- CC Holly
+GROUP  BY pollutant_group, yr, method_code
+ORDER  BY pollutant_group, yr, method_code;
+```
+
+More recipes in [09 Python & R examples](./09_usage_python_r.md).
+
+### Performance notes
+
+- **Always filter server-side.** Never `SELECT *` from
+  `pollutant_hourly` without a `WHERE`.
+- **Neon auto-pauses idle computes** — first query after ~5 min idle
+  takes ~500 ms to wake. `pool_pre_ping=True` in the SQLAlchemy
+  engine handles this transparently.
+- **For >500k row pulls,** use pandas `chunksize=50000`.
+
+---
+
+## Path 2 — The Neon Data API (HTTP REST alternative)
+
+The Neon Data API auto-exposes any table with a `SELECT` grant to the
+`anonymous` role as a PostgREST endpoint. No Postgres client needed;
+just HTTPS + JSON.
+
+### Base URL pattern
+
+Neon's Data API URL follows the pattern:
+
+```
+https://<compute-id>.apirest.<region>.aws.neon.tech/neondb/rest/v1
+```
+
+For this project the exact URL is on the Neon console → project →
+Data API tab. It's the same base URL used by the parent
+[south-texas-aq Data API](https://aidanjmeyers.github.io/south-texas-aq-pipeline/17_colab_database_guide/#connection-method-2-neon-data-api-http-rest),
+just serving the `aq_coastal_bend` schema alongside `aq`.
+
+### Example — GET the site registry
+
+```bash
+curl "$DATA_API_URL/site_registry?schema=aq_coastal_bend" \
+     -H "Accept: application/json"
+```
+
+or in Python:
+
+```python
+import os, requests, pandas as pd
+
+DATA_API = os.environ['NEON_DATA_API_URL']   # same base URL as south-texas-aq
+r = requests.get(
+    f"{DATA_API}/site_registry",
+    headers={"Accept-Profile": "aq_coastal_bend"},   # PostgREST schema selector
+    timeout=15,
+)
+sites = pd.DataFrame(r.json())
+```
+
+### Example — filter + limit
+
+PostgREST query syntax uses URL params:
+
+```bash
+# ozone rows at CC West for a specific date, limit 100
+curl "$DATA_API_URL/pollutant_hourly?\
+pollutant_group=eq.Ozone&aqsid=eq.483550025&\
+date_local=eq.2024-07-04&limit=100" \
+  -H "Accept-Profile: aq_coastal_bend"
+```
+
+### Authentication tiers
+
+Same setup as south-texas-aq:
+
+- **Anonymous** (`anonymous` role, no auth): rate-limited public reads,
+  fine for research / dashboard use.
+- **Authenticated** (`authenticated` role, JWT): higher rate limits,
+  audited. Get a JWT from the Neon Auth login page (~24 h validity)
+  and pass as `Authorization: Bearer <jwt>`.
+
+For the full setup + Better-Auth login flow, see the
+[upstream Colab + Neon guide](https://aidanjmeyers.github.io/south-texas-aq-pipeline/17_colab_database_guide/)
+— all of it applies here, just point at the `aq_coastal_bend` schema.
+
+### When to prefer SQL vs REST
+
+| Use SQL when… | Use REST when… |
+|---|---|
+| Pulling >1000 rows | Pulling a small filtered slice |
+| Joining across tables | Reading a single row / small filter |
+| Building analytical models | Building a lightweight web widget |
+| From Python / R / BI tool | From a browser / mobile app / serverless function |
+| You already have psycopg / SQLAlchemy | You don't want a Postgres client dependency |
+
+## Grant a read-only role to a new collaborator
+
+```sql
+CREATE ROLE cb_reader WITH LOGIN PASSWORD 'pick_a_strong_password';
+GRANT USAGE ON SCHEMA aq_coastal_bend TO cb_reader;
+GRANT SELECT ON ALL TABLES IN SCHEMA aq_coastal_bend TO cb_reader;
+ALTER DEFAULT PRIVILEGES IN SCHEMA aq_coastal_bend
+    GRANT SELECT ON TABLES TO cb_reader;
+```
+
+Share the connection URL with the `cb_reader` user instead of
+`neondb_owner`. They can read everything, modify nothing.

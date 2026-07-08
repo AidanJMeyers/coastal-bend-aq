@@ -59,28 +59,43 @@ vs El Niño ENSO cycle driving multi-year drought/wet). Wind rose
 analyses per site will be added under
 [pollutant deep-dives](./pollutants/ozone.md#meteorological-drivers).
 
-## Deliverables
+## Deliverables (the database is the product)
 
-1. **Neon `aq_coastal_bend` schema** (10 tables, ~1.3M rows, 260 MB) —
-   see [08 Neon SQL access](./08_usage_neon.md).
-2. **[Data availability matrix + method timelines](./04_data_availability.md)** —
-   the reference document for planning any analysis.
-3. **Pollutant deep-dive briefings** (7 pages, split across the team) —
-   templates in [`pollutants/`](./pollutants/ozone.md).
-4. **NAAQS design values** for the 2 ozone + 3 PM2.5 + 3 SO₂ + 1 PM10
-   sites (see availability §5).
-5. **Coastal Bend v0.1.0 pipeline** — the local build steps under
-   [`pipeline/`](https://github.com/AidanJMeyers/coastal-bend-aq/tree/main/pipeline).
+Every deliverable is a table in the Neon `aq_coastal_bend` schema.
+Query it via SQL or the Neon Data API — see
+[08 Neon access](./08_usage_neon.md).
+
+| Deliverable | Location | Rows |
+|---|---|---:|
+| Site registry | `aq_coastal_bend.site_registry` | 8 |
+| Parameter reference | `aq_coastal_bend.parameter_reference` | 57 |
+| NAAQS design values | `aq_coastal_bend.naaqs_design_values` | 129 |
+| Criteria hourly | `aq_coastal_bend.pollutant_hourly` | 768,243 |
+| Daily aggregates | `aq_coastal_bend.pollutant_daily` | 31,015 |
+| Monthly rollups | `aq_coastal_bend.pollutant_monthly` | 1,035 |
+| VOCs 1hr AutoGC | `aq_coastal_bend.vocs_1hr` | 336,922 |
+| VOCs 24hr AutoGC | `aq_coastal_bend.vocs_24hr` | 7,152 |
+| Weather hourly | `aq_coastal_bend.weather_hourly` | 197,124 |
+
+Companion docs:
+
+- [4 · Data availability matrix + method timelines](./04_data_availability.md)
+- [5 · Method-code reference](./05_method_codes_reference.md)
+- [Pollutant deep-dives](./pollutants/ozone.md) (team-authored templates)
+- [Pipeline updates log](./pipeline_updates.md) — what changed and when
+- [Meeting notes](./meeting_notes/index.md) — weekly minutes + open actions
 
 ## Intended users
 
-- **Melaram Lab researchers** — SQL-based analysis in Colab / R notebooks
-- **Manuscript authors** — NAAQS design value tables, methodology reference
-- **Spatial modelers** — kriging inputs (with the caveat that 8 sites is a
-  hard interpolation problem)
-- **Public health collaborators** — future ER + hospitalization × pollutant
-  work (deferred until air-quality methodology is finalized — see the
-  [team assignments](./11_team_assignments.md))
+- **Melaram Lab researchers** — SQL / REST queries from Colab, Python,
+  R, or any BI tool. No files to download, no local pipeline to run.
+- **Manuscript authors** — NAAQS design value tables + methodology
+  reference queried directly from the database.
+- **Spatial modelers** — kriging inputs queried on demand (with the
+  caveat that 8 sites is a hard interpolation problem).
+- **Public health collaborators** — future ER + hospitalization ×
+  pollutant work (deferred until air-quality methodology is finalized
+  — see the [team assignments](./11_team_assignments.md)).
 
 ## Not in scope (yet)
 

@@ -130,6 +130,10 @@ extra:
 
 nav:
   - Home: index.md
+  - Pipeline updates: pipeline_updates.md
+  - Access:
+      - 8. Neon SQL & Data API: 08_usage_neon.md
+      - 9. Python / R examples: 09_usage_python_r.md
   - Project:
       - 1. Overview: 01_overview.md
       - 2. Data sources: 02_data_sources.md
@@ -138,11 +142,8 @@ nav:
       - 4. Site × Year × Pollutant matrix: 04_data_availability.md
       - 5. Method-code timelines: 05_method_codes_reference.md
   - Pipeline:
-      - 6. Pipeline architecture: 06_pipeline_architecture.md
+      - 6. Pipeline architecture (maintainers): 06_pipeline_architecture.md
       - 7. Methodology: 07_methodology.md
-  - Access:
-      - 8. Neon SQL access: 08_usage_neon.md
-      - 9. Python / R examples: 09_usage_python_r.md
   - Pollutant deep-dives:
       - Ozone (Manasseh): pollutants/ozone.md
       - CO (Manasseh): pollutants/co.md
@@ -151,6 +152,10 @@ nav:
       - NOx (Aidan): pollutants/nox.md
       - SO2 (Jasmine): pollutants/so2.md
       - VOCs (Jasmine): pollutants/vocs.md
+  - Meeting notes:
+      - Index + open actions: meeting_notes/index.md
+      - 2026-06-24 · scope pivot: meeting_notes/2026-06-24.md
+      - _Template: meeting_notes/_template.md
   - Project management:
       - 10. Timeline & deliverables: 10_project_timeline.md
       - 11. Team assignments: 11_team_assignments.md
