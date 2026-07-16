@@ -63,9 +63,11 @@ permanent, use **Export JSON** and paste back into this file.
       "text": "Ozone deep-dive markdown page — chemistry / instrumentation (single method 87, clean) / NAAQS / method-code timeline / meteorological drivers / literature review",
       "meeting": "2026-06-24",
       "due": "2026-07-15",
-      "status": "open",
-      "completed_at": null,
-      "notes": []
+      "status": "done",
+      "completed_at": "2026-07-15 12:00",
+      "notes": [
+        { "at": "2026-07-15 12:00", "by": "Aidan (v0.1.3)", "body": "pollutants/ozone.md published — ported from Manasa's Pollutant.pptx (south-texas-aq-pipeline). Method 87 UV photometric only, 70 ppb 8-hr MDA8 NAAQS, 2 sites CC West + CC Tuloso, ppb→ppm conversion trap called out." }
+      ]
     },
     {
       "id": "manasa-co-gap",
@@ -73,9 +75,11 @@ permanent, use **Export JSON** and paste back into this file.
       "text": "CO gap statement — no CO monitoring in Coastal Bend; document gap + strategic options (satellite, upstream Bexar sites, ignore)",
       "meeting": "2026-06-24",
       "due": "2026-07-15",
-      "status": "open",
-      "completed_at": null,
-      "notes": []
+      "status": "done",
+      "completed_at": "2026-07-15 12:00",
+      "notes": [
+        { "at": "2026-07-15 12:00", "by": "Aidan (v0.1.3)", "body": "pollutants/co.md published with three strategic options + recommendation (option 1 accept gap for first manuscript, option 3 MOPITT/TROPOMI supplementary if reviewers push). Strategic-option confirmation carried forward as manasa-co-option-confirm." }
+      ]
     },
     {
       "id": "aidan-pm25-deepdive",
@@ -83,9 +87,11 @@ permanent, use **Export JSON** and paste back into this file.
       "text": "PM2.5 deep-dive — 3 sites with multiple method transitions (Kingsville 702→209, CC Holly 702→209→638). Handle mixed-method years explicitly.",
       "meeting": "2026-06-24",
       "due": "2026-07-15",
-      "status": "open",
-      "completed_at": null,
-      "notes": []
+      "status": "done",
+      "completed_at": "2026-07-15 12:00",
+      "notes": [
+        { "at": "2026-07-15 12:00", "by": "Aidan (v0.1.3)", "body": "pollutants/pm25.md published from Aidan's 2026-07-01 briefing PPT (slides 16-29). Includes NAAQS (Feb 2024 tightening 12→9 µg/m³), FRM Appendix L, FEM (BAM 1020 + TEOM-FDMS), 88101 vs 88502 distinction, sensor evolution 2010-2025, met drivers, Coastal Bend 2024 (CC Holly 11.61, Dona Park 10.34 µg/m³ both exceed 9)." }
+      ]
     },
     {
       "id": "aidan-pm10-deepdive",
@@ -93,9 +99,11 @@ permanent, use **Export JSON** and paste back into this file.
       "text": "PM10 deep-dive — 1 site (CC Holly) with fundamental 2019-2023 discontinuity between method 141 (filter) and method 639 (continuous BAM). Do not model as continuous series.",
       "meeting": "2026-06-24",
       "due": "2026-07-15",
-      "status": "open",
-      "completed_at": null,
-      "notes": []
+      "status": "done",
+      "completed_at": "2026-07-15 12:00",
+      "notes": [
+        { "at": "2026-07-15 12:00", "by": "Aidan (v0.1.3)", "body": "pollutants/pm10.md published from Aidan's PPT slides 30-39. Documents CC Holly discontinuity (141 filter 2015-2018 → 5-yr gap → 639 BAM 2024-2025) with explicit warning to not model as continuous series. Saharan dust discussion (Prospero, Bozlaker, Yu). NAAQS 150 µg/m³ + Exceptional Events Rule." }
+      ]
     },
     {
       "id": "aidan-nox-gap",
@@ -103,9 +111,11 @@ permanent, use **Export JSON** and paste back into this file.
       "text": "NOx gap statement — no NOx monitoring in Coastal Bend. Discuss strategic options (TROPOMI satellite NO2, upstream Bexar context, or reframe ozone modeling to acknowledge NOx as an unquantified confounder).",
       "meeting": "2026-06-24",
       "due": "2026-07-15",
-      "status": "open",
-      "completed_at": null,
-      "notes": []
+      "status": "done",
+      "completed_at": "2026-07-15 12:00",
+      "notes": [
+        { "at": "2026-07-15 12:00", "by": "Aidan (v0.1.3)", "body": "pollutants/nox.md published with three strategic options. Recommendation: option 2 (TROPOMI NO2 column via Google Earth Engine) for regime classification via HCHO/NO2 ratio (Duncan 2010). Confirmation carried forward as aidan-nox-option-confirm." }
+      ]
     },
     {
       "id": "jasmine-so2-deepdive",
@@ -113,9 +123,11 @@ permanent, use **Export JSON** and paste back into this file.
       "text": "SO2 deep-dive — 3 active sites + CC Holly offline mid-2017. Method 100 pulsed fluorescence throughout. Include wind-rose analysis (your specialty) especially for Dona Park refinery corridor.",
       "meeting": "2026-06-24",
       "due": "2026-07-15",
-      "status": "open",
-      "completed_at": null,
-      "notes": []
+      "status": "done",
+      "completed_at": "2026-07-15 12:00",
+      "notes": [
+        { "at": "2026-07-15 12:00", "by": "Aidan (v0.1.3)", "body": "pollutants/so2.md published — ported from Jasmine's 2026-07-01 briefing PPT, expanded to match Aidan's format. UVF method (Thermo TEI 43i), method codes 100 + 92, 75 ppb 1-hr NAAQS (2010), Coastal Bend 3 active sites, CC Holly offline mid-2017. Wind-rose analysis still open (Jasmine's specialty)." }
+      ]
     },
     {
       "id": "jasmine-vocs-deepdive",
@@ -123,9 +135,11 @@ permanent, use **Export JSON** and paste back into this file.
       "text": "VOCs deep-dive — 4 sites (CC Palm 1hr; CC Hillcrest/Dona Park/Holly 24hr AutoGC), 46-48 chemicals including 10 HAPs. All 2025-only in current pull.",
       "meeting": "2026-06-24",
       "due": "2026-07-15",
-      "status": "open",
-      "completed_at": null,
-      "notes": []
+      "status": "done",
+      "completed_at": "2026-07-15 12:00",
+      "notes": [
+        { "at": "2026-07-15 12:00", "by": "Aidan (v0.1.3)", "body": "pollutants/vocs.md published from Aidan's PPT slides 40-54. Chemical families (21 paraffins, 4 cycloalkanes, 12 olefins, 11 aromatics), 10 HAPs, benzene/1,3-butadiene IARC Group 1, NESHAP Subpart CC fenceline, PAMS network, AutoGC + TO-15, ppbC units, CC Palm 3.3M row analysis opportunities." }
+      ]
     },
     {
       "id": "team-contact-delaney",
@@ -168,8 +182,79 @@ permanent, use **Export JSON** and paste back into this file.
       "notes": [
         { "at": "2026-07-08 16:00", "by": "Aidan", "body": "v0.1.0 shipped. Live at aidanjmeyers.github.io/coastal-bend-aq." },
         { "at": "2026-07-08 20:15", "by": "Aidan", "body": "v0.1.1 followed: API/DB-only framing + meeting-notes infra + Pipeline Updates page." },
-        { "at": "2026-07-08 22:00", "by": "Aidan", "body": "v0.1.2: interactive meeting dashboard + Manasa spelling fix." }
+        { "at": "2026-07-08 22:00", "by": "Aidan", "body": "v0.1.2: interactive meeting dashboard + Manasa spelling fix." },
+        { "at": "2026-07-15 12:00", "by": "Aidan", "body": "v0.1.3: all 7 pollutant deep-dive pages filled + 2 team briefing PPTs archived at briefings/ + 2026-07-08 meeting logged." }
       ]
+    },
+    {
+      "id": "manasa-mirror-ozone-pptx",
+      "owner": "Manasa",
+      "text": "Mirror Pollutant.pptx (Ozone deck) from parent south-texas-aq-pipeline repo into coastal-bend-aq briefings/ folder for team-wide access. Suggested filename: 2026-06-24_MK_Ozone_briefing.pptx.",
+      "meeting": "2026-07-08",
+      "due": "2026-07-22",
+      "status": "open",
+      "completed_at": null,
+      "notes": []
+    },
+    {
+      "id": "manasa-co-option-confirm",
+      "owner": "Manasa",
+      "text": "Confirm CO gap strategic option (accept gap / import Bexar context / satellite MOPITT-TROPOMI) at next AQ team meeting. Recommendation in pollutants/co.md is option 1 for first manuscript; option 3 as supplementary.",
+      "meeting": "2026-07-08",
+      "due": "2026-07-22",
+      "status": "open",
+      "completed_at": null,
+      "notes": []
+    },
+    {
+      "id": "aidan-nox-option-confirm",
+      "owner": "Aidan",
+      "text": "Confirm NOx gap strategic option (accept / TROPOMI / Bexar) at next AQ team meeting. Recommendation in pollutants/nox.md is option 2 (TROPOMI NO2 via Google Earth Engine).",
+      "meeting": "2026-07-08",
+      "due": "2026-07-22",
+      "status": "open",
+      "completed_at": null,
+      "notes": []
+    },
+    {
+      "id": "all-leads-review-deepdives",
+      "owner": "Team",
+      "text": "All AQ leads (Aidan, Manasa, Jasmine) review the 7 pollutant deep-dive pages under pollutants/ and flag factual corrections or additions before Q3 team review.",
+      "meeting": "2026-07-08",
+      "due": "2026-07-22",
+      "status": "open",
+      "completed_at": null,
+      "notes": []
+    },
+    {
+      "id": "aidan-tropomi-prototype",
+      "owner": "Aidan",
+      "text": "Prototype TROPOMI NO2 pull over Coastal Bend footprint (Google Earth Engine free tier). Only after team endorses option 2 for the NOx gap. Write results into pollutants/nox.md.",
+      "meeting": "2026-07-08",
+      "due": "2026-08-15",
+      "status": "open",
+      "completed_at": null,
+      "notes": []
+    },
+    {
+      "id": "manasa-mopitt-prototype",
+      "owner": "Manasa",
+      "text": "Prototype MOPITT or TROPOMI CO pull over Coastal Bend footprint. Only after team endorses option 3 for the CO gap. Write results into pollutants/co.md.",
+      "meeting": "2026-07-08",
+      "due": "2026-08-15",
+      "status": "open",
+      "completed_at": null,
+      "notes": []
+    },
+    {
+      "id": "all-leads-methods-paragraph",
+      "owner": "Team",
+      "text": "Each AQ lead drafts a methods-section paragraph for their assigned pollutant, based on the deep-dive markdown page. Consolidates into the first manuscript draft at Q3 team review.",
+      "meeting": "2026-07-08",
+      "due": "2026-09-01",
+      "status": "open",
+      "completed_at": null,
+      "notes": []
     }
   ]
 }
@@ -237,6 +322,7 @@ them permanent for the whole team:
 
 | Date | Attendees | Focus | Minutes |
 |---|---|---|---|
+| **2026-07-08** | Aidan, Dr. Melaram, Dr. Warden (remote), Amanat, Haya | BREATHE-CC × Coastal Bend AQ sync — REDCap API + quarterly analytic file + Dr. Melaram feedback on Jasmine's SO2/VOC PPT | [minutes](./2026-07-08.md) |
 | **2026-06-24** | Aidan, Jasmine (Manasa async) | Scope pivot to Coastal Bend + method-code strategy + team assignments | [minutes](./2026-06-24.md) |
 
 ## New-meeting workflow (weekly)
@@ -270,20 +356,20 @@ GitHub, here's the same action list rendered as plain markdown
 checkboxes. **This is view-only** — the dashboard above is the
 source of truth.
 
-### Open
+### Open (as of v0.1.3, 2026-07-15)
 
 - [ ] **Aidan** — Call Dr. Melaram to confirm scope pivot
-      (originated 2026-06-24, blocking on his travel)
+      (originated 2026-06-24)
 - [ ] **Aidan** — Reach out to Delaney (TCEQ) — coordinate with Jasmine
-- [ ] **Manasa** — Ozone deep-dive draft, due 2026-07-15
-- [ ] **Manasa** — CO gap statement, due 2026-07-15
-- [ ] **Aidan** — PM2.5 deep-dive draft, due 2026-07-15
-- [ ] **Aidan** — PM10 deep-dive draft, due 2026-07-15
-- [ ] **Aidan** — NOx gap statement, due 2026-07-15
-- [ ] **Jasmine** — SO2 deep-dive draft, due 2026-07-15
-- [ ] **Jasmine** — VOCs deep-dive draft, due 2026-07-15
-- [ ] **Team** — Decide: VOC retro-pull (2016+) or 2025-only, due 2026-07-15
-- [ ] **Team** — Decide: EPA-network boundary sites for kriging, due 2026-07-15
+- [ ] **Manasa** — Mirror `Pollutant.pptx` into `briefings/` folder (from 2026-07-08 meeting)
+- [ ] **Manasa** — Confirm CO strategic-option choice at next AQ meeting
+- [ ] **Aidan** — Confirm NOx strategic-option choice at next AQ meeting
+- [ ] **All AQ leads** — Review the 7 pollutant deep-dive pages + flag corrections
+- [ ] **Aidan** — Prototype TROPOMI NO₂ pull (if option 2 for NOx endorsed)
+- [ ] **Manasa** — Prototype MOPITT/TROPOMI CO pull (if option 3 for CO endorsed)
+- [ ] **All AQ leads** — Draft methods-section paragraph per pollutant, Q3 target
+- [ ] **Team** — Decide: VOC retro-pull (2016+) or 2025-only (carried over from 2026-06-24)
+- [ ] **Team** — Decide: EPA-network boundary sites for kriging (carried over from 2026-06-24)
 - [ ] **Team** — First analytical tibble frozen (site × date × pollutant ×
       weather at 75%-complete-day resolution) — target Q3 2026
 
@@ -293,3 +379,11 @@ source of truth.
 - [x] **Aidan** — Add Jasmine as Neon admin (2026-06-24)
 - [x] **Aidan** — Publish first pipeline docs site with availability
       matrices + method-code timelines (2026-07-08)
+- [x] **Manasa** — Ozone deep-dive published at `pollutants/ozone.md` (2026-07-15, v0.1.3)
+- [x] **Manasa** — CO gap statement published at `pollutants/co.md` (2026-07-15, v0.1.3)
+- [x] **Aidan** — PM2.5 deep-dive published at `pollutants/pm25.md` (2026-07-15, v0.1.3)
+- [x] **Aidan** — PM10 deep-dive published at `pollutants/pm10.md` (2026-07-15, v0.1.3)
+- [x] **Aidan** — NOx gap statement published at `pollutants/nox.md` (2026-07-15, v0.1.3)
+- [x] **Jasmine** — SO₂ deep-dive published at `pollutants/so2.md` (2026-07-15, v0.1.3)
+- [x] **Jasmine** — VOCs deep-dive published at `pollutants/vocs.md` (2026-07-15, v0.1.3)
+- [x] **Aidan** — Attach 2 team briefing PPTs at `briefings/` (2026-07-15, v0.1.3)
