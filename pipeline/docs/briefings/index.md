@@ -6,6 +6,12 @@ deep-dives are the canonical documentation; these PPTs are the
 source-of-truth slide decks the leads used to present the material
 live.
 
+## Status briefings
+
+- [2026-07-15 · Aidan status briefing](./2026-07-15_status_briefing.md)
+  — where v0.1.3 lands, what to raise in the next AQ team meeting,
+  cross-project BREATHE-CC context.
+
 ## Available briefings
 
 | Date | Lead | Topic | File |
