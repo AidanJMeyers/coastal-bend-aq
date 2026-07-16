@@ -101,7 +101,7 @@ supplementary if the review comments push for it.
 ## 8. Manasa's open items
 
 - [ ] Confirm the strategic option choice (accept gap / Bexar
-      context / satellite) with team by 2026-07-15 meeting.
+      context / satellite) with team at the next AQ team meeting.
 - [ ] If option 2 or 3, prototype a query / satellite pull and
       write results into this page.
 - [ ] Add a paragraph to the manuscript methods draft explicitly

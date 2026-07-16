@@ -129,7 +129,7 @@ in the absence of in-situ NOx.
 ## 8. Aidan's open items
 
 - [ ] **Confirm strategic option** (accept / TROPOMI / Bexar) at
-      2026-07-15 team meeting.
+      the next AQ team meeting.
 - [ ] **If option 2**: prototype TROPOMI NO₂ pull over the Coastal
       Bend footprint via Google Earth Engine (free tier sufficient
       for a bounding box + date range this small).

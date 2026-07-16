@@ -20,7 +20,7 @@ permanent, use **Export JSON** and paste back into this file.
 {
   "meetings": [
     { "date": "2026-06-24", "title": "Scope pivot to Coastal Bend" },
-    { "date": "2026-07-15", "title": "BREATHE-CC × Coastal Bend AQ sync (REDCap API + Jasmine PPT feedback)" }
+    { "date": "2026-07-08", "title": "BREATHE-CC × Coastal Bend AQ sync (REDCap API + Jasmine PPT feedback)" }
   ],
   "items": [
     {
