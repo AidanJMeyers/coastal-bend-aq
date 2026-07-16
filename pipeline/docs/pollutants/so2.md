@@ -1,104 +1,243 @@
-# SO₂ (Sulfur Dioxide) — Deep Dive
+# SO₂ — Sulfur Dioxide
 
-**Lead:** Jasmine Trevino
-**Target:** filled draft by 2026-07-15
-**Coastal Bend coverage:** 3 active sites + 1 offline-since-2017
+> **Lead:** Jasmine Trevino
+> **Source deck:** [`briefings/2026-07-01_JT_SO2_VOC_briefing.pptx`](../briefings/2026-07-01_JT_SO2_VOC_briefing.pptx) (slides 2–10)
+> **Coastal Bend data:** 3 active sites (CC West, CC Tuloso, CC Dona Park); ~166k hourly rows across 2015–2025; CC Holly offline mid-2017
+> **Neon:** `aq_coastal_bend.pollutant_hourly WHERE pollutant_group='SO2'`
 
-## 1. Chemistry
+Sulfur dioxide is the most industrially-mediated criteria pollutant in
+the Coastal Bend — refinery emissions and marine bunker fuel drive
+short-term exceedance events, and the Ship Channel corridor is
+climatologically downwind of the refinery row for the prevailing
+SE Gulf wind.
 
-*(TO FILL)*: SO₂ from fossil fuel combustion (esp. sulfur-containing
-crude / bunker fuel), industrial processes (refining, petrochemical
-plants). Oxidation to sulfate (SO₄²⁻) → secondary PM2.5 formation.
-Half-life ~1-4 days in atmosphere. Health impact = bronchoconstriction,
-esp. asthmatics.
+## 1. Definition
 
-## 2. Instrumentation
+**SO₂** is a colorless gas with a strong, irritating (pungent,
+"burnt-match") odor. Odor threshold ~1 ppm. At elevated ambient
+concentrations it irritates the upper airways and bronchi.
 
-Two method codes seen in the Coastal Bend:
+**Primary pollutant** — emitted directly from sources — in contrast to
+[ozone](./ozone.md) which is secondary.
 
-| Code | Description | Coastal Bend usage |
-|---:|---|---|
-| **100** | Pulsed fluorescence (Thermo TEI 43i / API 100E) | CC West, CC Tuloso, CC Dona Park all years |
-| **92** | Older fluorescence reference method | CC Holly 2015-2017 only |
+## 2. Sources
 
-*(TO FILL)*: Instrument-specific detection limits, calibration
-protocols. Note that method 92 → 100 is not the *same* instrument;
-they're a generational transition.
+**Anthropogenic:**
 
-## 3. Parameter codes
+- **Fossil fuel combustion at power plants and industrial facilities** —
+  historically the dominant national source; largely mitigated by
+  post-2000 flue-gas desulfurization (FGD "scrubber") retrofits.
+- **Refineries** — sulfur recovery unit (SRU / Claus) losses, tail-gas
+  incineration, flaring. Corpus Christi Ship Channel refineries are
+  the dominant local source.
+- **Marine bunker fuel combustion** — high-sulfur bunker fuel at the
+  Port of Corpus Christi (large crude-export port); IMO 2020 global
+  sulfur cap has reduced but not eliminated this contribution.
+- **Metal smelting, pulp & paper, cement kilns** — secondary industrial.
+- **Diesel combustion** — small contribution; ULSD (ultra-low-sulfur
+  diesel, 15 ppm cap since 2006 on-road) essentially eliminated
+  diesel SO2 in on-road applications.
 
-| Code | Meaning | Native unit |
-|---:|---|---|
-| **42401** | Sulfur dioxide | ppb |
+**Natural:**
+
+- **Volcanic emissions** (globally significant, negligible in South Texas).
+- **DMS (dimethyl sulfide)** from marine phytoplankton — oxidizes to
+  SO2 and downstream to sulfate aerosol. Contributes to Coastal Bend
+  background sulfate aerosol (see [PM2.5 deep-dive §1](./pm25.md)).
+
+## 3. Health effects
+
+- **Respiratory (acute)** — bronchoconstriction, wheezing, asthma
+  exacerbation at short-term exposures (5–30 min inhalation studies
+  in asthmatics show FEV1 decrement at ~200 ppb).
+- **Long-term** — associations with respiratory mortality, lung
+  function decrements. Evidence weaker than for PM2.5 or ozone in
+  ambient-air studies because SO2 has declined substantially in
+  post-scrubber-era US.
+- **Cardiovascular** — suggestive but less consistent than PM2.5.
+
+Reference: [EPA Integrated Science Assessment for Sulfur Oxides — Health Criteria](https://www.epa.gov/isa/integrated-science-assessment-isa-sulfur-oxides-health-criteria).
 
 ## 4. NAAQS
 
-- **1-hr: 75 ppb** (form = 3-year avg of 99th percentile daily max 1-hr)
-- **Annual mean: 30 ppb** (revoked — replaced by 1-hr in 2010)
-- **24-hr: 140 ppb (secondary/welfare) — rarely tested**
+**Current primary standard (2010):** **75 ppb 1-hour** —
+[75 FR 35520](https://www.federalregister.gov/documents/2010/06/22/2010-13947/primary-national-ambient-air-quality-standard-for-sulfur-dioxide).
+Form: 3-year average of the annual 99th percentile of daily maximum
+1-hour concentrations must be ≤ 75 ppb.
 
-Coastal Bend 2024 1-hr 99th percentiles (from
-[availability page](../04_data_availability.md#5-naaqs-design-values-2023--2024)):
+**Secondary standard (revised 2024-12-27):**
+[89 FR 105554](https://www.federalregister.gov/documents/2024/12/27/2024-29463/review-of-the-secondary-national-ambient-air-quality-standards-for-oxides-of-nitrogen-oxides-of).
+Revised alongside NOx and PM to protect welfare (crops, ecosystems);
+Coastal Bend rarely hits the secondary standard's threshold.
 
-| Site | 2024 SO₂ p99 1-hr (ppb) | NAAQS status |
-|---|---:|---|
-| CC West_0025 | 4.84 | Well below (75) |
-| CC Tuloso_0026 | 1.68 | Well below |
-| CC Dona Park_0032 | 16.96 | Well below but ~4× higher than the other two |
+**Historical:**
 
-**Dona Park's higher SO₂** (~4× CC West, ~10× CC Tuloso) is the story.
-Investigate the source: Dona Park is adjacent to the refinery corridor
-on the east side of the Ship Channel.
+- 1971: 24-hr 140 ppb + annual 30 ppb (primary); 3-hr 500 ppb (secondary)
+- 2010: **replaced the 24-hr and annual with the 1-hr 75 ppb form** —
+  because short-duration SO2 peaks near industrial sources drive the
+  respiratory effect
 
-## 5. Method-code timeline
+**WHO 2021 guideline:** [WHO Global Air Quality Guidelines](https://www.who.int/publications/i/item/9789240034228)
+40 µg/m³ (~15 ppb) 24-hr — much stricter than US NAAQS.
 
-See [05 Method-code reference §SO₂](../05_method_codes_reference.md#so-42401--mostly-steady-one-site-retired-mid-2017).
+## 5. Measurement — UV Fluorescence (UVF)
 
-- **CC West, Tuloso, Dona Park:** method 100 for all 11 years — clean
-- **CC Holly:** method 92, 2015–May 2017 only, then decommissioned
+**Dominant FEM instrument in TCEQ + US networks:**
 
-## 6. Historical trend
+- **Thermo Scientific TEI 43i** ([product page](https://www.thermofisher.com/order/catalog/product/43iSO2))
+  — pulsed UV fluorescence.
+- Teledyne API T100 series.
+- Similar UVF-family analyzers.
 
-*(TO FILL)*: Bring in the yearly n_rows from the availability page —
-the CC Tuloso 2023-2024 dip (4.6k / 3.5k rows) is worth investigating.
-Was that a monitor problem or a real reporting gap?
+**Principle** ([40 CFR Part 50 Appendix A-1](https://www.ecfr.gov/current/title-40/chapter-I/subchapter-C/part-50/appendix-Appendix%20A-1%20to%20Part%2050)):
 
-## 7. Meteorological drivers
+1. Ambient air pulled through a hydrocarbon scrubber (removes
+   fluorescing interferents).
+2. Sample gas exposed to pulsed UV light (~214 nm) in the reaction cell.
+3. SO2 absorbs UV → excited state → fluoresces at 240–420 nm.
+4. Photomultiplier tube (PMT) measures fluorescence intensity;
+   concentration derived by Beer-Lambert.
+5. Continuous, hourly-reporting FEM analyzer.
 
-*(TO FILL, Jasmine — this is your specialty):*
-- Wind direction (Ship Channel refinery emissions during easterlies
-  → Dona Park receptor)
-- Wind speed (dispersion vs stagnation)
-- Boundary-layer stability
-- Sea breeze vs land breeze SO₂ signature
-- Wind-rose analysis per site (add via the Neon SQL — you know how to
-  build these from OpenWeather data)
+**Federal Reference Method** ([40 CFR Part 50 App. A-1](https://www.ecfr.gov/current/title-40/chapter-I/subchapter-C/part-50/appendix-Appendix%20A-1%20to%20Part%2050)):
+UV fluorescence per the reference measurement principle. Most
+UVF-family instruments carry FEM designation ([Part 53](https://www.ecfr.gov/current/title-40/chapter-I/subchapter-C/part-53)).
 
-## 8. Health literature
+**Continuous monitoring:** hourly reporting to AQS is the norm —
+provides near-real-time coverage of short-term peaks that the 1-hr
+NAAQS form measures.
 
-*(TO FILL)*: 3-5 recent reviews on:
-- Short-term SO₂ × asthma / pediatric hospitalizations
-- SO₂ × cardiovascular effects (weak literature but present)
-- Community-scale exposure studies near refining corridors (relevant
-  for Dona Park, given its 4× higher levels vs CC West)
+## 6. Parameter + method codes
 
-## 9. ML modeling considerations
+| Code | Meaning | Notes |
+|---|---|---|
+| **42401** | Sulfur dioxide (SO₂) — mass concentration | Our data; units = ppb |
 
-- **Method 100 sites give a clean 3-site × 11-year dataset** (33
-  site-years). Comparable to the ozone dataset in size and much cleaner
-  than PM.
-- Consider a **spatial gradient model** — Dona Park as receptor, West
-  and Tuloso as background. Wind-direction–weighted regression.
-- Very low measured levels (single-digit ppb) → precision matters.
-  Check whether values near instrument detection limit (~1 ppb) need
-  special handling.
+| Method | Description | Coastal Bend presence |
+|---|---|---|
+| **100** | Pulsed UV Fluorescence (UVF) — Thermo TEI 43i family | Dominant in our data |
+| 92 | UVF variant (older Thermo model / calibration convention) | Historic |
+| 60 | Pararosaniline (legacy wet-chemistry) | Not in our data |
 
-## 10. Open questions
+**FRM/FEM comparability:** for SO2, TCEQ instruments align with the
+EPA reference principle (both use UVF), so there is **no cross-source
+harmonization issue analogous to the ozone ppb/ppm gotcha**. Numbers
+are directly comparable.
 
-- [ ] Confirm method-100 instrument model at each site — Delaney
-- [ ] What happened at CC Tuloso in 2023-2024? (Monitor down? Reporting
-      gap?)
-- [ ] Any TCEQ industry inventory (Point Source Database) linkage to
-      Dona Park emissions?
-- [ ] Is 24hr average SO₂ ever regulatory-relevant here, or is 1-hr the
-      only exposure metric worth focusing on?
+**Query the disambiguating audit:**
+
+```sql
+SELECT aqsid, site_name, method_code,
+       COUNT(*) AS n_rows,
+       MIN(date_local) AS first, MAX(date_local) AS last
+FROM   aq_coastal_bend.pollutant_hourly
+WHERE  pollutant_group = 'SO2'
+GROUP  BY aqsid, site_name, method_code
+ORDER  BY aqsid, method_code;
+```
+
+## 7. TCEQ vs EPA
+
+**No unit trap.** Both report SO2 in ppb — TCEQ CAMS reports to TAMIS,
+which pushes certified data to EPA AQS. Our pipeline holds TCEQ
+TAMIS as the sole source.
+
+**Certification lag:** TCEQ near-real-time data may differ slightly
+from EPA AQS certified data because certification (~months of QA)
+occasionally results in small revisions. Use certified data for
+regulatory-comparable analyses.
+
+## 8. Sensor evolution
+
+TCEQ SO2 network has been stable on UVF pulsed-fluorescence
+technology (Thermo TEI 43i family) since the mid-2000s. Individual
+instrument replacements happen periodically but the measurement
+principle has not changed within our study window — **no fundamental
+comparability discontinuity** at the pollutant level (contrast with
+PM10 CC Holly method 141 → 639 transition, see
+[PM10 deep-dive §8](./pm10.md)).
+
+Refer to [TCEQ Annual Monitoring Network Plans](https://www.tceq.texas.gov/airquality/monops/ambient_monitoring)
+(2018–2024) for site-by-site instrument model history.
+
+## 9. Weather relationships
+
+| Variable | Direction | Mechanism |
+|---|---|---|
+| **Wind direction (critical)** | ± source attribution | ESE from Ship Channel refineries drives peaks at CC Dona Park + CC Holly + downwind residential |
+| **Wind speed** | − | Dilutes plumes; peak concentrations under low-wind stagnation |
+| **Boundary layer height** | − | Shallow nocturnal BL traps refinery + port emissions |
+| **Temperature** | ± indirect | Affects OH oxidation → sulfate → removes SO2 from atmosphere over hours (competing with mixing losses) |
+| **Humidity** | − | Aqueous-phase oxidation of SO2 to sulfate accelerates in humid conditions — a sink for gas-phase SO2, source for PM2.5 sulfate |
+| **Precipitation** | − (strong) | Wet deposition scavenges both SO2(g) and sulfate aerosol |
+
+**Coastal Bend feature:** the prevailing SE Gulf wind pushes Ship
+Channel refinery emissions **inland toward CC Hillcrest / Dona Park
+residential neighborhoods** — this is the geographic pattern that
+makes SO2 a health-justice issue here even under generally low
+regional means.
+
+## 10. Coastal Bend SO2 — what we have
+
+| AQSID | Site | Rows 2015–2025 | Notes |
+|---|---|---:|---|
+| 483550025 | Corpus Christi West | ~92k | Continuous 2015–present |
+| 483550026 | Corpus Christi Tuloso | ~89k | Continuous |
+| 483550032 | Corpus Christi Dona Park | ~76k | Continuous |
+| 483550034 | Corpus Christi Holly | ~29k | **Offline mid-2017**; 2015-01 → 2017-05 only |
+
+**2024 NAAQS results** (query `aq_coastal_bend.naaqs_design_values`):
+
+Expected 3-yr 99th-percentile 1-hr design values well below 75 ppb
+at all four sites in 2022–2024 rolling window — Coastal Bend is
+generally in attainment for SO2 despite the industrial footprint.
+Confirm by query on demand for freshest numbers.
+
+## 11. Open questions / next steps
+
+- [ ] **CC Holly offline (2017-05) — root cause?** Instrument
+      retirement, budget, TCEQ network optimization? Document.
+- [ ] **Wind-rose analysis at CC Dona Park + CC Hillcrest** — CBPF
+      to characterize the fraction of high-SO2 hours that originate
+      from the Ship Channel bearing (leverages Jasmine's meteorology
+      expertise).
+- [ ] **Ship Channel refinery emission inventory join** — TCEQ Point
+      Source Emissions Inventory ([TSEI](https://www.tceq.texas.gov/airquality/point-source-ei))
+      publishes annual refinery SO2 totals; correlate with ambient
+      trends at receptor sites.
+- [ ] **IMO 2020 impact on port emissions** — the global 0.5% marine
+      fuel sulfur cap took effect 2020-01-01; look for a step change
+      in Coastal Bend SO2 attributable to bunker fuel changes.
+- [ ] **DMS marine background estimation** — for source apportionment,
+      quantify the DMS contribution to background sulfate (affects
+      PM2.5 story too).
+
+## 12. References
+
+**Regulatory + methods**
+
+- [40 CFR Part 50, Appendix A-1 — SO2 FRM (UVF)](https://www.ecfr.gov/current/title-40/chapter-I/subchapter-C/part-50/appendix-Appendix%20A-1%20to%20Part%2050)
+- [40 CFR Part 53 — FEM designation criteria](https://www.ecfr.gov/current/title-40/chapter-I/subchapter-C/part-53)
+- [75 FR 35520 (2010) — Primary SO2 NAAQS (1-hr 75 ppb)](https://www.federalregister.gov/documents/2010/06/22/2010-13947/primary-national-ambient-air-quality-standard-for-sulfur-dioxide)
+- [89 FR 105554 (2024) — Secondary NAAQS review for NOx/SOx/PM](https://www.federalregister.gov/documents/2024/12/27/2024-29463/review-of-the-secondary-national-ambient-air-quality-standards-for-oxides-of-nitrogen-oxides-of)
+- [EPA SO2 pollution main page](https://www.epa.gov/so2-pollution)
+- [EPA ISA for Sulfur Oxides — Health Criteria](https://www.epa.gov/isa/integrated-science-assessment-isa-sulfur-oxides-health-criteria)
+- [EPA AQS Method Code Table (all methods)](https://aqs.epa.gov/aqsweb/documents/codetables/methods_all.html)
+- [EPA AQS parameter codes](https://aqs.epa.gov/aqsweb/documents/codetables/parameters.html)
+- [EPA AMTIC](https://www.epa.gov/amtic)
+- [EPA Criteria Air Pollutants overview](https://www.epa.gov/criteria-air-pollutants)
+- [WHO Global AQ Guidelines (2021)](https://www.who.int/publications/i/item/9789240034228)
+
+**Instrument documentation**
+
+- [Thermo Scientific 43i pulsed UV fluorescence SO2 analyzer](https://www.thermofisher.com/order/catalog/product/43iSO2)
+
+**TCEQ**
+
+- [TCEQ Air Monitoring Operations](https://www.tceq.texas.gov/airquality/monops)
+- [TCEQ Annual Monitoring Network Plans](https://www.tceq.texas.gov/airquality/monops/ambient_monitoring)
+- [TCEQ Point Source Emissions Inventory](https://www.tceq.texas.gov/airquality/point-source-ei)
+
+**Clean Air Act**
+
+- [Clean Air Act §109 — NAAQS statutory basis](https://www.law.cornell.edu/uscode/text/42/7409)
