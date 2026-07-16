@@ -154,6 +154,8 @@ nav:
       - NOx (Aidan): pollutants/nox.md
       - SO2 (Jasmine): pollutants/so2.md
       - VOCs (Jasmine): pollutants/vocs.md
+  - Team briefings (PPTs):
+      - Briefings archive: briefings/index.md
   - Meeting notes:
       - Index + open actions: meeting_notes/index.md
       - 2026-06-24 · scope pivot: meeting_notes/2026-06-24.md

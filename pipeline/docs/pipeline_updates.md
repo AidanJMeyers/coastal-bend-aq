@@ -10,6 +10,42 @@ supersede.
 
 ---
 
+## 2026-07-15 · v0.1.3 — Seven pollutant deep-dives filled + team PPT briefings archived + 2026-07-08 meeting logged
+
+**What changed**
+
+- **All 7 pollutant deep-dive pages** filled from source material:
+  - [PM2.5](./pollutants/pm25.md), [PM10](./pollutants/pm10.md), [VOCs](./pollutants/vocs.md) — ported from Aidan's 60-slide 2026-07-01 briefing PPT (NAAQS, FRM/FEM, method-code semantics, health-effects references, Coastal Bend data reality).
+  - [SO₂](./pollutants/so2.md) — ported from Jasmine's 2026-07-01 briefing PPT, expanded to match Aidan's page format.
+  - [Ozone](./pollutants/ozone.md) — ported from Manasa's `Pollutant.pptx` (currently in the parent `south-texas-aq-pipeline` repo; awaiting mirror into this repo's `briefings/`).
+  - [CO](./pollutants/co.md) — gap statement with three strategic options + recommendation.
+  - [NOx](./pollutants/nox.md) — gap statement with three strategic options + TROPOMI NO₂ satellite recommendation.
+- **Team PPT briefings archived** at [`pipeline/docs/briefings/`](./briefings/index.md):
+  - `2026-07-01_AM_PM_VOC_briefing.pptx` (Aidan)
+  - `2026-07-01_JT_SO2_VOC_briefing.pptx` (Jasmine)
+- **2026-07-08 meeting logged** as [BREATHE-CC × Coastal Bend AQ sync](./meeting_notes/2026-07-08.md) — the meeting where Dr. Melaram endorsed the FRM/FEM rigor direction from 2026-06-24 and the REDCap API + TAMU-secure-drive workflow was formalized.
+- Dashboard JSON updated to mark PPT-derived deep-dive items done + add new 2026-07-08 action items.
+
+**Why**
+
+- 2026-07-01 team meeting: three leads presented briefing decks with substantive science content that needed to land in the docs, not just live inside the slide files.
+- 2026-07-08 meeting: Dr. Melaram (verbatim): "y'all clarified the FEM and FRM very well… it hit the science very well." The deep-dives are the visible evidence of that investment; publishing them closes the "docs lag PPTs" gap the team flagged earlier.
+
+**Where the current product lives**
+
+- **Deep-dive pages:** [aidanjmeyers.github.io/coastal-bend-aq/pollutants/pm25/](https://aidanjmeyers.github.io/coastal-bend-aq/pollutants/pm25/) (and all 6 sibling pages linked from nav).
+- **PPT source decks:** [`pipeline/docs/briefings/`](./briefings/index.md) in this repo.
+- **2026-07-08 meeting notes:** [meeting_notes/2026-07-08.md](./meeting_notes/2026-07-08.md).
+- **Neon schema `aq_coastal_bend`** unchanged from v0.1.2.
+
+**Follow-up carried into next AQ team meeting**
+
+- Manasa: mirror `Pollutant.pptx` into this repo's `briefings/` folder.
+- Team: confirm CO + NOx strategic options (accept / regional / satellite).
+- All AQ leads: review deep-dive pages + draft the methods-section paragraph for your assigned pollutant.
+
+---
+
 ## 2026-07-08 · v0.1.2 — Interactive meeting dashboard + Manasa spelling
 
 **What changed**
@@ -186,6 +222,7 @@ manuscript methods section later.
 
 | Version | Date | Headline |
 |---|---|---|
+| v0.1.3 | 2026-07-15 | Seven pollutant deep-dives filled + team PPT briefings archived + 2026-07-08 meeting logged |
 | v0.1.2 | 2026-07-08 | Interactive meeting dashboard + Manasa spelling fix |
 | v0.1.1 | 2026-07-08 | API/DB-only framing + meeting-notes infra + Pipeline Updates page |
 | v0.1.0 | 2026-07-08 | Initial Coastal Bend fork (8 sites, ~1.3 M rows) |

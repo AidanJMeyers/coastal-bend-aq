@@ -8,7 +8,7 @@ hide:
 # Coastal Bend Air Quality Data Pipeline
 
 <span class="brand-badge">Melaram Lab</span>
-<span class="brand-badge brand-badge-accent">v0.1.1</span>
+<span class="brand-badge brand-badge-accent">v0.1.3</span>
 
 !!! info "About this project"
 
@@ -161,13 +161,13 @@ flowchart LR
 
 | Pollutant | Lead | Status |
 |---|---|---|
-| Ozone | Manasa Kuchavaram | template ready, deep-dive due 2026-07-15 |
-| CO | Manasa Kuchavaram | ⚠ gap statement — no CO in Coastal Bend |
-| PM2.5 | Aidan Meyers | template ready, deep-dive due 2026-07-15 |
-| PM10 | Aidan Meyers | template ready, deep-dive due 2026-07-15 |
-| NOx family | Aidan Meyers | ⚠ gap statement — no NOx in Coastal Bend |
-| SO₂ | Jasmine Trevino | template ready, deep-dive due 2026-07-15 |
-| VOCs | Jasmine Trevino | template ready, deep-dive due 2026-07-15 |
+| Ozone | Manasa Kuchavaram | ✅ [deep-dive published](./pollutants/ozone.md) (v0.1.3) |
+| CO | Manasa Kuchavaram | ✅ [gap statement published](./pollutants/co.md) — awaiting strategic-option decision |
+| PM2.5 | Aidan Meyers | ✅ [deep-dive published](./pollutants/pm25.md) (v0.1.3) |
+| PM10 | Aidan Meyers | ✅ [deep-dive published](./pollutants/pm10.md) (v0.1.3) |
+| NOx family | Aidan Meyers | ✅ [gap statement published](./pollutants/nox.md) — TROPOMI recommended, awaiting confirm |
+| SO₂ | Jasmine Trevino | ✅ [deep-dive published](./pollutants/so2.md) (v0.1.3) |
+| VOCs | Jasmine Trevino | ✅ [deep-dive published](./pollutants/vocs.md) (v0.1.3) |
 
 Full detail on [11 Team assignments](./11_team_assignments.md) and the
 [open action-item roll-up](./meeting_notes/index.md#master-action-item-status).
@@ -197,8 +197,9 @@ Why the fork:
 
 See the [Pipeline Updates](./pipeline_updates.md) page. Newest entry:
 
-- **2026-07-08 · v0.1.2** — Interactive meeting dashboard + Manasa
-  spelling fix throughout
+- **2026-07-15 · v0.1.3** — Seven pollutant deep-dives filled from
+  team PPT briefings + [2026-07-08 BREATHE-CC × Coastal Bend AQ
+  sync](./meeting_notes/2026-07-08.md) logged
 
 ---
 
