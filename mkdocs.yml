@@ -156,12 +156,16 @@ nav:
       - VOCs (Jasmine): pollutants/vocs.md
   - Team briefings (PPTs):
       - Briefings archive: briefings/index.md
-      - 2026-07-15 · Aidan status briefing: briefings/2026-07-15_status_briefing.md
   - Meeting notes:
       - Index + open actions: meeting_notes/index.md
       - 2026-06-24 · scope pivot: meeting_notes/2026-06-24.md
-      - 2026-07-08 · BREATHE-CC × AQ sync: meeting_notes/2026-07-08.md
+      - 2026-07-08 · PPT briefings + pipeline walkthrough: meeting_notes/2026-07-08.md
+      - 2026-07-15 · Refinery-Row directional health pivot: meeting_notes/2026-07-15.md
       - _Template: meeting_notes/_template.md
+  - Project proposals:
+      - Proposals index: proposals/index.md
+      - Refinery-Row directional health study: proposals/refinery_row_directional_health.md
+      - 2026-07-15 · Warden + Jin meeting-poll email: proposals/2026-07-15_meeting_poll_email.md
   - Project management:
       - 10. Timeline & deliverables: 10_project_timeline.md
       - 11. Team assignments: 11_team_assignments.md

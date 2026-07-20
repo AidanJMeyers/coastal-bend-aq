@@ -8,7 +8,7 @@ hide:
 # Coastal Bend Air Quality Data Pipeline
 
 <span class="brand-badge">Melaram Lab</span>
-<span class="brand-badge brand-badge-accent">v0.1.3</span>
+<span class="brand-badge brand-badge-accent">v0.1.4</span>
 
 !!! info "About this project"
 
@@ -197,9 +197,12 @@ Why the fork:
 
 See the [Pipeline Updates](./pipeline_updates.md) page. Newest entry:
 
-- **2026-07-15 · v0.1.3** — Seven pollutant deep-dives filled from
-  team PPT briefings + [2026-07-08 BREATHE-CC × Coastal Bend AQ
-  sync](./meeting_notes/2026-07-08.md) logged
+- **2026-07-15 · v0.1.4** — Correction pass on 2026-07-08 meeting notes
+  (was the PPT-briefings meeting, not a BREATHE-CC crossover as I first
+  wrote) + [2026-07-15 pollution-rose → Refinery-Row directional health
+  study pivot](./meeting_notes/2026-07-15.md) + [full scope
+  doc](./proposals/refinery_row_directional_health.md) + Warden/Jin
+  meeting-poll email draft.
 
 ---
 

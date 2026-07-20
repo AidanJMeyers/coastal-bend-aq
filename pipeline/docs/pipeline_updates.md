@@ -10,6 +10,71 @@ supersede.
 
 ---
 
+## 2026-07-15 · v0.1.4 — Correction pass + 2026-07-15 pollution-rose pivot + Refinery-Row scope doc
+
+**What changed**
+
+- **Correction — 2026-07-08 meeting notes rewritten.** The prior v0.1.3
+  version described this as a BREATHE-CC × Coastal Bend AQ crossover
+  meeting; that was wrong. The actual 2026-07-08 meeting was the three-way
+  PPT briefings meeting (Aidan PM/VOC, Jasmine SO₂/VOCs, Manasa Ozone/CO)
+  plus a live pipeline walkthrough. The [2026-07-08 meeting notes](./meeting_notes/2026-07-08.md)
+  now reflect the real meeting content.
+- **PPT files renamed** to match actual presentation date:
+  `2026-07-01_*_briefing.pptx` → `2026-07-08_*_briefing.pptx`. All references
+  updated.
+- **New meeting logged — [2026-07-15](./meeting_notes/2026-07-15.md).** This
+  was the meeting where Jasmine's pollution-rose idea and Manasa's
+  refinery-centered suggestion crystallized into Aidan's proposed
+  **geospatial × meteorological × temporal × health-outcome ML study**
+  centered on Refinery Row directionality. Team consensus: **this is the
+  core project direction** going forward.
+- **New scope doc — [proposals/refinery_row_directional_health.md](./proposals/refinery_row_directional_health.md).**
+  Full scoping of the new project: research questions, exposure axis,
+  outcomes, data-availability check, methods (pollution rose, ML
+  predictive model), collaborators, deliverables, timeline (1–1.5 yr),
+  publishability + policy framing.
+- **New meeting-poll email draft — [proposals/2026-07-15_meeting_poll_email.md](./proposals/2026-07-15_meeting_poll_email.md).**
+  Ready-to-send email that Aidan can copy-paste to Dr. Warden and Dr. Jin
+  (and Jasmine's atmospheric-physics mentor) to schedule the joint
+  consultation session over the next 2 weeks.
+- **Stale status briefing removed** (was built on the incorrect 2026-07-08
+  narrative). The scope doc now replaces its role.
+- **Dashboard JSON updated** with the 2026-07-15 meeting and 8 new action
+  items; two obsolete satellite-prototype items marked deferred with an
+  explanatory note.
+- **Meeting archive table + fallback checklist refreshed** to reflect the
+  new open-action set.
+
+**Why**
+
+- Aidan flagged mid-meeting on 2026-07-15 that the earlier week's notes
+  I'd written were miscategorized (real week's content vs a fabricated
+  BREATHE-CC crossover meeting that didn't happen).
+- The 2026-07-15 meeting produced the strongest project-scope direction
+  the team has landed on — publishing this properly is high-value for the
+  Warden / Jin outreach.
+- Even if the previous v0.1.3 content was scientifically defensible in
+  isolation, the docs should reflect what the team actually did.
+
+**Where the current product lives**
+
+- **Meeting archive:** [meeting_notes/](./meeting_notes/index.md) — all
+  three weekly meetings (06-24, 07-08, 07-15).
+- **Scope doc:** [proposals/refinery_row_directional_health.md](./proposals/refinery_row_directional_health.md).
+- **Meeting-poll email:** [proposals/2026-07-15_meeting_poll_email.md](./proposals/2026-07-15_meeting_poll_email.md).
+- **Live site:** [aidanjmeyers.github.io/coastal-bend-aq](https://aidanjmeyers.github.io/coastal-bend-aq/).
+- Neon schema `aq_coastal_bend` unchanged from v0.1.2.
+
+**Follow-up carried into 2026-07-22**
+
+- Aidan: send meeting poll to Warden + Jin (email drafted here).
+- Aidan: text Jasmine the 2026-07-15 recap.
+- Team: novelty + feasibility scan for the new direction.
+- Team: review the scope doc.
+
+---
+
 ## 2026-07-15 · v0.1.3 — Seven pollutant deep-dives filled + team PPT briefings archived + 2026-07-08 meeting logged
 
 **What changed**
@@ -222,6 +287,7 @@ manuscript methods section later.
 
 | Version | Date | Headline |
 |---|---|---|
+| v0.1.4 | 2026-07-15 | Correction pass (2026-07-08 rewritten) + 2026-07-15 meeting logged + Refinery-Row scope doc + Warden/Jin meeting-poll email |
 | v0.1.3 | 2026-07-15 | Seven pollutant deep-dives filled + team PPT briefings archived + 2026-07-08 meeting logged |
 | v0.1.2 | 2026-07-08 | Interactive meeting dashboard + Manasa spelling fix |
 | v0.1.1 | 2026-07-08 | API/DB-only framing + meeting-notes infra + Pipeline Updates page |

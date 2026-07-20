@@ -88,6 +88,13 @@ Three plausible paths:
 **Recommendation:** option 1 for the first manuscript; option 3 as
 supplementary if the review comments push for it.
 
+**Team decision (2026-07-08 meeting):** **Drop CO from the first
+manuscript scope.** No CO monitors anywhere in the Coastal Bend region;
+retain this gap statement as a network-limitation note. Satellite /
+regional-import options remain on the table for later manuscripts if
+warranted, but are not on the critical path for the current project
+direction. See [2026-07-08 meeting notes](../meeting_notes/2026-07-08.md).
+
 ## 7. References
 
 - [EPA CO Pollution main page](https://www.epa.gov/co-pollution)

@@ -20,7 +20,8 @@ permanent, use **Export JSON** and paste back into this file.
 {
   "meetings": [
     { "date": "2026-06-24", "title": "Scope pivot to Coastal Bend" },
-    { "date": "2026-07-08", "title": "BREATHE-CC × Coastal Bend AQ sync (REDCap API + Jasmine PPT feedback)" }
+    { "date": "2026-07-08", "title": "Team PPT briefings (FRM/FEM + method codes) + pipeline walkthrough" },
+    { "date": "2026-07-15", "title": "Pollution rose → Refinery-Row directional health study pivot" }
   ],
   "items": [
     {
@@ -183,7 +184,8 @@ permanent, use **Export JSON** and paste back into this file.
         { "at": "2026-07-08 16:00", "by": "Aidan", "body": "v0.1.0 shipped. Live at aidanjmeyers.github.io/coastal-bend-aq." },
         { "at": "2026-07-08 20:15", "by": "Aidan", "body": "v0.1.1 followed: API/DB-only framing + meeting-notes infra + Pipeline Updates page." },
         { "at": "2026-07-08 22:00", "by": "Aidan", "body": "v0.1.2: interactive meeting dashboard + Manasa spelling fix." },
-        { "at": "2026-07-15 12:00", "by": "Aidan", "body": "v0.1.3: all 7 pollutant deep-dive pages filled + 2 team briefing PPTs archived at briefings/ + 2026-07-08 meeting logged." }
+        { "at": "2026-07-15 12:00", "by": "Aidan", "body": "v0.1.3: all 7 pollutant deep-dive pages filled + 2 team briefing PPTs archived at briefings/ + 2026-07-08 meeting logged." },
+        { "at": "2026-07-15 22:00", "by": "Aidan", "body": "v0.1.4: corrected 2026-07-08 meeting notes (real meeting was the PPT-briefings meeting, not a BREATHE-CC crossover as I initially wrote). PPT files renamed 07-01 → 07-08 to match actual presentation date. Added 2026-07-15 meeting notes capturing the pollution-rose → refinery-row directional health study pivot. Wrote scope doc + Warden/Jin meeting-poll email under proposals/." }
       ]
     },
     {
@@ -202,9 +204,11 @@ permanent, use **Export JSON** and paste back into this file.
       "text": "Confirm CO gap strategic option (accept gap / import Bexar context / satellite MOPITT-TROPOMI) at next AQ team meeting. Recommendation in pollutants/co.md is option 1 for first manuscript; option 3 as supplementary.",
       "meeting": "2026-07-08",
       "due": "2026-07-22",
-      "status": "open",
-      "completed_at": null,
-      "notes": []
+      "status": "done",
+      "completed_at": "2026-07-08 22:00",
+      "notes": [
+        { "at": "2026-07-08 22:00", "by": "Team", "body": "Decision at 2026-07-08 PPT meeting: drop CO from the first manuscript scope. No CO monitors anywhere in Coastal Bend; retain the gap statement in pollutants/co.md as a network-limitation note but no satellite/regional import for first paper." }
+      ]
     },
     {
       "id": "aidan-nox-option-confirm",
@@ -234,7 +238,9 @@ permanent, use **Export JSON** and paste back into this file.
       "due": "2026-08-15",
       "status": "open",
       "completed_at": null,
-      "notes": []
+      "notes": [
+        { "at": "2026-07-15 22:00", "by": "Aidan", "body": "Deferred — 2026-07-15 project pivot to Refinery-Row directional health study supersedes the NOx satellite prototype as the top priority. Revisit after novelty/feasibility scan on the new direction." }
+      ]
     },
     {
       "id": "manasa-mopitt-prototype",
@@ -242,6 +248,98 @@ permanent, use **Export JSON** and paste back into this file.
       "text": "Prototype MOPITT or TROPOMI CO pull over Coastal Bend footprint. Only after team endorses option 3 for the CO gap. Write results into pollutants/co.md.",
       "meeting": "2026-07-08",
       "due": "2026-08-15",
+      "status": "open",
+      "completed_at": null,
+      "notes": [
+        { "at": "2026-07-15 22:00", "by": "Aidan", "body": "Deferred — CO was decided out of the first manuscript at 2026-07-08. This item stays open for later manuscripts but is not on the critical path." }
+      ]
+    },
+    {
+      "id": "aidan-send-meeting-poll-warden-jin",
+      "owner": "Aidan",
+      "text": "Send meeting poll to Dr. Warden and Dr. Jin (and Jasmine's atmospheric-physics mentor) for the next 2 weeks. Purpose: consult on the Refinery-Row directional health-outcome ML study. Draft email at proposals/2026-07-15_meeting_poll_email.md.",
+      "meeting": "2026-07-15",
+      "due": "2026-07-17",
+      "status": "open",
+      "completed_at": null,
+      "notes": []
+    },
+    {
+      "id": "aidan-text-jasmine-recap",
+      "owner": "Aidan",
+      "text": "Text Jasmine the 2026-07-15 meeting recap so she knows the refinery-row directional health study crystallized after she left the call.",
+      "meeting": "2026-07-15",
+      "due": "2026-07-17",
+      "status": "open",
+      "completed_at": null,
+      "notes": []
+    },
+    {
+      "id": "all-literature-novelty-scan",
+      "owner": "Team",
+      "text": "Literature scan: has anyone published refinery-centered directional pollution × health-outcome analysis? Keywords: openair R, wind-rose-informed predictive modeling, industrial point-source attribution, coastal-breeze health effects. Bring findings to 2026-07-22.",
+      "meeting": "2026-07-15",
+      "due": "2026-07-22",
+      "status": "open",
+      "completed_at": null,
+      "notes": []
+    },
+    {
+      "id": "all-feasibility-check-health-data",
+      "owner": "Team",
+      "text": "Feasibility check: what Texas hospital / ED datasets are realistically obtainable at residential-zone × time resolution? Needed as the ML target for the new project direction.",
+      "meeting": "2026-07-15",
+      "due": "2026-07-22",
+      "status": "open",
+      "completed_at": null,
+      "notes": []
+    },
+    {
+      "id": "team-review-scope-doc",
+      "owner": "Team",
+      "text": "Review proposals/refinery_row_directional_health.md and flag anything missing or wrong before the joint session with Warden/Jin.",
+      "meeting": "2026-07-15",
+      "due": "2026-07-22",
+      "status": "open",
+      "completed_at": null,
+      "notes": []
+    },
+    {
+      "id": "melaram-nihs-r25-friday",
+      "owner": "Dr. Melaram",
+      "text": "Meeting NIHS on Friday about R25 grant. Explore whether the Refinery-Row directional health project can anchor a resubmission of the climate-change seed grant that was previously scored high on novelty/significance but denied on feasibility.",
+      "meeting": "2026-07-15",
+      "due": "2026-07-17",
+      "status": "open",
+      "completed_at": null,
+      "notes": []
+    },
+    {
+      "id": "team-climate-change-grant-resubmit",
+      "owner": "Team",
+      "text": "Evaluate revising/resubmitting the climate-change seed grant with the Refinery-Row directional health study as the anchor. Depends on Dr. Melaram's NIHS meeting Friday.",
+      "meeting": "2026-07-15",
+      "due": "2026-08-31",
+      "status": "open",
+      "completed_at": null,
+      "notes": []
+    },
+    {
+      "id": "team-vocs-retropull-decision",
+      "owner": "Team",
+      "text": "Decide: TCEQ retro-pull for pre-2025 VOCs, or accept 2025-only? Becomes more urgent post-pivot — the new project needs multi-year VOC coverage. Carried from 2026-06-24, re-flagged 2026-07-15.",
+      "meeting": "2026-07-15",
+      "due": "2026-07-29",
+      "status": "open",
+      "completed_at": null,
+      "notes": []
+    },
+    {
+      "id": "team-analytical-tibble-q3-rescoped",
+      "owner": "Team",
+      "text": "First analytical tibble (site × date × pollutant × weather at 75%-complete-day resolution). Re-scoped 2026-07-15 for the new refinery-row direction — needs wind vector + direction from Refinery Row per row. Q3 2026 target.",
+      "meeting": "2026-07-15",
+      "due": "2026-09-30",
       "status": "open",
       "completed_at": null,
       "notes": []
@@ -322,7 +420,8 @@ them permanent for the whole team:
 
 | Date | Attendees | Focus | Minutes |
 |---|---|---|---|
-| **2026-07-08** | Aidan, Dr. Melaram, Dr. Warden (remote), Amanat, Haya | BREATHE-CC × Coastal Bend AQ sync — REDCap API + quarterly analytic file + Dr. Melaram feedback on Jasmine's SO2/VOC PPT | [minutes](./2026-07-08.md) |
+| **2026-07-15** | Aidan, Dr. Melaram, Manasa, Jasmine (partial) | Pollution rose (Jasmine) → refinery-row directional health study (Aidan/Manasa) — core project pivot | [minutes](./2026-07-15.md) |
+| **2026-07-08** | Aidan, Dr. Melaram, Manasa, Jasmine | Three-way PPT briefings on assigned pollutants + FRM/FEM + method codes + pipeline walkthrough | [minutes](./2026-07-08.md) |
 | **2026-06-24** | Aidan, Jasmine (Manasa async) | Scope pivot to Coastal Bend + method-code strategy + team assignments | [minutes](./2026-06-24.md) |
 
 ## New-meeting workflow (weekly)
@@ -356,22 +455,24 @@ GitHub, here's the same action list rendered as plain markdown
 checkboxes. **This is view-only** — the dashboard above is the
 source of truth.
 
-### Open (as of v0.1.3, 2026-07-15)
+### Open (as of v0.1.4, 2026-07-15)
 
-- [ ] **Aidan** — Call Dr. Melaram to confirm scope pivot
-      (originated 2026-06-24)
-- [ ] **Aidan** — Reach out to Delaney (TCEQ) — coordinate with Jasmine
+- [ ] **Aidan** — Send meeting poll to Dr. Warden + Dr. Jin (+ Jasmine's mentor) for next 2 weeks — new project consult
+- [ ] **Aidan** — Text Jasmine 2026-07-15 recap (she left before refinery-row idea crystallized)
+- [ ] **All** — Literature scan: refinery-centered directional pollution × health outcomes; `openair`; wind-rose ML
+- [ ] **All** — Feasibility check: Texas ED / hospital data at residential-zone × time resolution
+- [ ] **Team** — Review [proposals/refinery_row_directional_health.md](../proposals/refinery_row_directional_health.md) before joint session
+- [ ] **Dr. Melaram** — Friday NIHS meeting on R25; explore climate-change grant resubmit anchored on this project
+- [ ] **Aidan** — Call Dr. Melaram to confirm scope pivot (originated 2026-06-24 — still pending)
+- [ ] **Team** — Contact Delaney (TCEQ) for method-code confirmations — Jasmine has the relationship
 - [ ] **Manasa** — Mirror `Pollutant.pptx` into `briefings/` folder (from 2026-07-08 meeting)
-- [ ] **Manasa** — Confirm CO strategic-option choice at next AQ meeting
-- [ ] **Aidan** — Confirm NOx strategic-option choice at next AQ meeting
 - [ ] **All AQ leads** — Review the 7 pollutant deep-dive pages + flag corrections
-- [ ] **Aidan** — Prototype TROPOMI NO₂ pull (if option 2 for NOx endorsed)
-- [ ] **Manasa** — Prototype MOPITT/TROPOMI CO pull (if option 3 for CO endorsed)
 - [ ] **All AQ leads** — Draft methods-section paragraph per pollutant, Q3 target
-- [ ] **Team** — Decide: VOC retro-pull (2016+) or 2025-only (carried over from 2026-06-24)
-- [ ] **Team** — Decide: EPA-network boundary sites for kriging (carried over from 2026-06-24)
-- [ ] **Team** — First analytical tibble frozen (site × date × pollutant ×
-      weather at 75%-complete-day resolution) — target Q3 2026
+- [ ] **Team** — Decide: VOC retro-pull (2016+) or 2025-only — now urgent post-pivot
+- [ ] **Team** — Decide: EPA-network Cameron/Hidalgo boundary sites for kriging
+- [ ] **Team** — First analytical tibble frozen (site × date × pollutant × weather + wind vector from Refinery Row) — Q3 2026
+- [ ] **Team** — Redo raw TCEQ ingest to preserve method codes per row (from 2026-07-08)
+- [ ] **Team** — Requery 24-hr VOCs where 1-hr was empty (from 2026-07-08)
 
 ### Completed
 
@@ -387,3 +488,4 @@ source of truth.
 - [x] **Jasmine** — SO₂ deep-dive published at `pollutants/so2.md` (2026-07-15, v0.1.3)
 - [x] **Jasmine** — VOCs deep-dive published at `pollutants/vocs.md` (2026-07-15, v0.1.3)
 - [x] **Aidan** — Attach 2 team briefing PPTs at `briefings/` (2026-07-15, v0.1.3)
+- [x] **Team** — Decided at 2026-07-08 to drop CO from first manuscript scope (no monitors in Coastal Bend)
