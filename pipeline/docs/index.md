@@ -197,7 +197,7 @@ Why the fork:
 
 See the [Pipeline Updates](./pipeline_updates.md) page. Newest entry:
 
-- **2026-07-15 · v0.1.4** — Correction pass on 2026-07-08 meeting notes
+- **2026-07-20 · v0.1.4** — Correction pass on 2026-07-08 meeting notes
   (was the PPT-briefings meeting, not a BREATHE-CC crossover as I first
   wrote) + [2026-07-15 pollution-rose → Refinery-Row directional health
   study pivot](./meeting_notes/2026-07-15.md) + [full scope

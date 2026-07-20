@@ -10,37 +10,53 @@ supersede.
 
 ---
 
-## 2026-07-15 · v0.1.4 — Correction pass + 2026-07-15 pollution-rose pivot + Refinery-Row scope doc
+## 2026-07-20 · v0.1.4 — Correction pass + 2026-07-15 pollution-rose pivot + Refinery-Row scope doc
 
-**What changed**
+**What changed** (chronological, within the 2026-07-20 batch)
 
-- **Correction — 2026-07-08 meeting notes rewritten.** The prior v0.1.3
-  version described this as a BREATHE-CC × Coastal Bend AQ crossover
-  meeting; that was wrong. The actual 2026-07-08 meeting was the three-way
-  PPT briefings meeting (Aidan PM/VOC, Jasmine SO₂/VOCs, Manasa Ozone/CO)
-  plus a live pipeline walkthrough. The [2026-07-08 meeting notes](./meeting_notes/2026-07-08.md)
-  now reflect the real meeting content.
-- **PPT files renamed** to match actual presentation date:
-  `2026-07-01_*_briefing.pptx` → `2026-07-08_*_briefing.pptx`. All references
-  updated.
-- **New meeting logged — [2026-07-15](./meeting_notes/2026-07-15.md).** This
-  was the meeting where Jasmine's pollution-rose idea and Manasa's
-  refinery-centered suggestion crystallized into Aidan's proposed
-  **geospatial × meteorological × temporal × health-outcome ML study**
-  centered on Refinery Row directionality. Team consensus: **this is the
-  core project direction** going forward.
-- **New scope doc — [proposals/refinery_row_directional_health.md](./proposals/refinery_row_directional_health.md).**
-  Full scoping of the new project: research questions, exposure axis,
-  outcomes, data-availability check, methods (pollution rose, ML
-  predictive model), collaborators, deliverables, timeline (1–1.5 yr),
-  publishability + policy framing.
-- **Stale status briefing removed** (was built on the incorrect 2026-07-08
-  narrative). The scope doc now replaces its role.
-- **Dashboard JSON updated** with the 2026-07-15 meeting and 8 new action
-  items; two obsolete satellite-prototype items marked deferred with an
-  explanatory note.
-- **Meeting archive table + fallback checklist refreshed** to reflect the
-  new open-action set.
+1. **Correction — 2026-07-08 meeting notes rewritten.** The prior v0.1.3
+   version described this as a BREATHE-CC × Coastal Bend AQ crossover
+   meeting; that was wrong. The actual 2026-07-08 meeting was the
+   three-way PPT briefings meeting (Aidan PM/VOC, Jasmine SO₂/VOCs,
+   Manasa Ozone/CO) plus a live pipeline walkthrough. The
+   [2026-07-08 meeting notes](./meeting_notes/2026-07-08.md) now
+   reflect the real meeting content.
+2. **PPT files renamed** to match actual presentation date:
+   `2026-07-01_*_briefing.pptx` → `2026-07-08_*_briefing.pptx`. All
+   references updated across pollutant deep-dives, briefings index,
+   meeting notes, and pipeline_updates itself.
+3. **New meeting logged — [2026-07-15](./meeting_notes/2026-07-15.md).**
+   Jasmine's pollution-rose idea + Manasa's refinery-centered suggestion
+   crystallized into Aidan's proposed **geospatial × meteorological ×
+   temporal × health-outcome ML study** centered on Refinery Row
+   directionality. Team consensus: **this is the core project direction**
+   going forward.
+4. **New scope doc — [proposals/refinery_row_directional_health.md](./proposals/refinery_row_directional_health.md).**
+   Full scoping of the new project: research questions, exposure axis,
+   outcomes, data-availability check, methods (pollution rose, ML
+   predictive model), collaborators, deliverables, timeline (1–1.5 yr),
+   publishability + policy framing.
+5. **Stale status briefing removed** (was built on the incorrect
+   2026-07-08 narrative). The scope doc now replaces its role.
+6. **Dashboard JSON updated** — 2026-07-15 meeting added; 8 new action
+   items; two obsolete satellite-prototype items marked deferred with
+   explanatory notes; CO drop-decision from 2026-07-08 recorded.
+7. **Meeting archive table + fallback checklist refreshed** to reflect
+   the new open-action set.
+8. **Strict-mode build fix** — pollutant deep-dive pages had 5 broken
+   PPT links after the file rename; caught by `mkdocs build --strict`
+   on the first push, fixed on second push. All 4 deep-dive pages
+   (`pm10.md`, `pm25.md`, `so2.md`, `vocs.md`) now point at the
+   `2026-07-08_*.pptx` filenames.
+9. **Meeting-poll email draft removed from the pipeline** per user
+   feedback. That kind of personal-outreach copy is a chat-only
+   deliverable; pipeline stays scoped to team-facing content (scope
+   docs, meeting notes, technical documentation). Related nav +
+   references cleaned up. Aidan will send the poll himself with his
+   own Schej.it link.
+10. **This log entry added retroactively.** Going forward, every
+    pipeline change gets a Pipeline Updates entry in the same commit —
+    no more assuming "we'll log it later."
 
 **Why**
 
@@ -282,7 +298,7 @@ manuscript methods section later.
 
 | Version | Date | Headline |
 |---|---|---|
-| v0.1.4 | 2026-07-15 | Correction pass (2026-07-08 rewritten) + 2026-07-15 meeting logged + Refinery-Row scope doc |
+| v0.1.4 | 2026-07-20 | Correction pass (2026-07-08 rewritten) + 2026-07-15 meeting logged + Refinery-Row scope doc + email draft moved to chat |
 | v0.1.3 | 2026-07-15 | Seven pollutant deep-dives filled + team PPT briefings archived + 2026-07-08 meeting logged |
 | v0.1.2 | 2026-07-08 | Interactive meeting dashboard + Manasa spelling fix |
 | v0.1.1 | 2026-07-08 | API/DB-only framing + meeting-notes infra + Pipeline Updates page |
