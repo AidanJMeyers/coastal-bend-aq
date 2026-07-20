@@ -175,9 +175,8 @@ Weather + wind data: Nueces + Kleberg NWS + local stations, hourly,
   ozone + literature), Jasmine (meteorology + SO₂ + wind analytics),
   Dr. Melaram (PI + health-outcome framing + grant strategy).
 
-**Meeting plan.** Aidan is sending a poll for the next 2 weeks
-(2026-07-15 to 2026-07-29) to schedule the joint session. Meeting-poll
-email draft: [2026-07-15_meeting_poll_email.md](./2026-07-15_meeting_poll_email.md).
+**Meeting plan.** Aidan is sending a Schej.it poll for the next 2 weeks
+(2026-07-15 to 2026-07-29) to schedule the joint session.
 
 ## 9. Publication + policy framing
 
@@ -241,8 +240,6 @@ team agreed to.
   discussion.
 - [2026-07-08 meeting notes](../meeting_notes/2026-07-08.md) — team
   pollutant briefings that seeded this direction.
-- [2026-07-15 meeting-poll email draft](./2026-07-15_meeting_poll_email.md)
-  — outreach to Warden + Jin.
 - [Pollutant deep-dives](../pollutants/pm25.md) — per-pollutant technical
   context.
 - [Pipeline Updates](../pipeline_updates.md) — see v0.1.4 entry for this

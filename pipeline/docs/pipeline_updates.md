@@ -57,6 +57,9 @@ supersede.
 10. **This log entry added retroactively.** Going forward, every
     pipeline change gets a Pipeline Updates entry in the same commit —
     no more assuming "we'll log it later."
+11. **Scope-doc link fix** — refinery_row_directional_health.md still had
+    2 links pointing at the deleted email draft; caught by strict-mode
+    build, removed.
 
 **Why**
 
