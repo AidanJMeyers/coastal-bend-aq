@@ -11,12 +11,6 @@ project proposals live in a form we can share with collaborators**.
 |---|---|---|---|
 | [Refinery-Row directional health study](./refinery_row_directional_health.md) | **Consensus direction** (2026-07-15) — awaiting novelty + feasibility scan | [2026-07-15](../meeting_notes/2026-07-15.md) | Aidan Meyers |
 
-## Draft correspondence
-
-| Draft | Purpose | Sender | Status |
-|---|---|---|---|
-| [2026-07-15 · Warden + Jin meeting-poll email](./2026-07-15_meeting_poll_email.md) | Schedule joint consultation on the Refinery-Row proposal | Aidan Meyers | Ready to send |
-
 ## Why this section exists
 
 - **External-collaborator friction.** When we outreach to Dr. Warden,

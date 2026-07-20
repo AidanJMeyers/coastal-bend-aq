@@ -257,7 +257,7 @@ permanent, use **Export JSON** and paste back into this file.
     {
       "id": "aidan-send-meeting-poll-warden-jin",
       "owner": "Aidan",
-      "text": "Send meeting poll to Dr. Warden and Dr. Jin (and Jasmine's atmospheric-physics mentor) for the next 2 weeks. Purpose: consult on the Refinery-Row directional health-outcome ML study. Draft email at proposals/2026-07-15_meeting_poll_email.md.",
+      "text": "Send meeting poll (Schej.it) to Dr. Warden and Dr. Jin (and Jasmine's atmospheric-physics mentor) for the next 2 weeks. Purpose: consult on the Refinery-Row directional health-outcome ML study.",
       "meeting": "2026-07-15",
       "due": "2026-07-17",
       "status": "open",

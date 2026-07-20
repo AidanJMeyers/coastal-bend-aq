@@ -201,8 +201,7 @@ See the [Pipeline Updates](./pipeline_updates.md) page. Newest entry:
   (was the PPT-briefings meeting, not a BREATHE-CC crossover as I first
   wrote) + [2026-07-15 pollution-rose → Refinery-Row directional health
   study pivot](./meeting_notes/2026-07-15.md) + [full scope
-  doc](./proposals/refinery_row_directional_health.md) + Warden/Jin
-  meeting-poll email draft.
+  doc](./proposals/refinery_row_directional_health.md).
 
 ---
 
