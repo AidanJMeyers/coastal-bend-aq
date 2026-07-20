@@ -1,7 +1,7 @@
 # SO₂ — Sulfur Dioxide
 
 > **Lead:** Jasmine Trevino
-> **Source deck:** [`briefings/2026-07-01_JT_SO2_VOC_briefing.pptx`](../briefings/2026-07-01_JT_SO2_VOC_briefing.pptx) (slides 2–10)
+> **Source deck:** [`briefings/2026-07-08_JT_SO2_VOC_briefing.pptx`](../briefings/2026-07-08_JT_SO2_VOC_briefing.pptx) (slides 2–10)
 > **Coastal Bend data:** 3 active sites (CC West, CC Tuloso, CC Dona Park); ~166k hourly rows across 2015–2025; CC Holly offline mid-2017
 > **Neon:** `aq_coastal_bend.pollutant_hourly WHERE pollutant_group='SO2'`
 

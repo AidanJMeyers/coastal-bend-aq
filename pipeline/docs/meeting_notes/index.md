@@ -91,7 +91,7 @@ permanent, use **Export JSON** and paste back into this file.
       "status": "done",
       "completed_at": "2026-07-15 12:00",
       "notes": [
-        { "at": "2026-07-15 12:00", "by": "Aidan (v0.1.3)", "body": "pollutants/pm25.md published from Aidan's 2026-07-01 briefing PPT (slides 16-29). Includes NAAQS (Feb 2024 tightening 12→9 µg/m³), FRM Appendix L, FEM (BAM 1020 + TEOM-FDMS), 88101 vs 88502 distinction, sensor evolution 2010-2025, met drivers, Coastal Bend 2024 (CC Holly 11.61, Dona Park 10.34 µg/m³ both exceed 9)." }
+        { "at": "2026-07-15 12:00", "by": "Aidan (v0.1.3)", "body": "pollutants/pm25.md published from Aidan's 2026-07-08 briefing PPT (slides 16-29). Includes NAAQS (Feb 2024 tightening 12→9 µg/m³), FRM Appendix L, FEM (BAM 1020 + TEOM-FDMS), 88101 vs 88502 distinction, sensor evolution 2010-2025, met drivers, Coastal Bend 2024 (CC Holly 11.61, Dona Park 10.34 µg/m³ both exceed 9)." }
       ]
     },
     {
@@ -127,7 +127,7 @@ permanent, use **Export JSON** and paste back into this file.
       "status": "done",
       "completed_at": "2026-07-15 12:00",
       "notes": [
-        { "at": "2026-07-15 12:00", "by": "Aidan (v0.1.3)", "body": "pollutants/so2.md published — ported from Jasmine's 2026-07-01 briefing PPT, expanded to match Aidan's format. UVF method (Thermo TEI 43i), method codes 100 + 92, 75 ppb 1-hr NAAQS (2010), Coastal Bend 3 active sites, CC Holly offline mid-2017. Wind-rose analysis still open (Jasmine's specialty)." }
+        { "at": "2026-07-15 12:00", "by": "Aidan (v0.1.3)", "body": "pollutants/so2.md published — ported from Jasmine's 2026-07-08 briefing PPT, expanded to match Aidan's format. UVF method (Thermo TEI 43i), method codes 100 + 92, 75 ppb 1-hr NAAQS (2010), Coastal Bend 3 active sites, CC Holly offline mid-2017. Wind-rose analysis still open (Jasmine's specialty)." }
       ]
     },
     {

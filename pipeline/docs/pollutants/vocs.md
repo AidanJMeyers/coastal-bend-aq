@@ -1,8 +1,8 @@
 # VOCs — Volatile Organic Compounds
 
 > **Lead:** Aidan Meyers (with Jasmine Trevino contributing SO2/VOCs
-> content in her [briefing](../briefings/2026-07-01_JT_SO2_VOC_briefing.pptx))
-> **Source deck:** [`briefings/2026-07-01_AM_PM_VOC_briefing.pptx`](../briefings/2026-07-01_AM_PM_VOC_briefing.pptx) (slides 40–54)
+> content in her [briefing](../briefings/2026-07-08_JT_SO2_VOC_briefing.pptx))
+> **Source deck:** [`briefings/2026-07-08_AM_PM_VOC_briefing.pptx`](../briefings/2026-07-08_AM_PM_VOC_briefing.pptx) (slides 40–54)
 > **Coastal Bend data:** 4 sites, 46–48 chemicals, ~3.35M rows (Palm 1hr AutoGC dominates; Hillcrest/Dona Park/Holly 24hr canister)
 > **Neon:** `aq_coastal_bend.vocs_1hr` + `aq_coastal_bend.vocs_24hr`
 
