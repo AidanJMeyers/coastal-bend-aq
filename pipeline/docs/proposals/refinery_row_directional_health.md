@@ -5,19 +5,53 @@ modelling of pollution-driven health exacerbations downwind of the Port
 of Corpus Christi refinery corridor: a coastal-breeze-informed
 geospatial-temporal analysis.*
 
-**Origin.** [2026-07-15 team meeting](../meeting_notes/2026-07-15.md) —
-Jasmine's pollution-rose idea + Manasa's refinery-centering suggestion
-+ Aidan's health-outcome ML extension.
+**Origin.** [2026-07-15 team meeting](../meeting_notes/2026-07-15.md).
+The proposal is a team synthesis:
+
+- **Jasmine Trevino — foundational insight.** Introduced the
+  **pollution-rose** framing (wind-rose analytics extended to show
+  where each pollutant is *heading* at what severity). This is the
+  anchor idea the rest of the design builds on. Jasmine also
+  independently verified — with NWS Corpus Christi — that the Gulf
+  sea-breeze pattern is uniform enough across the Coastal Bend for a
+  single regional rose per pollutant per season to be scientifically
+  defensible.
+- **Manasa Kuchavaram — refinery-centering.** Proposed centering the
+  pollution-rose analysis on the Port of Corpus Christi refinery
+  corridor and pointed the team at R's
+  [`openair`](https://davidcarslaw.github.io/openair/) package as the
+  ready-made implementation path.
+- **Aidan Meyers — ML + health-outcome coupling.** Extended the framing
+  into a residential-zone-level health-exacerbation prediction problem
+  at day/week/month temporal resolution.
+- **Dr. Rajesh Melaram — grant + significance framing.** Immediately
+  identified the design as the fix for the previously-denied
+  climate-change seed grant (denied on feasibility, high on novelty +
+  significance) and the R25 track.
 
 **Status.** Consensus direction agreed at 2026-07-15. Awaiting novelty
-+ feasibility scan (due 2026-07-22) and joint consult with Dr. Warden +
-Dr. Jin (poll going out this week).
++ feasibility scan (due 2026-07-22) and joint consult with
+Dr. Warden + Dr. Jin (poll going out this week).
 
-**Owner.** Aidan Meyers. All three AQ leads (Aidan, Manasa, Jasmine)
-committed.
+**Team leads (equal weight).** Aidan Meyers, Manasa Kuchavaram, Jasmine
+Trevino. Additional foundational credit to Jasmine for the
+pollution-rose framing without which the proposal does not exist.
 
 **Timeline.** 1 to 1.5 years to first manuscript submission. Deliberately
 not a fast paper — the multi-dimensional analysis needs the time.
+
+<figure markdown>
+  ![Illustrative pollution rose — Corpus Christi Gulf-breeze pattern](../assets/pollution_rose_illustration.svg){ width=440 }
+  <figcaption><em>Illustrative pollution rose.</em> Each wedge points
+  in the direction the wind is <strong>coming from</strong>; wedge
+  length shows how frequently wind blows from that sector; wedge color
+  bins represent pollutant concentration (green low → yellow medium
+  → red high). The pattern here reflects the Corpus Christi Gulf-breeze
+  regime — dominant winds from S / SSW — which is what the
+  Refinery-Row design leverages. For real, data-driven examples see
+  the <a href="https://davidcarslaw.github.io/openair/">openair R
+  package</a>.</figcaption>
+</figure>
 
 ---
 
@@ -72,8 +106,9 @@ zones at time T + Δ (Δ ∈ hours, days, weeks)?
 3. Does the Gulf sea breeze **attenuate** the exposure signal (protective
    effect) or **redistribute** it (transport downwind)?
 4. Do seasonal patterns hold year-over-year (2015–2025) or has the
-   pattern *phase-shifted* over time (Aidan's phase-shift theory, drawn
-   from a Chinese COVID-19 paper he'll re-locate + cite)?
+   pattern *phase-shifted* over time? (Phase-shift hypothesis borrowed
+   from a Chinese COVID-19 paper introduced by Dr. Miller earlier this
+   semester — Aidan to relocate + cite.)
 
 ## 4. Exposure axis (novel construct)
 
@@ -164,16 +199,29 @@ Weather + wind data: Nueces + Kleberg NWS + local stations, hourly,
 9. **Manuscript methods paragraph per pollutant** — already an in-flight
    action; will be lifted directly from the deep-dive pages.
 
-## 8. Collaborators to loop in
+## 8. Team + collaborators
+
+### Core team (equal-weight leads)
+
+- **Jasmine Trevino** — meteorology + wind analytics + SO₂ deep-dive;
+  originator of the pollution-rose framing that anchors this proposal;
+  primary lead on the wind-direction and pollution-rose analytics.
+- **Manasa Kuchavaram** — chemistry + ozone deep-dive + literature
+  review; originator of the refinery-centering approach; primary lead
+  on ozone + `openair` implementation.
+- **Aidan Meyers** — pipeline engineering + ML modelling + PM/VOC
+  deep-dive; primary lead on the health-outcome coupling and
+  exposure-axis construct.
+- **Dr. Rajesh Melaram** — PI; health-outcome framing, grant strategy,
+  translation to policy.
+
+### To loop in for the joint consult
 
 - **Dr. Warden** — methodological / stats.
 - **Dr. Jin** — methodological / stats.
 - **Jasmine's atmospheric-physics mentor** (Melaram Lab has not
   collaborated with him yet) — atmospheric-physics consult, especially
   on how directionality should be encoded for the ML model.
-- **Existing team:** Aidan (lead + pipeline + ML), Manasa (chemistry +
-  ozone + literature), Jasmine (meteorology + SO₂ + wind analytics),
-  Dr. Melaram (PI + health-outcome framing + grant strategy).
 
 **Meeting plan.** Aidan is sending a Schej.it poll for the next 2 weeks
 (2026-07-15 to 2026-07-29) to schedule the joint session.
@@ -198,11 +246,11 @@ Weather + wind data: Nueces + Kleberg NWS + local stations, hourly,
   directly addresses this study's shape. Resubmit anchored on this
   proposal.
 
-## 10. Comparison paper Aidan wants to run against
+## 10. Comparison paper the team will position against
 
-Search-and-comment target: the **Houston longitudinal PM study** we
-cited in the last paper. It didn't discuss instrument changes; ours
-will. It didn't do directional exposure attribution; ours will.
+Search-and-comment target: the **Houston longitudinal PM study** the
+team cited in the last paper. It did not discuss instrument changes;
+ours will. It did not do directional exposure attribution; ours will.
 Systematic comparison in the discussion section positions our
 methodological contributions.
 
@@ -232,7 +280,7 @@ team agreed to.
 | Wind-direction encoding non-trivial for ML | Reason we're bringing in Dr. Warden + Dr. Jin + atmospheric-physics consult. |
 | Refinery Row treated as a point when it's a polygon | Model both — sensitivity analysis. |
 | Sea-breeze uniformity assumption breaks in southernmost Coastal Bend | Jasmine's NWS-office verification says it holds for Coastal Bend proper; scope excludes deep Rio Grande. |
-| Method-code shifts confound multi-year analysis | Redo raw ingest to preserve method_code per row (2026-07-08 action item); use seasonal-decomposition residuals as ML targets (Aidan's suggestion). |
+| Method-code shifts confound multi-year analysis | Redo raw ingest to preserve method_code per row (2026-07-08 action item); use seasonal-decomposition residuals as ML targets (from the 2026-07-08 team briefing discussion). |
 
 ## 13. Companion documents
 

@@ -60,6 +60,23 @@ supersede.
 11. **Scope-doc link fix** — refinery_row_directional_health.md still had
     2 links pointing at the deleted email draft; caught by strict-mode
     build, removed.
+12. **Scope-doc credit rebalance + illustrative image** — proposal was
+    reading as too Aidan-authored. Rewrote the origin block to credit
+    Jasmine as the foundational-idea originator (pollution-rose framing
+    + NWS-verified regional sea-breeze uniformity), Manasa as the
+    refinery-centering + `openair` originator, Aidan as the ML +
+    health-outcome coupler, Dr. Melaram as the grant + significance
+    framer. Rewrote "Collaborators" section into "Team + collaborators"
+    with core-team block ordered Jasmine → Manasa → Aidan → PI (equal
+    weight, Jasmine first for foundational credit). Removed remaining
+    possessive Aidan attributions on the phase-shift hypothesis, the
+    comparison paper, and the seasonal-decomposition ML-target
+    suggestion. Added a hero **illustrative pollution rose** SVG
+    ([assets/pollution_rose_illustration.svg](./assets/pollution_rose_illustration.svg))
+    at the top of the scope doc — hand-rendered compass-rose graphic
+    with concentration bins (green/yellow/red) showing the Corpus
+    Christi Gulf-breeze pattern from S/SSW. Self-contained, no
+    external image dependencies, light + dark theme aware.
 
 **Why**
 
