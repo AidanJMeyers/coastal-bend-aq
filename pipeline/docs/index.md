@@ -8,7 +8,7 @@ hide:
 # Coastal Bend Air Quality Data Pipeline
 
 <span class="brand-badge">Melaram Lab</span>
-<span class="brand-badge brand-badge-accent">v0.1.4</span>
+<span class="brand-badge brand-badge-accent">v0.1.5</span>
 
 !!! info "About this project"
 
