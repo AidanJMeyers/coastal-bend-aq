@@ -11,7 +11,7 @@ used to present the material live at the 2026-07-08 team meeting.
 |---|---|---|---|
 | 2026-07-08 | Aidan Meyers | PM2.5 / PM10 / VOCs (~35 slides) | [`2026-07-08_AM_PM_VOC_briefing.pptx`](./2026-07-08_AM_PM_VOC_briefing.pptx) |
 | 2026-07-08 | Jasmine Trevino | SO₂ + VOCs | [`2026-07-08_JT_SO2_VOC_briefing.pptx`](./2026-07-08_JT_SO2_VOC_briefing.pptx) |
-| 2026-07-08 | Manasa Kuchavaram | Ozone + CO (~35 slides) — currently at [`Pollutant.pptx` in south-texas-aq-pipeline](https://github.com/AidanJMeyers/south-texas-aq-pipeline/blob/main/Pollutant.pptx); mirror into this folder is an open action. | _pending mirror_ |
+| 2026-07-08 | Manasa Kuchavaram | Ozone + CO (~35 slides) | [`2026-07-08_MK_Ozone_CO_briefing.pptx`](./2026-07-08_MK_Ozone_CO_briefing.pptx) |
 
 ## Why briefings are archived here
 

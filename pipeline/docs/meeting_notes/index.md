@@ -21,7 +21,10 @@ permanent, use **Export JSON** and paste back into this file.
   "meetings": [
     { "date": "2026-06-24", "title": "Scope pivot to Coastal Bend" },
     { "date": "2026-07-08", "title": "Team PPT briefings (FRM/FEM + method codes) + pipeline walkthrough" },
-    { "date": "2026-07-15", "title": "Pollution rose → Refinery-Row directional health study pivot" }
+    { "date": "2026-07-15", "title": "Pollution rose → Refinery-Row directional health study pivot" },
+    { "date": "2026-07-22", "title": "Literature-scan check-in (short; Aidan absent)" },
+    { "date": "2026-07-29", "title": "Design pivot — K-fold stacked model + Random Forest single-model start" },
+    { "date": "2026-08-12", "title": "Proposal-template working session + CAMS site-label catch + UT Austin (Niyogi) signal" }
   ],
   "items": [
     {
@@ -262,7 +265,94 @@ permanent, use **Export JSON** and paste back into this file.
       "due": "2026-07-17",
       "status": "open",
       "completed_at": null,
+      "notes": [
+        { "at": "2026-07-22 20:00", "by": "Jasmine", "body": "Poll went out but neither Dr. Warden nor Dr. Jin had filled it in by 2026-07-22 meeting time." },
+        { "at": "2026-08-12 22:00", "by": "Aidan (2026-08-12 meeting)", "body": "Still pending; team pivoted mid-August to potential Dr. Niyogi (UT Austin) collaboration which may reduce urgency of Warden/Jin session." }
+      ]
+    },
+    {
+      "id": "aidan-data-redownload-qc",
+      "owner": "Aidan",
+      "text": "Full TCEQ re-download for 7 Nueces sites; row-count QC against current Neon schema; push CC Hyosachi to Neon (missing from current schema); document discrepancies. Concrete plan delivered in chat 2026-08-13.",
+      "meeting": "2026-08-12",
+      "due": "2026-08-13",
+      "status": "open",
+      "completed_at": null,
       "notes": []
+    },
+    {
+      "id": "manasa-sql-rename-sites",
+      "owner": "Manasa",
+      "text": "Run SQL rename in Neon aq_coastal_bend.site_registry: CAMS 32 label 'Donna' → 'CC Hyosachi'; CAMS 34 label 'Holly' → 'CC Dona Park'. CC Holly (CAMS 660) stays out of scope (deactivated 2018).",
+      "meeting": "2026-08-12",
+      "due": "2026-08-15",
+      "status": "open",
+      "completed_at": null,
+      "notes": []
+    },
+    {
+      "id": "jasmine-tceq-met-var-audit",
+      "owner": "Jasmine",
+      "text": "Audit TCEQ per-site meteorological variable availability (temperature, wind, wind direction, solar irradiance) across the 7 Nueces sites. Compare against current Open Weather variable set to decide whether to swap or blend sources.",
+      "meeting": "2026-08-12",
+      "due": "2026-08-26",
+      "status": "open",
+      "completed_at": null,
+      "notes": []
+    },
+    {
+      "id": "team-fill-proposal-template",
+      "owner": "Team",
+      "text": "Continue filling the Melaram-Lab Bioinformatics-variant proposal template (research question, hypothesis, variables, methods). Each lead brings 3-4 references to shared Zotero collection before 2026-08-26.",
+      "meeting": "2026-08-12",
+      "due": "2026-08-26",
+      "status": "open",
+      "completed_at": null,
+      "notes": [
+        { "at": "2026-08-12 22:00", "by": "Team", "body": "In-meeting variable table for SO2 filled; wind direction encoding decided (continuous degrees + u/v decomposition + 16 sector categorical for pollution rose)." }
+      ]
+    },
+    {
+      "id": "aidan-zotero-invite-onboard",
+      "owner": "Aidan",
+      "text": "Invite Manasa + Jasmine to shared Zotero collection; onboard Manasa (Zotero-new; comes from EndNote). Convert to EndNote at publication phase.",
+      "meeting": "2026-08-12",
+      "due": "2026-08-19",
+      "status": "open",
+      "completed_at": null,
+      "notes": []
+    },
+    {
+      "id": "aidan-scheduled-claude-meeting-ingest",
+      "owner": "Aidan",
+      "text": "Ship a scheduled Claude task that auto-ingests the weekly meeting-summary email and updates meeting_notes/ + dashboard JSON without manual intervention. Demo at 2026-08-26.",
+      "meeting": "2026-08-12",
+      "due": "2026-08-26",
+      "status": "open",
+      "completed_at": null,
+      "notes": []
+    },
+    {
+      "id": "jasmine-melaram-niyogi-call",
+      "owner": "Jasmine + Melaram",
+      "text": "Joint call with Dr. Deb Niyogi (UT Austin, Extreme Weather and Urban Sustainability Lab) Friday 2026-08-14 at noon CT. Assess collaboration: his lab has thunderstorm × aerosol × asthma health data; ours has exposure-side depth.",
+      "meeting": "2026-08-12",
+      "due": "2026-08-14",
+      "status": "open",
+      "completed_at": null,
+      "notes": []
+    },
+    {
+      "id": "aidan-manasa-ppt-mirror",
+      "owner": "Aidan",
+      "text": "Mirror Manasa's Pollutant.pptx (Ozone + CO briefing) into pipeline briefings folder as 2026-07-08_MK_Ozone_CO_briefing.pptx.",
+      "meeting": "2026-07-08",
+      "due": "2026-08-13",
+      "status": "done",
+      "completed_at": "2026-08-13 15:00",
+      "notes": [
+        { "at": "2026-08-13 15:00", "by": "Aidan (v0.1.5)", "body": "Copied from OneDrive/Downloads/Pollutant.pptx into pipeline/docs/briefings/. Briefings archive index updated." }
+      ]
     },
     {
       "id": "aidan-text-jasmine-recap",
@@ -420,6 +510,9 @@ them permanent for the whole team:
 
 | Date | Attendees | Focus | Minutes |
 |---|---|---|---|
+| **2026-08-12** | Aidan (late), Dr. Melaram, Manasa, Jasmine | Proposal-template working session; CAMS 32/34 site-label catch; UT Austin (Dr. Niyogi) collaboration signal; bi-weekly cadence adopted | [minutes](./2026-08-12.md) |
+| **2026-07-29** | Dr. Melaram, Manasa, Jasmine | Design pivot — K-fold stacked model + Random Forest single-model start; DSHS ED-visit data as target-fallback | [minutes](./2026-07-29.md) |
+| **2026-07-22** | Manasa, Jasmine | Literature-scan check-in (short); Ecuador 2017 PM2.5 paper surfaced | [minutes](./2026-07-22.md) |
 | **2026-07-15** | Aidan, Dr. Melaram, Manasa, Jasmine (partial) | Pollution rose (Jasmine) → refinery-row directional health study (Aidan/Manasa) — core project pivot | [minutes](./2026-07-15.md) |
 | **2026-07-08** | Aidan, Dr. Melaram, Manasa, Jasmine | Three-way PPT briefings on assigned pollutants + FRM/FEM + method codes + pipeline walkthrough | [minutes](./2026-07-08.md) |
 | **2026-06-24** | Aidan, Jasmine (Manasa async) | Scope pivot to Coastal Bend + method-code strategy + team assignments | [minutes](./2026-06-24.md) |
@@ -455,24 +548,34 @@ GitHub, here's the same action list rendered as plain markdown
 checkboxes. **This is view-only** — the dashboard above is the
 source of truth.
 
-### Open (as of v0.1.4, 2026-07-15)
+### Open (as of v0.1.5, 2026-08-13)
 
-- [ ] **Aidan** — Send meeting poll to Dr. Warden + Dr. Jin (+ Jasmine's mentor) for next 2 weeks — new project consult
-- [ ] **Aidan** — Text Jasmine 2026-07-15 recap (she left before refinery-row idea crystallized)
-- [ ] **All** — Literature scan: refinery-centered directional pollution × health outcomes; `openair`; wind-rose ML
-- [ ] **All** — Feasibility check: Texas ED / hospital data at residential-zone × time resolution
-- [ ] **Team** — Review [proposals/refinery_row_directional_health.md](../proposals/refinery_row_directional_health.md) before joint session
-- [ ] **Dr. Melaram** — Friday NIHS meeting on R25; explore climate-change grant resubmit anchored on this project
-- [ ] **Aidan** — Call Dr. Melaram to confirm scope pivot (originated 2026-06-24 — still pending)
+**High-urgency (this week):**
+
+- [ ] **Aidan** — Full TCEQ re-download for 7 Nueces sites + row-count QC against Neon + push CC Hyosachi to Neon (~1 hour target — plan in chat)
+- [ ] **Manasa** — SQL rename in Neon: CAMS 32 → CC Hyosachi; CAMS 34 → CC Dona Park (committed 2026-08-12)
+- [ ] **Jasmine + Dr. Melaram** — Joint call with Dr. Deb Niyogi (UT Austin) Fri 2026-08-14 @ noon CT
+
+**Before 2026-08-26:**
+
+- [ ] **Jasmine** — Audit TCEQ per-site meteorological variable availability across the 7 Nueces sites vs current Open Weather set
+- [ ] **Team** — Continue filling proposal template; each brings 3-4 references to Zotero
+- [ ] **Aidan** — Invite Manasa + Jasmine to shared Zotero collection; onboard Manasa
+- [ ] **Aidan** — Ship scheduled-Claude meeting-notes-ingestion automation; demo 2026-08-26
+
+**Carried / standing:**
+
+- [ ] **Aidan** — Follow up with Warden + Jin on Schej.it poll (still open)
+- [ ] **Aidan** — Text Jasmine the 2026-07-15 recap (originated 2026-07-15)
 - [ ] **Team** — Contact Delaney (TCEQ) for method-code confirmations — Jasmine has the relationship
-- [ ] **Manasa** — Mirror `Pollutant.pptx` into `briefings/` folder (from 2026-07-08 meeting)
-- [ ] **All AQ leads** — Review the 7 pollutant deep-dive pages + flag corrections
+- [ ] **All AQ leads** — Review 7 pollutant deep-dive pages + flag corrections
 - [ ] **All AQ leads** — Draft methods-section paragraph per pollutant, Q3 target
-- [ ] **Team** — Decide: VOC retro-pull (2016+) or 2025-only — now urgent post-pivot
+- [ ] **Team** — Decide: VOC retro-pull (2016+) or 2025-only
 - [ ] **Team** — Decide: EPA-network Cameron/Hidalgo boundary sites for kriging
-- [ ] **Team** — First analytical tibble frozen (site × date × pollutant × weather + wind vector from Refinery Row) — Q3 2026
-- [ ] **Team** — Redo raw TCEQ ingest to preserve method codes per row (from 2026-07-08)
-- [ ] **Team** — Requery 24-hr VOCs where 1-hr was empty (from 2026-07-08)
+- [ ] **Team** — First frozen analytical tibble (site × date × pollutant × weather + wind vector from Refinery Row) — Q3 2026
+- [ ] **Team** — Redo raw TCEQ ingest to preserve method codes per row (folds into Aidan's re-download this week)
+- [ ] **Team** — Requery 24-hr VOCs where 1-hr was empty (folds into Aidan's re-download)
+- [ ] **Dr. Melaram** — R25 grant work; interim report due end of month; explore climate-change grant resubmit
 
 ### Completed
 
@@ -489,3 +592,7 @@ source of truth.
 - [x] **Jasmine** — VOCs deep-dive published at `pollutants/vocs.md` (2026-07-15, v0.1.3)
 - [x] **Aidan** — Attach 2 team briefing PPTs at `briefings/` (2026-07-15, v0.1.3)
 - [x] **Team** — Decided at 2026-07-08 to drop CO from first manuscript scope (no monitors in Coastal Bend)
+- [x] **Aidan** — Mirror Manasa's Ozone/CO PPT into briefings/ (2026-08-13, v0.1.5)
+- [x] **Team** — Bi-weekly meeting cadence adopted for fall; next meeting 2026-08-26 (2026-08-12)
+- [x] **Team** — Refined research question with grad-level specificity: SO₂ + Ozone, 2015-2025, Random Forest, 7 meteorological covariates (2026-08-12)
+- [x] **Team** — Adopted K-fold stacked model design (base model now, health-outcome stack later) (2026-07-29)

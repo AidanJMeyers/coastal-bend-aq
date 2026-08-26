@@ -197,6 +197,15 @@ Why the fork:
 
 See the [Pipeline Updates](./pipeline_updates.md) page. Newest entry:
 
+- **2026-08-13 · v0.1.5** — 3 new meeting notes
+  ([07-22](./meeting_notes/2026-07-22.md),
+  [07-29](./meeting_notes/2026-07-29.md),
+  [08-12](./meeting_notes/2026-08-12.md)) covering the K-fold stacked
+  model design pivot + CAMS 32/34 site-label catch + UT Austin
+  collaboration signal; Manasa's Ozone/CO PPT
+  [mirrored](./briefings/index.md); [scope
+  doc](./proposals/refinery_row_directional_health.md) refined with
+  design-evolution log + variables table + Niyogi collaborator entry.
 - **2026-07-20 · v0.1.4** — Correction pass on 2026-07-08 meeting notes
   (was the PPT-briefings meeting, not a BREATHE-CC crossover as I first
   wrote) + [2026-07-15 pollution-rose → Refinery-Row directional health

@@ -161,6 +161,9 @@ nav:
       - 2026-06-24 · scope pivot: meeting_notes/2026-06-24.md
       - 2026-07-08 · PPT briefings + pipeline walkthrough: meeting_notes/2026-07-08.md
       - 2026-07-15 · Refinery-Row directional health pivot: meeting_notes/2026-07-15.md
+      - 2026-07-22 · Literature-scan check-in: meeting_notes/2026-07-22.md
+      - 2026-07-29 · K-fold stacked + RF single-model design: meeting_notes/2026-07-29.md
+      - 2026-08-12 · Proposal fill + CAMS label catch + Niyogi signal: meeting_notes/2026-08-12.md
       - _Template: meeting_notes/_template.md
   - Project proposals:
       - Proposals index: proposals/index.md

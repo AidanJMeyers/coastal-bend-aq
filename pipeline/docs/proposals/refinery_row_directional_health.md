@@ -29,9 +29,23 @@ The proposal is a team synthesis:
   climate-change seed grant (denied on feasibility, high on novelty +
   significance) and the R25 track.
 
-**Status.** Consensus direction agreed at 2026-07-15. Awaiting novelty
-+ feasibility scan (due 2026-07-22) and joint consult with
-Dr. Warden + Dr. Jin (poll going out this week).
+**Status.** Consensus direction agreed at 2026-07-15. Refined at
+[2026-07-29](../meeting_notes/2026-07-29.md) (K-fold stacked model +
+Random Forest single-model start) and [2026-08-12](../meeting_notes/2026-08-12.md)
+(grad-level research question, variables table, site scope, data-quality
+catch on CAMS 32/34 labels). Warden/Jin joint session still pending
+(Schej poll open); potential new collaboration with Dr. Deb Niyogi
+(UT Austin, Extreme Weather + Urban Sustainability Lab) tracks
+2026-08-14.
+
+### Design evolution log
+
+| Date | Change |
+|---|---|
+| 2026-07-15 | Origin — three-lead synthesis (Jasmine pollution rose, Manasa refinery-centering, Aidan ML/health coupling) |
+| 2026-07-22 | Waiting on Warden/Jin poll response; Ecuador 2017 PM2.5 wind-rose paper surfaced (Jasmine) |
+| 2026-07-29 | Target-data reality check: BREATHE-CC unavailable 1.5–2 yr → K-fold stacked design (base model now, health stack later); Random Forest single-model start; DSHS ED-visit data as target fallback (Manasa) |
+| 2026-08-12 | Research question refined to grad-level explicitness; variables table populated; site scope confirmed as 7 Nueces sites (CC Holly deactivated 2018); CAMS 32/34 site-label catch; Dr. Niyogi (UT Austin) collaboration signal |
 
 **Team leads (equal weight).** Aidan Meyers, Manasa Kuchavaram, Jasmine
 Trevino. Additional foundational credit to Jasmine for the
@@ -92,23 +106,43 @@ Five dimensions of analysis, not three:
 
 ## 3. Research questions
 
-**Primary.**
-Does wind-direction × pollutant-flow from Refinery Row at time T
-significantly predict acute respiratory and cardiovascular
-exacerbations (ED visits, hospitalizations) at downwind residential
-zones at time T + Δ (Δ ∈ hours, days, weeks)?
+### Current-project (base model — buildable now)
 
-**Secondary.**
-1. Which pollutant(s) mediate the effect most strongly (SO₂, VOCs, PM2.5,
-   ozone secondary formation)?
-2. What is the optimal Δ (temporal lag) between plume arrival and
-   exacerbation?
-3. Does the Gulf sea breeze **attenuate** the exposure signal (protective
-   effect) or **redistribute** it (transport downwind)?
-4. Do seasonal patterns hold year-over-year (2015–2025) or has the
-   pattern *phase-shifted* over time? (Phase-shift hypothesis borrowed
-   from a Chinese COVID-19 paper introduced by Dr. Miller earlier this
-   semester — Aidan to relocate + cite.)
+**Primary — refined at 2026-08-12.**
+*Investigate the meteorological factors influencing SO₂ and Ozone
+concentrations in the Corpus Christi Refinery-Row area using a Random
+Forest model, over 2015–2025, with wind speed, wind direction,
+temperature, heat index, humidity, atmospheric pressure, and
+precipitation as candidate covariates. Can that prediction be
+represented as a defensible pollution-rose visualisation?*
+
+**Hypothesis (2026-08-12).** The Random Forest model will achieve
+higher predictive accuracy on pollutant *transport direction* than on
+*concentration*, because Corpus Christi's dominant south / south-
+southwest sea breeze is remarkably constant across seasons while
+concentration varies more freely with emission-source dynamics.
+Sparse-direction sectors (winds from the north, which are rare) may
+be under-predicted; addressable via class-balancing or acknowledged
+in results.
+
+**Exploratory.** Can predicted concentrations be mapped to AQI
+categorical bands (green / yellow / orange / red / purple) as an
+actionable family-facing output? (Jasmine's idea from 2026-07-08;
+kept exploratory so it doesn't gate the primary analysis.)
+
+### Future-work stack (health-outcome model — added later)
+
+Not in the current-project deliverable, but the base model is
+designed to have a **second stack** appended:
+
+- **Primary (future):** Does wind-direction × predicted-pollutant-flow
+  from Refinery Row at time T significantly predict acute respiratory
+  and cardiovascular exacerbations (ED visits, hospitalizations) at
+  downwind residential zones at time T + Δ (Δ ∈ hours, days, weeks)?
+- **Secondary (future):** Optimal Δ; which pollutant mediates most
+  strongly; sea-breeze attenuation vs redistribution; seasonal
+  phase-shift over 2015–2025 (Chinese COVID-19 phase-shift-analogue
+  paper as reference; Aidan to relocate + cite).
 
 ## 4. Exposure axis (novel construct)
 
@@ -170,34 +204,100 @@ Weather + wind data: Nueces + Kleberg NWS + local stations, hourly,
 2015–2025. Sea-breeze pattern uniform across Coastal Bend per Jasmine
 (NWS verified).
 
-## 7. Methods overview (v0 for external consult)
+## 7. Methods overview (v0 for external consult; refined 2026-07-29 + 2026-08-12)
+
+### 7A. Base model (current-project deliverable)
 
 1. **Data harmonization** — pull `aq_coastal_bend.pollutant_hourly` +
-   `weather_hourly`; join on aqsid + timestamp. Preserve method_code per
-   row (2026-07-08 action item).
-2. **Residential-zone definition** — Texas ZCTA (ZIP Code Tabulation
-   Area) or Census tract; use whichever the health outcome dataset
-   supports natively.
-3. **Refinery Row coordinate** — centroid of the Port of Corpus Christi
-   industrial corridor (specific coordinates TBD; likely a polygon,
-   not a point).
-4. **Directional cone assignment** — for each (zone, timestamp) pair,
-   compute whether the zone is downwind of Refinery Row and how strongly
-   (angular alignment × wind speed).
-5. **Effective concentration modelling** — Gaussian plume or empirical
-   decay; validate against nearest-monitor observations.
-6. **Pollution-rose descriptive figures** — per pollutant, per season,
-   per year. Test the phase-shift hypothesis.
-7. **ML predictive model** — the target is health-outcome incidence at
-   zone × time. Features: exposure axis + weather + zone demographics +
-   seasonality. Candidate models: gradient-boosted trees (XGBoost /
-   LightGBM), temporal CNN, or hierarchical Bayesian regression — final
-   choice per Dr. Warden + Dr. Jin's recommendation.
-8. **Sensitivity analyses** — vary Δ (temporal lag); vary the
-   directional-cone width; drop-one-pollutant analyses; seasonal
-   subsets; pre-vs-post-COVID phase-shift test.
-9. **Manuscript methods paragraph per pollutant** — already an in-flight
-   action; will be lifted directly from the deep-dive pages.
+   `weather_hourly` (or per-site TCEQ meteorology, pending Jasmine's
+   2026-08-12 audit); join on aqsid + timestamp. Preserve method_code
+   per row (2026-07-08 action item; folds into Aidan's 2026-08-13
+   re-download).
+2. **Site scope** — 7 active Nueces County CAMS sites near Refinery
+   Row. Excludes CC Holly (deactivated 2018), Kingsville, Kleberg.
+3. **Variables** (see §7C).
+4. **Refinery Row coordinate** — centroid of the Port of Corpus
+   Christi industrial corridor (polygon, ~10 mi long; use midpoint
+   for angular calculations, sensitivity-test with polygon boundary).
+5. **Wind-direction encoding — 3 forms in parallel** (2026-08-12):
+   - **Continuous degrees** (raw 0–360) — for reference.
+   - **Zonal (u) + meridional (v) decomposition** — the standard
+     atmospheric-physics encoding, avoids the 0°/360° discontinuity.
+   - **16 categorical sectors** — for pollution-rose visualisation
+     only.
+6. **Refinery-Row bearing (derived)** — angular difference between
+   observed wind direction and the bearing from Refinery-Row centroid
+   to each site.
+7. **ML model — Random Forest, single-model start** (2026-07-29
+   decision). No premature model shopping. Escalate to a second model
+   only if performance is unacceptable.
+8. **K-fold protection against data leakage** (2026-07-29, Jasmine's
+   NWS-lab pattern) — 3-fold data split; the base model trains on
+   folds 1+2, holds out fold 3 as the future-stack's training set.
+9. **Pollution-rose descriptive figures** — per pollutant, per season,
+   per year. Reference figures in Dr. Melaram's 2025 preprint find
+   (preprints.org — cite methodologically only, not as a published
+   source).
+10. **Sensitivity analyses** — daily-completeness threshold (currently
+    < 18 valid hours; treat as a knob, not fixed); direction-encoding
+    variants; drop-one-pollutant; seasonal subsets; wind-direction
+    binning width.
+11. **Imputation transparency** (2026-08-12) — the final paper must
+    report the **percentage of data imputed**, both overall and per
+    pollutant. Missingness-pattern EDA precedes any imputation
+    strategy choice.
+
+### 7B. Future stack (health-outcome layer)
+
+12. **Second stack** — takes the base model's out-of-fold
+    concentration predictions as input, targets health-outcome
+    incidence at zone × time resolution. Health data source depends
+    on availability:
+    - **BREATHE-CC pediatric cohort** — ideal (real people,
+      geocoded, consented) but not usable until ≥ 150 participants
+      (~2027 earliest).
+    - **Texas DSHS public-use ED-visit data** (Manasa's 2026-07-29
+      find) — request-based; slow but obtainable.
+    - **Dr. Niyogi's dataset (UT Austin)** — pending 2026-08-14
+      collaboration call; his lab already holds thunderstorm ×
+      aerosol × asthma health data.
+
+### 7C. Variables — table format (from 2026-08-12 template fill)
+
+**Pollutants (targets):**
+
+| Variable | Operational definition | Unit | Type |
+|---|---|---|---|
+| SO₂ | Hourly ambient SO₂ (param 42401, method codes 100 + 92, UV-Fluorescence FEM); days with < 18 valid hours flagged incomplete | ppb | continuous |
+| Ozone | Hourly ambient ozone (param 44201, method codes 56 + 87 + 187, UV Photometric FEM); same completeness flag | ppb → ppm | continuous |
+| PM2.5 *(optional)* | Hourly ambient PM2.5 (param 88101 + 88502; see [PM2.5 deep-dive](../pollutants/pm25.md) for method-code timeline) | µg/m³ | continuous |
+
+**Meteorological (predictors):**
+
+| Variable | Notes | Type |
+|---|---|---|
+| Wind speed | Hourly | continuous |
+| Wind direction | Encoded 3 ways (see §7A step 5) | continuous + categorical |
+| Refinery-Row bearing | Derived — angular offset from R-Row centroid to site vs observed wind direction | continuous |
+| Temperature | Hourly | continuous |
+| Heat index | Hourly, derived | continuous |
+| Humidity | Hourly relative humidity | continuous |
+| Atmospheric pressure | Hourly | continuous |
+| Precipitation | Hourly rainfall (mm); binary "is raining" indicator | continuous + binary |
+| Cloud coverage | Frontal-system / sea-breeze-thunderstorm indicator | continuous |
+
+**Time features:** hour, season, year.
+
+**Supplementary (documented, not fed to model):** method code per row.
+
+**Exploratory target:** AQI categorical band.
+
+**Excluded — documented as limitations:**
+
+- **Wind gusts** — too sparse in Open Weather (mostly null); would
+  require ≥ 60% cell-fill to be usable for RF splits.
+- **Boundary layer height + temperature inversion** — reliable data
+  requires 12-hr weather-balloon feeds we do not have access to.
 
 ## 8. Team + collaborators
 
@@ -217,11 +317,20 @@ Weather + wind data: Nueces + Kleberg NWS + local stations, hourly,
 
 ### To loop in for the joint consult
 
-- **Dr. Warden** — methodological / stats.
-- **Dr. Jin** — methodological / stats.
+- **Dr. Warden** — methodological / stats. (Schej poll open; response
+  pending as of 2026-08-12.)
+- **Dr. Jin** — methodological / stats. (Same poll.)
 - **Jasmine's atmospheric-physics mentor** (Melaram Lab has not
   collaborated with him yet) — atmospheric-physics consult, especially
   on how directionality should be encoded for the ML model.
+- **Dr. Deb Niyogi — UT Austin, Extreme Weather + Urban
+  Sustainability Lab.** Discovered at 2026-08-12 via Jasmine's
+  interview at UT Austin. Direct overlap: his lab is actively working
+  on thunderstorm × aerosol × asthma. **His group already holds the
+  health data we're missing.** Joint call scheduled Fri 2026-08-14 @
+  noon CT (Jasmine + Dr. Melaram). If the collaboration lands, this
+  substantially compresses the timeline by trading the "wait for
+  BREATHE-CC" constraint for a joint-project structure.
 
 **Meeting plan.** Aidan is sending a Schej.it poll for the next 2 weeks
 (2026-07-15 to 2026-07-29) to schedule the joint session.

@@ -10,6 +10,96 @@ supersede.
 
 ---
 
+## 2026-08-13 · v0.1.5 — Three new meeting notes + Manasa PPT mirrored + scope-doc refinement + CAMS site-label catch documented
+
+**What changed**
+
+1. **Manasa's Ozone/CO briefing PPT mirrored** into the pipeline at
+   [`briefings/2026-07-08_MK_Ozone_CO_briefing.pptx`](./briefings/2026-07-08_MK_Ozone_CO_briefing.pptx).
+   Closes the pending mirror action from 2026-07-08. Briefings archive
+   index updated to link the file directly.
+2. **Three meeting notes files written from transcripts** —
+   [2026-07-22](./meeting_notes/2026-07-22.md) (literature-scan
+   check-in), [2026-07-29](./meeting_notes/2026-07-29.md) (K-fold
+   stacked model + Random Forest single-model design decision),
+   [2026-08-12](./meeting_notes/2026-08-12.md) (proposal-template
+   working session + CAMS 32/34 site-label catch + UT Austin Niyogi
+   collaboration signal + bi-weekly cadence adopted).
+3. **Dashboard JSON updated** — 3 new meeting entries; 8 new action
+   items from the three meetings; Warden/Jin poll-follow-up note
+   appended; Manasa's PPT-mirror item marked done.
+4. **Meeting archive table + fallback checklist refreshed** to reflect
+   the new state and re-partition open actions by urgency (high /
+   before 2026-08-26 / carried).
+5. **Refinery-Row scope doc extensively refined** at
+   [`proposals/refinery_row_directional_health.md`](./proposals/refinery_row_directional_health.md):
+   - Added a **Design evolution log** table so readers can see how the
+     design has shifted meeting-by-meeting since 2026-07-15.
+   - Rewrote Research Questions section into **Current-project (base
+     model)** vs **Future-work stack** halves; added Jasmine's 2026-08-12
+     hypothesis (direction prediction > concentration prediction);
+     retained the AQI-band exploratory question.
+   - Rewrote Methods section around the **K-fold stacked model**
+     (base model now, health-outcome stack later); documented the
+     Random Forest single-model start decision (2026-07-29); added
+     wind-direction 3-way encoding (continuous, u/v decomposition,
+     16-sector categorical); added Refinery-Row bearing derived
+     variable; documented the < 18-hr daily-completeness threshold
+     as a sensitivity knob (not fixed); added imputation-transparency
+     requirement.
+   - Filled Variables section as a proper 3-part table (pollutants,
+     meteorology, time features) matching the 2026-08-12 template fill.
+   - Added Dr. Deb Niyogi (UT Austin) to the collaborators section with
+     the 2026-08-14 joint-call scheduling.
+6. **mkdocs nav updated** to include the 3 new meeting-notes pages.
+7. **CAMS 32/34 site-label catch — documented but not yet fixed in
+   Neon.** The 2026-08-12 meeting surfaced that CAMS 32 is labeled
+   "Donna" in `aq_coastal_bend.site_registry` when it should be
+   **CC Hyosachi**, and the site labeled "Holly" is actually
+   **CC Dona Park** (CAMS 34). CC Holly (CAMS 660) is genuinely
+   deactivated (2018) and correctly absent from the current schema.
+   **SQL fix is Manasa's action** (committed 2026-08-12); Aidan is
+   running a **full re-download-and-row-count QC** pass this week
+   (2026-08-13, ~1-hour session; concrete plan delivered in chat, not
+   published to pipeline per personal-deliverables rule).
+
+**Why**
+
+- Three weeks of accumulated meeting content was queued in transcripts
+  waiting to land in the pipeline. Manasa's PPT was a pending item
+  from 2026-07-08. The scope doc had drifted from what the team
+  actually agreed to in the four meetings after 2026-07-15.
+- Dr. Melaram: *"You gotta write it down. Just write it down. You have
+  it, you don't forget it."* (2026-07-29.) That principle applies to
+  pipeline updates too — silent evolution of a scope doc against
+  what's in meeting minutes creates the exact gap the meeting-notes
+  system exists to prevent.
+
+**Where the current product lives**
+
+- **Meeting archive:** [meeting_notes/](./meeting_notes/index.md) —
+  now covers 6 meetings (06-24, 07-08, 07-15, 07-22, 07-29, 08-12).
+- **Team briefings archive:** [briefings/](./briefings/index.md) — all
+  three 2026-07-08 decks now on the pipeline.
+- **Scope doc:** [proposals/refinery_row_directional_health.md](./proposals/refinery_row_directional_health.md)
+  — reflects the post-2026-08-12 design.
+- **Neon schema `aq_coastal_bend`** — unchanged in structure; SQL
+  site-label fix is pending Manasa; row-count reconciliation is
+  pending Aidan's re-download.
+- **Live site:** [aidanjmeyers.github.io/coastal-bend-aq](https://aidanjmeyers.github.io/coastal-bend-aq/).
+
+**Follow-up (this week)**
+
+- Aidan → data re-download + row-count QC + push CC Hyosachi to Neon
+  (in flight — plan handed off in chat).
+- Manasa → SQL rename in `aq_coastal_bend.site_registry`.
+- Jasmine → TCEQ per-site meteorological variable audit; joint Niyogi
+  call 2026-08-14.
+- Post-Niyogi + post-QC: another Pipeline Updates entry captures
+  whatever schema / scope changes fall out.
+
+---
+
 ## 2026-07-20 · v0.1.4 — Correction pass + 2026-07-15 pollution-rose pivot + Refinery-Row scope doc
 
 **What changed** (chronological, within the 2026-07-20 batch)
@@ -318,6 +408,7 @@ manuscript methods section later.
 
 | Version | Date | Headline |
 |---|---|---|
+| v0.1.5 | 2026-08-13 | 3 new meeting notes (07-22, 07-29, 08-12) + Manasa PPT mirrored + scope-doc refinement + CAMS 32/34 label catch documented |
 | v0.1.4 | 2026-07-20 | Correction pass (2026-07-08 rewritten) + 2026-07-15 meeting logged + Refinery-Row scope doc + email draft moved to chat |
 | v0.1.3 | 2026-07-15 | Seven pollutant deep-dives filled + team PPT briefings archived + 2026-07-08 meeting logged |
 | v0.1.2 | 2026-07-08 | Interactive meeting dashboard + Manasa spelling fix |
