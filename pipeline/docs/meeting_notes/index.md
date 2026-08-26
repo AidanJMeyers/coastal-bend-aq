@@ -273,12 +273,14 @@ permanent, use **Export JSON** and paste back into this file.
     {
       "id": "aidan-data-redownload-qc",
       "owner": "Aidan",
-      "text": "Full TCEQ re-download for 7 Nueces sites; row-count QC against current Neon schema; push CC Hyosachi to Neon (missing from current schema); document discrepancies. Concrete plan delivered in chat 2026-08-13.",
+      "text": "Full TCEQ re-download for 7 Nueces sites; row-count QC against current Neon schema; document discrepancies.",
       "meeting": "2026-08-12",
-      "due": "2026-08-13",
-      "status": "open",
+      "due": "2026-08-26",
+      "status": "in_progress",
       "completed_at": null,
-      "notes": []
+      "notes": [
+        { "at": "2026-08-26 14:00", "by": "Aidan (v0.1.6 reconciliation)", "body": "Rescoped: (a) Hyosachi/Huisache is present in Neon with 211,187 rows 2015-2025 (not missing); (b) site labels already correct. Remaining QC work: fresh TCEQ download + row-count reconcile to catch any TCEQ-side QC updates since last ingest, plus decide whether to add TCEQ CAMS 660 (Holly, deactivated 2018), CAMS 664 (Violet, deactivated 2019), or CAMS 314 (National Seashore, active) to the pull. See 13_tceq_cams_aqs_reference.md." }
+      ]
     },
     {
       "id": "manasa-sql-rename-sites",
@@ -286,9 +288,11 @@ permanent, use **Export JSON** and paste back into this file.
       "text": "Run SQL rename in Neon aq_coastal_bend.site_registry: CAMS 32 label 'Donna' → 'CC Hyosachi'; CAMS 34 label 'Holly' → 'CC Dona Park'. CC Holly (CAMS 660) stays out of scope (deactivated 2018).",
       "meeting": "2026-08-12",
       "due": "2026-08-15",
-      "status": "open",
-      "completed_at": null,
-      "notes": []
+      "status": "done",
+      "completed_at": "2026-08-26 14:00",
+      "notes": [
+        { "at": "2026-08-26 14:00", "by": "Aidan (v0.1.6 reconciliation)", "body": "NOT NEEDED — verified via live Neon query 2026-08-26 that site_number 32 = 'Corpus Christi Huisache_0032' and site_number 34 = 'Corpus Christi Dona Park_0034'. Labels are already correct. The 2026-08-12 confusion was CAMS ID (TCEQ) vs site_number (AQS/pipeline) — these are different identifiers. See 13_tceq_cams_aqs_reference.md for the full mapping." }
+      ]
     },
     {
       "id": "jasmine-tceq-met-var-audit",

@@ -1,5 +1,12 @@
 # Proposal — Refinery-Row Directional Health-Outcome Study
 
+> 📝 **Live team draft (SharePoint) →** [**STX AQ Proposal.docx**](https://tamucc-my.sharepoint.com/:w:/r/personal/jtrevino79_islander_tamucc_edu/_layouts/15/Doc.aspx?sourcedoc=%7B1F7E1BF3-856B-46A6-8348-2B1D8BF57D76%7D&file=STX%20AQ%20Proposal.docx&action=default&mobileredirect=true&DefaultItemOpen=1&web=1)
+> — Jasmine's shared TAMU-CC SharePoint doc where the three leads are
+> collaboratively filling the Melaram-Lab proposal template. This
+> markdown scope doc is the *snapshot / summary*; the SharePoint file
+> is the *authoritative live draft*. Both are kept in sync at each
+> bi-weekly meeting.
+
 **Working title.** *Directional exposure attribution and predictive
 modelling of pollution-driven health exacerbations downwind of the Port
 of Corpus Christi refinery corridor: a coastal-breeze-informed

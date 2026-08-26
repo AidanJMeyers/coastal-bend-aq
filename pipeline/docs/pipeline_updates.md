@@ -10,6 +10,71 @@ supersede.
 
 ---
 
+## 2026-08-26 · v0.1.6 — SharePoint proposal link surfaced + TCEQ↔AQS site reference + 2026-08-12 label-catch reconciled
+
+**What changed**
+
+1. **Live-draft SharePoint link surfaced across the pipeline.** Jasmine's
+   [STX AQ Proposal.docx (SharePoint)](https://tamucc-my.sharepoint.com/:w:/r/personal/jtrevino79_islander_tamucc_edu/_layouts/15/Doc.aspx?sourcedoc=%7B1F7E1BF3-856B-46A6-8348-2B1D8BF57D76%7D&file=STX%20AQ%20Proposal.docx&action=default&mobileredirect=true&DefaultItemOpen=1&web=1)
+   — the collaborative fill of the Melaram-Lab proposal template — is
+   now linked from (a) the site home page as a quick-access card,
+   (b) the top of the Refinery-Row scope doc as a highlighted callout,
+   (c) the proposals index as a "Live shared drafts" table.
+2. **New reference doc:
+   [`13_tceq_cams_aqs_reference.md`](./13_tceq_cams_aqs_reference.md).**
+   Compiled from a live `aq_coastal_bend.site_registry` Neon query
+   cross-checked against TCEQ TAMIS Region 14. Documents the two
+   identifier systems (TCEQ CAMS ID ≠ EPA AQS `site_number`), lists
+   all 8 sites currently in Neon (7 active + 1 disabled), lists the
+   TCEQ Region 14 CAMS clusters likely mapping to each AQS
+   `site_number`, and lists deactivated Coastal Bend sites that could
+   optionally be added (Holly CAMS 660, Violet CAMS 664, National
+   Seashore CAMS 314). Added to nav under Project Management.
+3. **2026-08-12 site-label catch reconciled.** Live Neon query on
+   2026-08-26 confirms site labels are already correct — `site_number
+   32 = "Corpus Christi Huisache_0032"`, `site_number 34 = "Corpus
+   Christi Dona Park_0034"`. The 2026-08-12 concern was a **CAMS ID
+   (TCEQ) vs `site_number` (AQS/pipeline) confusion**, not an actual
+   mislabel. Manasa's SQL-rename action item is closed as "not
+   needed"; Aidan's re-download item is rescoped from "fix labels +
+   push missing Hyosachi" to "reconcile row counts + decide on
+   optional deactivated-site additions."
+4. **Dashboard JSON updated.** `manasa-sql-rename-sites` → done
+   (with explanatory note). `aidan-data-redownload-qc` → in_progress
+   (with rescope note).
+
+**Why**
+
+- Aidan asked for the SharePoint link to be added conveniently for
+  ease of access ahead of the 2026-08-26 team meeting.
+- Aidan also asked for a comprehensive list of possible Coastal Bend
+  sites to know what to redownload — this required going to Neon
+  (authoritative for our schema) plus TCEQ TAMIS (authoritative for
+  ground-truth CAMS list), and the reconciliation uncovered that the
+  2026-08-12 mislabel concern was based on identifier-system confusion,
+  not actual bad data.
+- Every change gets a Pipeline Updates entry per the standing rule.
+
+**Where the current product lives**
+
+- **SharePoint proposal draft:** three convenient entry points from
+  the pipeline (home card, scope doc callout, proposals index table).
+- **CAMS ↔ AQS reference:**
+  [13_tceq_cams_aqs_reference.md](./13_tceq_cams_aqs_reference.md).
+- **Neon schema `aq_coastal_bend`:** unchanged; verified correct as
+  of 2026-08-26.
+- **Live site:** [aidanjmeyers.github.io/coastal-bend-aq](https://aidanjmeyers.github.io/coastal-bend-aq/).
+
+**Follow-up**
+
+- Aidan's rescoped QC pass (row-count reconcile + optional
+  additions) still pending; new Pipeline Updates entry after that
+  lands.
+- 2026-08-26 team meeting outcomes will land in a new meeting-notes
+  file after tonight's call.
+
+---
+
 ## 2026-08-13 · v0.1.5 — Three new meeting notes + Manasa PPT mirrored + scope-doc refinement + CAMS site-label catch documented
 
 **What changed**
@@ -408,6 +473,7 @@ manuscript methods section later.
 
 | Version | Date | Headline |
 |---|---|---|
+| v0.1.6 | 2026-08-26 | SharePoint proposal link surfaced + TCEQ↔AQS reference doc + 2026-08-12 label-catch reconciled (no mislabel — CAMS/AQS ID confusion) |
 | v0.1.5 | 2026-08-13 | 3 new meeting notes (07-22, 07-29, 08-12) + Manasa PPT mirrored + scope-doc refinement + CAMS 32/34 label catch documented |
 | v0.1.4 | 2026-07-20 | Correction pass (2026-07-08 rewritten) + 2026-07-15 meeting logged + Refinery-Row scope doc + email draft moved to chat |
 | v0.1.3 | 2026-07-15 | Seven pollutant deep-dives filled + team PPT briefings archived + 2026-07-08 meeting logged |

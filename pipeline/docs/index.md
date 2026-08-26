@@ -8,7 +8,7 @@ hide:
 # Coastal Bend Air Quality Data Pipeline
 
 <span class="brand-badge">Melaram Lab</span>
-<span class="brand-badge brand-badge-accent">v0.1.5</span>
+<span class="brand-badge brand-badge-accent">v0.1.6</span>
 
 !!! info "About this project"
 
@@ -145,6 +145,14 @@ flowchart LR
     database, docs, or team decisions — what, when, why, where the
     current product lives.
 
+-   :material-file-document-edit: **Live proposal draft (SharePoint)**
+
+    ---
+
+    Jasmine's shared TAMU-CC SharePoint doc — the three leads are
+    collaboratively filling the Melaram-Lab proposal template.
+    [Open STX AQ Proposal.docx →](https://tamucc-my.sharepoint.com/:w:/r/personal/jtrevino79_islander_tamucc_edu/_layouts/15/Doc.aspx?sourcedoc=%7B1F7E1BF3-856B-46A6-8348-2B1D8BF57D76%7D&file=STX%20AQ%20Proposal.docx&action=default&mobileredirect=true&DefaultItemOpen=1&web=1)
+
 -   :material-flask: **Pollutant deep-dives**
 
     ---
@@ -197,6 +205,11 @@ Why the fork:
 
 See the [Pipeline Updates](./pipeline_updates.md) page. Newest entry:
 
+- **2026-08-26 · v0.1.6** — SharePoint proposal link surfaced
+  (site-home card + scope-doc callout + proposals index); new
+  [TCEQ ↔ AQS site reference](./13_tceq_cams_aqs_reference.md); the
+  2026-08-12 CAMS-32/34 label catch **reconciled** — labels were
+  actually correct all along (CAMS vs AQS identifier confusion).
 - **2026-08-13 · v0.1.5** — 3 new meeting notes
   ([07-22](./meeting_notes/2026-07-22.md),
   [07-29](./meeting_notes/2026-07-29.md),

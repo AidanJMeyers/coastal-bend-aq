@@ -11,6 +11,12 @@ project proposals live in a form we can share with collaborators**.
 |---|---|---|---|
 | [Refinery-Row directional health study](./refinery_row_directional_health.md) | **Consensus direction** (2026-07-15) — awaiting novelty + feasibility scan | [2026-07-15](../meeting_notes/2026-07-15.md) | Aidan Meyers |
 
+## Live shared drafts
+
+| Draft | Format | Owner | Link |
+|---|---|---|---|
+| STX AQ Proposal (Melaram-Lab template fill) | Word / SharePoint | Jasmine Trevino (all 3 leads editing) | [Open in SharePoint →](https://tamucc-my.sharepoint.com/:w:/r/personal/jtrevino79_islander_tamucc_edu/_layouts/15/Doc.aspx?sourcedoc=%7B1F7E1BF3-856B-46A6-8348-2B1D8BF57D76%7D&file=STX%20AQ%20Proposal.docx&action=default&mobileredirect=true&DefaultItemOpen=1&web=1) |
+
 ## Why this section exists
 
 - **External-collaborator friction.** When we outreach to Dr. Warden,
