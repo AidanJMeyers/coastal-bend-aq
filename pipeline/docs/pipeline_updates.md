@@ -10,6 +10,65 @@ supersede.
 
 ---
 
+## 2026-08-26 (evening) · v0.1.7 — Scope-doc restructure: health-outcome extension moved to tabled bottom section; timeline compressed 6 mo
+
+**What changed**
+
+1. **Refinery-Row scope doc restructured** ([`proposals/refinery_row_directional_health.md`](./proposals/refinery_row_directional_health.md)).
+   Per the 2026-07-29 decision to defer the health-outcome layer until
+   BREATHE-CC / DSHS target data becomes available, the doc has been
+   reorganized so the entire body focuses on the **base AQ model
+   (Random-Forest × pollution-rose over SO₂ + Ozone in Nueces County,
+   2015–2025)**. All health-outcome content — future research question,
+   candidate outcomes, data-source options, ML architecture, ICD-10
+   candidate list — is collected in a new bottom section titled
+   **"Tabled: Health-outcome extension (future work)"** with an
+   explicit ⏸ TABLED banner, rationale, and reactivation criteria.
+2. **Working title updated** to reflect the base-model focus:
+   *"Directional pollutant-transport modelling downwind of the Port
+   of Corpus Christi refinery corridor: a Random-Forest × pollution-rose
+   analysis of SO₂ and Ozone over 2015–2025."*
+3. **Timeline compressed** from 1–1.5 yr to **6–9 months** to first
+   submission — the health-outcome extension was the largest scope +
+   data-acquisition risk item; removing it shortens the critical path.
+4. **Design-evolution log** updated with the 2026-08-26 restructure
+   entry.
+5. **K-fold rationale rewritten** to note that fold 3 is reserved
+   precisely to enable a future health-outcome stack without
+   contaminating the base model's evaluation — the tabled extension
+   is architecturally supported, just not scoped in.
+6. **Reactivation criteria** added at the bottom of the tabled
+   section: un-table only when BREATHE-CC hits 150 participants, or
+   a Texas DSHS / HHSC DUA lands, or the Dr. Niyogi collaboration
+   formalises with a data-sharing agreement.
+
+**Why**
+
+- Aidan explicitly requested the restructure ahead of the 2026-08-26
+  team meeting so the current-project scope is unambiguous when the
+  proposal template gets assigned tonight and when Warden / Jin see
+  the plan.
+- The 2026-07-29 team decision to table health outcomes had been
+  captured in meeting notes but was not visually / structurally
+  reflected in the scope doc — the health-outcome content was still
+  interspersed throughout, which made the base-model deliverable
+  harder to see.
+
+**Where the current product lives**
+
+- **Scope doc:** [proposals/refinery_row_directional_health.md](./proposals/refinery_row_directional_health.md)
+  — restructured; base model above the fold, tabled extension at the
+  bottom.
+- **Live site:** [aidanjmeyers.github.io/coastal-bend-aq](https://aidanjmeyers.github.io/coastal-bend-aq/).
+
+**Follow-up**
+
+- Tonight's meeting (2026-08-26) will assign specific proposal-template
+  sections per lead; those assignments + any research-question
+  refinements will land in the 2026-08-26 meeting notes tomorrow.
+
+---
+
 ## 2026-08-26 · v0.1.6 — SharePoint proposal link surfaced + TCEQ↔AQS site reference + 2026-08-12 label-catch reconciled
 
 **What changed**
@@ -473,6 +532,7 @@ manuscript methods section later.
 
 | Version | Date | Headline |
 |---|---|---|
+| v0.1.7 | 2026-08-26 | Scope-doc restructure — health-outcome extension moved to tabled bottom section; timeline compressed 6 mo (base AQ model only) |
 | v0.1.6 | 2026-08-26 | SharePoint proposal link surfaced + TCEQ↔AQS reference doc + 2026-08-12 label-catch reconciled (no mislabel — CAMS/AQS ID confusion) |
 | v0.1.5 | 2026-08-13 | 3 new meeting notes (07-22, 07-29, 08-12) + Manasa PPT mirrored + scope-doc refinement + CAMS 32/34 label catch documented |
 | v0.1.4 | 2026-07-20 | Correction pass (2026-07-08 rewritten) + 2026-07-15 meeting logged + Refinery-Row scope doc + email draft moved to chat |

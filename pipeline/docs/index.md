@@ -8,7 +8,7 @@ hide:
 # Coastal Bend Air Quality Data Pipeline
 
 <span class="brand-badge">Melaram Lab</span>
-<span class="brand-badge brand-badge-accent">v0.1.6</span>
+<span class="brand-badge brand-badge-accent">v0.1.7</span>
 
 !!! info "About this project"
 
@@ -205,6 +205,11 @@ Why the fork:
 
 See the [Pipeline Updates](./pipeline_updates.md) page. Newest entry:
 
+- **2026-08-26 · v0.1.7** — Scope-doc restructured: health-outcome
+  extension moved to tabled bottom section per the 2026-07-29 team
+  decision; base AQ model (Random Forest × pollution rose on SO₂ +
+  Ozone) is now the manuscript deliverable; timeline compressed to
+  6–9 months.
 - **2026-08-26 · v0.1.6** — SharePoint proposal link surfaced
   (site-home card + scope-doc callout + proposals index); new
   [TCEQ ↔ AQS site reference](./13_tceq_cams_aqs_reference.md); the
