@@ -8,245 +8,94 @@ hide:
 # Coastal Bend Air Quality Data Pipeline
 
 <span class="brand-badge">Melaram Lab</span>
-<span class="brand-badge brand-badge-accent">v0.1.9</span>
+<span class="brand-badge brand-badge-accent">v0.1.10</span>
 
-!!! info "About this project"
+Reproducible ambient air quality database + Random-Forest × pollution-rose
+analysis for **Nueces County — Corpus Christi Refinery Row corridor**,
+2015–2025.
 
-    Reproducible ambient air quality database for the **Coastal Bend
-    region of South Texas** (11 counties, 2015–2025). Every observation
-    is exposed through the Neon `aq_coastal_bend` schema — query it
-    via SQL or the Neon Data API. Team members and collaborators do
-    **not** need to run any pipeline locally.
+**Study:** *Directional pollutant-transport modelling downwind of the Port
+of Corpus Christi refinery corridor.* Random-Forest predictions of
+transport direction + concentration for SO₂, O₃, and PM2.5, with the
+model output rendered as pollution roses. Full context in the
+[Refinery-Row scope doc](./proposals/refinery_row_directional_health.md).
 
-    **Lab:** Melaram Lab, Texas A&M University–Corpus Christi
-    **Principal Investigator:** Dr. Rajesh Melaram, TAMU-CC
-    **Leads:** Aidan Meyers, Manasa Kuchavaram, Jasmine Trevino
-    **Contact:** [aidan.meyers@tamucc.edu](mailto:aidan.meyers@tamucc.edu)
-    **License:** MIT
+**Lab.** Melaram Lab · Texas A&M University–Corpus Christi ·
+[www.melaramlab.com](https://www.melaramlab.com)
+**PI.** Dr. Rajesh Melaram
+**Leads.** Aidan Meyers · Manasa Kuchavaram · Jasmine Trevino
 
-## The single most important fact about this dataset
+---
 
-!!! danger "9 of the 11 Coastal Bend counties have NO ambient air quality monitors"
-
-    Only **2 counties** in the Coastal Bend region have TCEQ-networked
-    monitoring sites: **Nueces (7 sites)** and **Kleberg (1 site)** —
-    for a total of **8 sites**. The other 9 counties (Aransas, Bee,
-    Brooks, Duval, Jim Wells, Kenedy, Live Oak, Refugio, San Patricio)
-    have no monitoring data during 2015–2025.
-
-    Any inference about air quality in those counties requires spatial
-    interpolation from Nueces + Kleberg, which is a hard modeling
-    problem with only 8 anchor points. This drives every design
-    decision below.
-
-## The database is the deliverable
-
-Everyone on the team queries the **`aq_coastal_bend`** schema on Neon.
-Nothing to install, nothing to download, nothing to build locally.
-
-```python
-import os, pandas as pd
-from sqlalchemy import create_engine
-
-engine = create_engine(os.environ['AQ_POSTGRES_URL'], pool_pre_ping=True)
-
-pd.read_sql("""
-    SELECT site_name, metric, ROUND(value::numeric, 4) AS value, exceeds
-    FROM   aq_coastal_bend.naaqs_design_values
-    WHERE  year = 2024
-    ORDER  BY exceeds DESC, value DESC
-""", engine)
-```
-
-Full connection setup + REST API alternative in
-[08 Neon access](./08_usage_neon.md). Python + R cookbook in
-[09 Python & R examples](./09_usage_python_r.md).
-
-```mermaid
-%%{init: {'theme':'base','themeVariables':{
-    'fontFamily':'Arial, sans-serif',
-    'fontSize':'14px',
-    'primaryColor':'#FFFFFF',
-    'primaryTextColor':'#213c4e',
-    'primaryBorderColor':'#213c4e',
-    'lineColor':'#6b7a85',
-    'clusterBkg':'#F5F7F9',
-    'clusterBorder':'#213c4e'
-}}}%%
-flowchart LR
-    classDef db fill:#FDEBD3,stroke:#c2410c,stroke-width:2.5px,color:#7c2d0b,font-weight:700
-    classDef user fill:#E8F1F5,stroke:#213c4e,stroke-width:2px,color:#213c4e,font-weight:600
-    classDef pipe fill:#FFFFFF,stroke:#6b7a85,stroke-width:1.5px,color:#213c4e,stroke-dasharray:3 3
-
-    RAW["TCEQ TAMIS raw pull"]:::pipe
-    PIPE["pipeline · maintainer only"]:::pipe
-    NEON["<b>aq_coastal_bend schema</b><br/>10 tables · ~1.3M rows · 260 MB"]:::db
-    SQL["Python / R / BI<br/>via SQL"]:::user
-    REST["Notebook / web widget<br/>via Neon Data API (REST)"]:::user
-
-    RAW --> PIPE --> NEON
-    NEON --> SQL
-    NEON --> REST
-```
-
-!!! abstract "At-a-glance numbers"
-
-    | Count | What |
-    |---:|---|
-    | **11** | Coastal Bend counties in scope |
-    | **2** | Counties with active monitoring (Nueces, Kleberg) |
-    | **8** | Total monitoring sites (7 active + 1 disabled) |
-    | **5** | Pollutant groups measured (Ozone, SO₂, PM2.5, PM10, VOCs) |
-    | **0** | Sites measuring CO or NOx in the Coastal Bend |
-    | **10** | Tables in `aq_coastal_bend` on Neon |
-    | **~1.7M** | Rows across those tables (pollutants + weather + site-met) |
-    | **~310 MB** | Storage on Neon |
-
-## Start here
+## Start here — pick one
 
 <div class="grid cards" markdown>
 
--   :material-database: **Connect to the database**
+-   :material-file-document-outline: **Study scope + design**
 
     ---
 
-    [Get your Neon connection](./08_usage_neon.md) and pull your first
-    result set in 60 seconds.
+    The one-pager that anchors the project. Research questions,
+    hypotheses, variables, methods, timeline. Read this first if you're
+    new to the team.
 
--   :material-map-marker-radius: **Data reality first**
+    [Refinery-Row scope doc →](./proposals/refinery_row_directional_health.md)
 
-    ---
-
-    Before you plan any analysis, [read the availability matrix](./04_data_availability.md).
-    It shows exactly which site has which pollutant in which year —
-    with color-coded completeness and method-code changes over time.
-
--   :material-format-list-bulleted-square: **Method code timelines**
+-   :material-database: **Query the data (Neon)**
 
     ---
 
-    [Every method-code change per site](./05_method_codes_reference.md),
-    including the CC Holly PM10 gap (2019-2023) and the 2024 method
-    switch (141 → 639).
+    All observations live in the `aq_coastal_bend` schema. SQL or REST
+    API. Nothing to install locally.
 
--   :material-clipboard-text-clock: **Meeting notes + action items**
+    [Neon access →](./08_usage_neon.md) · [Python / R cookbook →](./09_usage_python_r.md)
 
-    ---
-
-    [Weekly team meeting minutes](./meeting_notes/index.md) with
-    checkbox action items. The [2026-06-24 scope-pivot
-    meeting](./meeting_notes/2026-06-24.md) is the founding entry.
-
--   :material-progress-check: **Pipeline updates**
+-   :material-map-marker-radius: **Site map + data reality**
 
     ---
 
-    [Running log](./pipeline_updates.md) of every change to the
-    database, docs, or team decisions — what, when, why, where the
-    current product lives.
+    Figure 1 — refinery corridor, monitors, and per-site coverage.
+    Read before planning any analysis.
 
--   :material-file-document-edit: **Live proposal draft (SharePoint)**
+    [Site map & availability →](./04_data_availability.md)
 
-    ---
-
-    Jasmine's shared TAMU-CC SharePoint doc — the three leads are
-    collaboratively filling the Melaram-Lab proposal template.
-    [Open STX AQ Proposal.docx →](https://tamucc-my.sharepoint.com/:w:/r/personal/jtrevino79_islander_tamucc_edu/_layouts/15/Doc.aspx?sourcedoc=%7B1F7E1BF3-856B-46A6-8348-2B1D8BF57D76%7D&file=STX%20AQ%20Proposal.docx&action=default&mobileredirect=true&DefaultItemOpen=1&web=1)
-
--   :material-flask: **Pollutant deep-dives**
+-   :material-clipboard-text-clock: **Team status + minutes**
 
     ---
 
-    Team-authored technical briefings:
-    [Ozone](./pollutants/ozone.md) · [SO₂](./pollutants/so2.md) ·
-    [PM2.5](./pollutants/pm25.md) · [PM10](./pollutants/pm10.md) ·
-    [VOCs](./pollutants/vocs.md) · [CO](./pollutants/co.md) ·
-    [NOx](./pollutants/nox.md)
+    Interactive Kanban of every meeting's action items, plus the
+    running change log for the pipeline itself.
+
+    [Meeting notes dashboard →](./meeting_notes/index.md) ·
+    [Pipeline updates →](./pipeline_updates.md)
 
 </div>
 
-## Team assignments (2026-06-24 meeting)
+---
 
-| Pollutant | Lead | Status |
-|---|---|---|
-| Ozone | Manasa Kuchavaram | ✅ [deep-dive published](./pollutants/ozone.md) (v0.1.3) |
-| CO | Manasa Kuchavaram | ✅ [gap statement published](./pollutants/co.md) — awaiting strategic-option decision |
-| PM2.5 | Aidan Meyers | ✅ [deep-dive published](./pollutants/pm25.md) (v0.1.3) |
-| PM10 | Aidan Meyers | ✅ [deep-dive published](./pollutants/pm10.md) (v0.1.3) |
-| NOx family | Aidan Meyers | ✅ [gap statement published](./pollutants/nox.md) — TROPOMI recommended, awaiting confirm |
-| SO₂ | Jasmine Trevino | ✅ [deep-dive published](./pollutants/so2.md) (v0.1.3) |
-| VOCs | Jasmine Trevino | ✅ [deep-dive published](./pollutants/vocs.md) (v0.1.3) |
+## What's on the site
 
-Full detail on [11 Team assignments](./11_team_assignments.md) and the
-[open action-item roll-up](./meeting_notes/index.md#master-action-item-status).
+The nav at the top groups pages by role: **Data**, **Analysis**,
+**Pipeline**, **Team**, **Access**. If you know what you're looking
+for, use the search box (top-right). If you don't, the four cards
+above cover ~90 % of what people actually visit.
 
-## Relationship to the South Texas AQ pipeline
+The single most important fact about this dataset — before you plan
+any analysis, plumb this constraint into your assumptions:
 
-This project is a **county-filtered fork** of the broader
-[south-texas-aq v0.4.0 pipeline](https://github.com/AidanJMeyers/south-texas-aq-pipeline)
-(42 sites, 13 counties). Both live in the same Neon project; the full
-South Texas data stays queryable as the `aq` schema (versus
-`aq_coastal_bend` here).
+!!! danger "9 of the 11 Coastal Bend counties have NO ambient air quality monitors"
 
-Why the fork:
-
-1. **Focus** — Dr. Melaram wants a publishable Coastal Bend analysis
-   as the first output.
-2. **Method rigor** — with 8 sites we can genuinely audit every method
-   code change and comment on cross-year comparability.
-3. **Publishable scope** — the Coastal Bend has a coherent industrial
-   footprint (Port of Corpus Christi refining / petrochemical
-   corridor) that makes for a clean geographic frame.
-4. **Extensibility** — the pipeline still works at the full 42-site
-   scale. Coastal Bend is a `COASTAL_BEND_COUNTIES` filter applied
-   on top of it.
-
-## Latest changes
-
-See the [Pipeline Updates](./pipeline_updates.md) page. Newest entry:
-
-- **2026-09-20 · v0.1.9** — Canonical [Figure 1 site
-  map](./04_data_availability.md#figure-1--refinery-row-and-the-corpus-christi-monitoring-network)
-  landed: Esri Gray Canvas basemap, concentric pollutant rings per
-  site, Refinery Row rectangle, OpenWeather stations, distance +
-  bearing to each site. R source at
-  [`scripts/R/coastal_bend_sites_map.R`](https://github.com/AidanJMeyers/coastal-bend-aq/blob/main/scripts/R/coastal_bend_sites_map.R).
-- **2026-09-20 · v0.1.8** — Site-specific TCEQ meteorology landed in
-  Neon. New table [`site_weather_hourly`](./02_data_sources.md#3b-tceq-site-specific-meteorology-on-monitor-feed-site_weather_hourly)
-  with wind + temp on the same tower as the pollutant analyzers for 4
-  Nueces sites (25, 26, 32, 34) × 11 years. Preferred met source for
-  the [Refinery-Row model](./proposals/refinery_row_directional_health.md).
-- **2026-08-26 · v0.1.7** — Scope-doc restructured: health-outcome
-  extension moved to tabled bottom section per the 2026-07-29 team
-  decision; base AQ model (Random Forest × pollution rose on SO₂ +
-  Ozone) is now the manuscript deliverable; timeline compressed to
-  6–9 months.
-- **2026-08-26 · v0.1.6** — SharePoint proposal link surfaced
-  (site-home card + scope-doc callout + proposals index); new
-  [TCEQ ↔ AQS site reference](./13_tceq_cams_aqs_reference.md); the
-  2026-08-12 CAMS-32/34 label catch **reconciled** — labels were
-  actually correct all along (CAMS vs AQS identifier confusion).
-- **2026-08-13 · v0.1.5** — 3 new meeting notes
-  ([07-22](./meeting_notes/2026-07-22.md),
-  [07-29](./meeting_notes/2026-07-29.md),
-  [08-12](./meeting_notes/2026-08-12.md)) covering the K-fold stacked
-  model design pivot + CAMS 32/34 site-label catch + UT Austin
-  collaboration signal; Manasa's Ozone/CO PPT
-  [mirrored](./briefings/index.md); [scope
-  doc](./proposals/refinery_row_directional_health.md) refined with
-  design-evolution log + variables table + Niyogi collaborator entry.
-- **2026-07-20 · v0.1.4** — Correction pass on 2026-07-08 meeting notes
-  (was the PPT-briefings meeting, not a BREATHE-CC crossover as I first
-  wrote) + [2026-07-15 pollution-rose → Refinery-Row directional health
-  study pivot](./meeting_notes/2026-07-15.md) + [full scope
-  doc](./proposals/refinery_row_directional_health.md).
+    Only Nueces (7 sites) and Kleberg (1 site) are monitored. Any
+    inference about the other 9 counties requires spatial
+    interpolation from 8 anchor points — a hard problem that shapes
+    every downstream design decision. See [Data availability](./04_data_availability.md)
+    for the site inventory.
 
 ---
 
 <div style="text-align: center; margin-top: 3em; color: #555555;">
   <strong>Melaram Lab</strong> · Texas A&amp;M University–Corpus Christi
-  <br/>
-  <a href="https://www.melaramlab.com">www.melaramlab.com</a>
-  ·
-  <a href="https://github.com/AidanJMeyers/coastal-bend-aq">GitHub</a>
+  · <a href="https://www.melaramlab.com">www.melaramlab.com</a>
+  · <a href="https://github.com/AidanJMeyers/coastal-bend-aq">GitHub</a>
+  · <a href="./pipeline_updates.md">changelog</a>
 </div>

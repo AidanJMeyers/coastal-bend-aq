@@ -132,43 +132,47 @@ extra:
 
 nav:
   - Home: index.md
-  - Pipeline updates: pipeline_updates.md
-  - Access:
-      - 8. Neon SQL & Data API: 08_usage_neon.md
-      - 9. Python / R examples: 09_usage_python_r.md
-  - Project:
-      - 1. Overview: 01_overview.md
-      - 2. Data sources: 02_data_sources.md
-      - 3. Data schemas: 03_data_schemas.md
-  - Data availability (KEY):
-      - 4. Site × Year × Pollutant matrix: 04_data_availability.md
-      - 5. Method-code timelines: 05_method_codes_reference.md
+
+  - Data:
+      - Overview: 01_overview.md
+      - Data sources: 02_data_sources.md
+      - Data schemas: 03_data_schemas.md
+      - Site × year × pollutant availability: 04_data_availability.md
+      - Method-code timelines: 05_method_codes_reference.md
+      - TCEQ CAMS ↔ AQS site reference: 13_tceq_cams_aqs_reference.md
+
+  - Analysis:
+      - Refinery-Row scope doc: proposals/refinery_row_directional_health.md
+      - All proposals: proposals/index.md
+      - Pollutant deep-dives:
+          - Ozone: pollutants/ozone.md
+          - SO₂: pollutants/so2.md
+          - PM2.5: pollutants/pm25.md
+          - PM10: pollutants/pm10.md
+          - VOCs: pollutants/vocs.md
+          - CO (gap): pollutants/co.md
+          - NOx (gap): pollutants/nox.md
+      - Team briefings (PPTs): briefings/index.md
+
   - Pipeline:
-      - 6. Pipeline architecture (maintainers): 06_pipeline_architecture.md
-      - 7. Methodology: 07_methodology.md
-  - Pollutant deep-dives:
-      - Ozone (Manasa): pollutants/ozone.md
-      - CO (Manasa): pollutants/co.md
-      - PM2.5 (Aidan): pollutants/pm25.md
-      - PM10 (Aidan): pollutants/pm10.md
-      - NOx (Aidan): pollutants/nox.md
-      - SO2 (Jasmine): pollutants/so2.md
-      - VOCs (Jasmine): pollutants/vocs.md
-  - Team briefings (PPTs):
-      - Briefings archive: briefings/index.md
-  - Meeting notes:
-      - Index + open actions: meeting_notes/index.md
-      - 2026-06-24 · scope pivot: meeting_notes/2026-06-24.md
-      - 2026-07-08 · PPT briefings + pipeline walkthrough: meeting_notes/2026-07-08.md
-      - 2026-07-15 · Refinery-Row directional health pivot: meeting_notes/2026-07-15.md
-      - 2026-07-22 · Literature-scan check-in: meeting_notes/2026-07-22.md
-      - 2026-07-29 · K-fold stacked + RF single-model design: meeting_notes/2026-07-29.md
-      - 2026-08-12 · Proposal fill + CAMS label catch + Niyogi signal: meeting_notes/2026-08-12.md
-      - _Template: meeting_notes/_template.md
-  - Project proposals:
-      - Proposals index: proposals/index.md
-      - Refinery-Row directional health study: proposals/refinery_row_directional_health.md
-  - Project management:
-      - 10. Timeline & deliverables: 10_project_timeline.md
-      - 11. Team assignments: 11_team_assignments.md
-      - 13. TCEQ CAMS ↔ AQS site reference: 13_tceq_cams_aqs_reference.md
+      - Architecture (maintainers): 06_pipeline_architecture.md
+      - Methodology: 07_methodology.md
+      - Pipeline updates (changelog): pipeline_updates.md
+
+  - Team:
+      - Meeting notes dashboard: meeting_notes/index.md
+      - Timeline + deliverables: 10_project_timeline.md
+      - Team assignments: 11_team_assignments.md
+      - Meeting archive:
+          - 2026-06-24 · scope pivot: meeting_notes/2026-06-24.md
+          - 2026-07-08 · PPT briefings + pipeline walkthrough: meeting_notes/2026-07-08.md
+          - 2026-07-15 · Refinery-Row directional health pivot: meeting_notes/2026-07-15.md
+          - 2026-07-22 · Literature-scan check-in: meeting_notes/2026-07-22.md
+          - 2026-07-29 · K-fold stacked + RF single-model design: meeting_notes/2026-07-29.md
+          - 2026-08-12 · Proposal fill + CAMS label catch + Niyogi signal: meeting_notes/2026-08-12.md
+          - 2026-09-20 · Proposal review + Refinery-Row proximity variable: meeting_notes/2026-09-20.md
+          - _Template: meeting_notes/_template.md
+
+  - Access:
+      - Neon SQL & Data API: 08_usage_neon.md
+      - Python / R cookbook: 09_usage_python_r.md

@@ -24,7 +24,8 @@ permanent, use **Export JSON** and paste back into this file.
     { "date": "2026-07-15", "title": "Pollution rose → Refinery-Row directional health study pivot" },
     { "date": "2026-07-22", "title": "Literature-scan check-in (short; Aidan absent)" },
     { "date": "2026-07-29", "title": "Design pivot — K-fold stacked model + Random Forest single-model start" },
-    { "date": "2026-08-12", "title": "Proposal-template working session + CAMS site-label catch + UT Austin (Niyogi) signal" }
+    { "date": "2026-08-12", "title": "Proposal-template working session + CAMS site-label catch + UT Austin (Niyogi) signal" },
+    { "date": "2026-09-20", "title": "Proposal review + Refinery-Row proximity variable + Oct-4 target for Warden/Jin session" }
   ],
   "items": [
     {
@@ -347,6 +348,100 @@ permanent, use **Export JSON** and paste back into this file.
       "notes": []
     },
     {
+      "id": "manasa-map-remove-pm10",
+      "owner": "Manasa",
+      "text": "Remove PM10 from the site map + send a cleaner version. (Aidan's request during 2026-09-20 proposal review.)",
+      "meeting": "2026-09-20",
+      "due": "2026-09-21",
+      "status": "open",
+      "completed_at": null,
+      "notes": []
+    },
+    {
+      "id": "manasa-map-city-limits-color",
+      "owner": "Manasa",
+      "text": "Change color of the city-limits rectangle so it does not visually collide with the Refinery-Row overlay (currently both red).",
+      "meeting": "2026-09-20",
+      "due": "2026-09-21",
+      "status": "open",
+      "completed_at": null,
+      "notes": []
+    },
+    {
+      "id": "manasa-map-refinery-overlay",
+      "owner": "Manasa",
+      "text": "Add a Refinery-Row overlay rectangle to the site map to clearly mark the corridor.",
+      "meeting": "2026-09-20",
+      "due": "2026-09-21",
+      "status": "open",
+      "completed_at": null,
+      "notes": []
+    },
+    {
+      "id": "aidan-timeline-note",
+      "owner": "Aidan",
+      "text": "Add a note in the proposal doc that the timeline is a living artefact and updates continuously as the project progresses.",
+      "meeting": "2026-09-20",
+      "due": "2026-09-21",
+      "status": "open",
+      "completed_at": null,
+      "notes": []
+    },
+    {
+      "id": "jasmine-schej-poll-warden-jin-melaram",
+      "owner": "Jasmine",
+      "text": "Send Schej poll Monday 2026-09-22 morning for a meeting with Dr. Melaram, Dr. Jin, and Dr. Warden. Target: week of 2026-10-04.",
+      "meeting": "2026-09-20",
+      "due": "2026-09-22",
+      "status": "open",
+      "completed_at": null,
+      "notes": []
+    },
+    {
+      "id": "aidan-annotation-skill",
+      "owner": "Aidan",
+      "text": "Create + share the PDF annotation Claude skill with the team (email delivery).",
+      "meeting": "2026-09-20",
+      "due": "2026-09-27",
+      "status": "open",
+      "completed_at": null,
+      "notes": []
+    },
+    {
+      "id": "aidan-cc-aq-study-skill",
+      "owner": "Aidan",
+      "text": "Create Corpus Christi Air Quality — Wind Rose Study Claude skill with full study context, GitHub links, and MCP-connection guidance for teammates.",
+      "meeting": "2026-09-20",
+      "due": "2026-09-21",
+      "status": "done",
+      "completed_at": "2026-09-20 19:00",
+      "notes": [
+        { "at": "2026-09-20 19:00", "by": "Aidan (v0.1.10)", "body": "Skill landed at ~/.claude/skills/corpus-christi-aq-wind-rose-study/; packaged for team export at pipeline/skill_export/. See Pipeline Updates v0.1.10 entry." }
+      ]
+    },
+    {
+      "id": "aidan-refinery-row-proximity-variable",
+      "owner": "Aidan",
+      "text": "Add Refinery-Row proximity variable + use wind direction relative to it as a derived predictor (formalises the Refinery-Row bearing construct). Include sensitivity analysis over cone width + distance weighting.",
+      "meeting": "2026-09-20",
+      "due": "2026-10-04",
+      "status": "open",
+      "completed_at": null,
+      "notes": []
+    },
+    {
+      "id": "aidan-text-manasa-upload-done",
+      "owner": "Aidan",
+      "text": "Text Manasa when site-specific weather data upload to Neon is done so she can update the Plan Datasets section of the proposal draft.",
+      "meeting": "2026-09-20",
+      "due": "2026-09-21",
+      "status": "done",
+      "completed_at": "2026-09-20 17:00",
+      "notes": [
+        { "at": "2026-09-20 17:00", "by": "Aidan (v0.1.8)", "body": "Data loaded to Neon (382,654 rows). Aidan to text Manasa." }
+      ]
+    },
+    {
       "id": "aidan-manasa-ppt-mirror",
       "owner": "Aidan",
       "text": "Mirror Manasa's Pollutant.pptx (Ozone + CO briefing) into pipeline briefings folder as 2026-07-08_MK_Ozone_CO_briefing.pptx.",
@@ -514,6 +609,7 @@ them permanent for the whole team:
 
 | Date | Attendees | Focus | Minutes |
 |---|---|---|---|
+| **2026-09-20** | Aidan, Jasmine, Manasa | Proposal review + Refinery-Row proximity variable + Oct-4 target for Warden/Jin joint session | [minutes](./2026-09-20.md) |
 | **2026-08-12** | Aidan (late), Dr. Melaram, Manasa, Jasmine | Proposal-template working session; CAMS 32/34 site-label catch; UT Austin (Dr. Niyogi) collaboration signal; bi-weekly cadence adopted | [minutes](./2026-08-12.md) |
 | **2026-07-29** | Dr. Melaram, Manasa, Jasmine | Design pivot — K-fold stacked model + Random Forest single-model start; DSHS ED-visit data as target-fallback | [minutes](./2026-07-29.md) |
 | **2026-07-22** | Manasa, Jasmine | Literature-scan check-in (short); Ecuador 2017 PM2.5 paper surfaced | [minutes](./2026-07-22.md) |

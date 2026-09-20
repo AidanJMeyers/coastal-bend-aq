@@ -10,6 +10,58 @@ supersede.
 
 ---
 
+## 2026-09-20 (night) · v0.1.10 — 2026-09-20 meeting notes + nav restructure + home-page slim-down + CC AQ Wind Rose Study skill
+
+**What changed**
+
+1. **2026-09-20 meeting notes landed** at
+   [`meeting_notes/2026-09-20.md`](./meeting_notes/2026-09-20.md).
+   Proposal review meeting with Jasmine, Aidan, and Manasa. Big
+   decisions: add a Refinery-Row proximity variable + use wind
+   direction *relative to* Refinery Row; add a sensitivity analysis
+   over distance effects; joint session with Dr. Melaram + Dr. Jin +
+   Dr. Warden targeted for the week of 2026-10-04. 9 action items
+   captured; ingested from Motion Notes (`meet_tDfAQz2oKrFTdsG2LFTZLX`).
+2. **Meeting-notes dashboard JSON updated** — 2026-09-20 appended to
+   the meetings array; 9 new action items added; site-weather-push
+   item and this-session skill item marked done with completion notes.
+3. **Home page slimmed down.** Cut the redundant "Latest changes"
+   block (that content lives on Pipeline Updates, one click away),
+   the fork-context paragraph (moved to Overview), and the stale
+   "Team assignments" table (already deployed, and duplicated on the
+   Team Assignments page). Kept a single 4-card "Start here" that
+   covers ~90% of visits. Rationale: the site had grown noticeably
+   overwhelming as changelog entries + team tables + fork explainer
+   stacked on top of the Start Here cards; slimming down puts the
+   essentials above the fold.
+4. **mkdocs nav restructured** into 5 top-level tabs (Data,
+   Analysis, Pipeline, Team, Access) plus Home — down from 9
+   top-level items. Analysis groups the scope doc + proposals +
+   pollutant deep-dives + briefings; Team groups the dashboard +
+   timeline + assignments + full meeting archive.
+5. **Corpus Christi AQ — Wind Rose Study skill** created at
+   `~/.claude/skills/corpus-christi-aq-wind-rose-study/` with
+   SKILL.md + references/ (study context, decisions log, pipeline
+   protocol, Neon protocol, MCP setup guide, team onboarding).
+   Packaged for team export as a zip alongside a plain-language
+   install README. Location for export bundle:
+   `pipeline/skill_export/`.
+
+**Why**
+
+- Every commit rule says every change gets a Pipeline Updates entry;
+  today's meeting + skill + UI work all belong here.
+- Aidan flagged that the site "feels overwhelming at points" —
+  redesign is targeted at that specific feedback.
+
+**Where the current product lives**
+
+- **Live site:** [aidanjmeyers.github.io/coastal-bend-aq](https://aidanjmeyers.github.io/coastal-bend-aq/)
+- **Skill (installed locally):** `~/.claude/skills/corpus-christi-aq-wind-rose-study/`
+- **Skill (exportable zip for teammates):** `pipeline/skill_export/corpus-christi-aq-wind-rose-study.zip`
+
+---
+
 ## 2026-09-20 (evening) · v0.1.9 — Figure 1 site map (R + Python renderers)
 
 **What changed**
