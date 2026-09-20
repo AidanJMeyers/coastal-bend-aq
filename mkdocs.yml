@@ -112,11 +112,9 @@ plugins:
 
 extra_css:
   - stylesheets/extra.css
-  - stylesheets/meeting_dashboard.css
 
 extra_javascript:
   - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
-  - javascripts/meeting_dashboard.js
 
 extra:
   social:
@@ -157,20 +155,20 @@ nav:
   - Pipeline:
       - Architecture (maintainers): 06_pipeline_architecture.md
       - Methodology: 07_methodology.md
-      - Pipeline updates (changelog): pipeline_updates.md
-
-  - Team:
-      - Meeting notes dashboard: meeting_notes/index.md
       - Timeline + deliverables: 10_project_timeline.md
       - Team assignments: 11_team_assignments.md
-      - Meeting archive:
-          - 2026-06-24 · scope pivot: meeting_notes/2026-06-24.md
-          - 2026-07-08 · PPT briefings + pipeline walkthrough: meeting_notes/2026-07-08.md
-          - 2026-07-15 · Refinery-Row directional health pivot: meeting_notes/2026-07-15.md
-          - 2026-07-22 · Literature-scan check-in: meeting_notes/2026-07-22.md
-          - 2026-07-29 · K-fold stacked + RF single-model design: meeting_notes/2026-07-29.md
-          - 2026-08-12 · Proposal fill + CAMS label catch + Niyogi signal: meeting_notes/2026-08-12.md
+
+  - Meetings & Updates:
+      - Overview + archive: meeting_notes/index.md
+      - Pipeline changelog: pipeline_updates.md
+      - By meeting:
           - 2026-09-20 · Proposal review + Refinery-Row proximity variable: meeting_notes/2026-09-20.md
+          - 2026-08-12 · Proposal fill + CAMS label catch + Niyogi signal: meeting_notes/2026-08-12.md
+          - 2026-07-29 · K-fold stacked + RF single-model design: meeting_notes/2026-07-29.md
+          - 2026-07-22 · Literature-scan check-in: meeting_notes/2026-07-22.md
+          - 2026-07-15 · Refinery-Row directional health pivot: meeting_notes/2026-07-15.md
+          - 2026-07-08 · PPT briefings + pipeline walkthrough: meeting_notes/2026-07-08.md
+          - 2026-06-24 · Scope pivot: meeting_notes/2026-06-24.md
           - _Template: meeting_notes/_template.md
 
   - Access:

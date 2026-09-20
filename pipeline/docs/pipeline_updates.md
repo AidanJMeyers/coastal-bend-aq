@@ -10,6 +10,55 @@ supersede.
 
 ---
 
+## 2026-09-20 (night) · v0.1.11 — Removed centralised task dashboard; action items live per meeting; "Meetings & Updates" section consolidated
+
+**What changed**
+
+1. **Removed the Kanban task-tracking dashboard** from
+   `meeting_notes/index.md`. The rich JS/JSON dashboard was
+   overwhelming to look at and impossible to keep synchronised as
+   the team scaled. Action items now live **in the body of each
+   meeting's notes file** — one owner + due date per bullet — which
+   is where they were being maintained anyway.
+2. **Removed the dashboard's JS + CSS files**
+   (`pipeline/docs/javascripts/meeting_dashboard.js`,
+   `pipeline/docs/stylesheets/meeting_dashboard.css`). Removed the
+   corresponding `extra_javascript` + `extra_css` entries from
+   `mkdocs.yml`.
+3. **Rewrote `meeting_notes/index.md`** as a lightweight overview +
+   archive table + explanation of the new (simpler) workflow.
+4. **Merged nav sections.** Renamed "Team" to **"Meetings & Updates"**
+   and folded in the pipeline changelog + per-meeting files. Moved
+   the project-timeline + team-assignments pages under "Pipeline"
+   where they fit better (both are semi-static reference pages, not
+   meeting artefacts).
+5. **Skill's `meeting_archive.md` reference** already lists every
+   meeting with a one-line summary — that's the "central roll-up" if
+   anyone wants one.
+
+**Why**
+
+- Aidan (2026-09-20 mid-session): *"we can also remove task tracking
+  at this point on the pipeline and just make it clear with the
+  action tasks per meeting rather than a centralized task dashboard,
+  since it looks overwhelming and we don't have the time to
+  constantly edit."*
+- The Kanban was a good idea when the team was smaller and the
+  meeting cadence was weekly; at bi-weekly cadence with per-meeting
+  action-item bullets, the dashboard was a source of maintenance
+  churn without corresponding benefit.
+
+**Where the current product lives**
+
+- Meeting archive: [meeting_notes/](./meeting_notes/index.md) —
+  simple table.
+- Per-meeting action items: in the body of each meeting file's
+  §Action items section.
+- Pipeline changelog: [pipeline_updates.md](./pipeline_updates.md) —
+  now the top item under Meetings & Updates in the nav.
+
+---
+
 ## 2026-09-20 (night) · v0.1.10 — 2026-09-20 meeting notes + nav restructure + home-page slim-down + CC AQ Wind Rose Study skill
 
 **What changed**
@@ -750,6 +799,8 @@ manuscript methods section later.
 
 | Version | Date | Headline |
 |---|---|---|
+| v0.1.11 | 2026-09-20 | Removed centralised task dashboard; action items live per meeting; "Meetings & Updates" nav section consolidated |
+| v0.1.10 | 2026-09-20 | 2026-09-20 meeting notes + nav restructure + home-page slim-down + CC AQ Wind Rose Study skill |
 | v0.1.9 | 2026-09-20 | Canonical Figure 1 site map — Refinery Row + monitor rings + OpenWeather + distance/bearing annotations; R source + embedded PNG |
 | v0.1.8 | 2026-09-20 | Site-specific TCEQ meteorology ingested — new `site_weather_hourly` table (4 Nueces sites, 383k rows, 2015-2025) + step_02b ingest + SQL DDL + docs |
 | v0.1.7 | 2026-08-26 | Scope-doc restructure — health-outcome extension moved to tabled bottom section; timeline compressed 6 mo (base AQ model only) |

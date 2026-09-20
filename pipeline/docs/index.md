@@ -8,7 +8,7 @@ hide:
 # Coastal Bend Air Quality Data Pipeline
 
 <span class="brand-badge">Melaram Lab</span>
-<span class="brand-badge brand-badge-accent">v0.1.10</span>
+<span class="brand-badge brand-badge-accent">v0.1.11</span>
 
 Reproducible ambient air quality database + Random-Forest × pollution-rose
 analysis for **Nueces County — Corpus Christi Refinery Row corridor**,
@@ -59,15 +59,15 @@ model output rendered as pollution roses. Full context in the
 
     [Site map & availability →](./04_data_availability.md)
 
--   :material-clipboard-text-clock: **Team status + minutes**
+-   :material-clipboard-text-clock: **Meetings & updates**
 
     ---
 
-    Interactive Kanban of every meeting's action items, plus the
-    running change log for the pipeline itself.
+    Every meeting's notes have action items right in the body.
+    Pipeline changes are logged separately in the changelog.
 
-    [Meeting notes dashboard →](./meeting_notes/index.md) ·
-    [Pipeline updates →](./pipeline_updates.md)
+    [Meetings archive →](./meeting_notes/index.md) ·
+    [Pipeline changelog →](./pipeline_updates.md)
 
 </div>
 
@@ -76,9 +76,9 @@ model output rendered as pollution roses. Full context in the
 ## What's on the site
 
 The nav at the top groups pages by role: **Data**, **Analysis**,
-**Pipeline**, **Team**, **Access**. If you know what you're looking
-for, use the search box (top-right). If you don't, the four cards
-above cover ~90 % of what people actually visit.
+**Pipeline**, **Meetings & Updates**, **Access**. If you know what
+you're looking for, use the search box (top-right). If you don't,
+the four cards above cover ~90 % of what people actually visit.
 
 The single most important fact about this dataset — before you plan
 any analysis, plumb this constraint into your assumptions:
