@@ -148,13 +148,31 @@ supersede.
 
 **Follow-up (still open)**
 
-- Run the DDL + step_07 to populate the Neon table (Aidan; when Neon
-  MCP is back or via Neon web console).
 - Add site-met verification queries to the analytical tibble build
   (Q3 2026 target).
 - Consider a similar site-met pull for CC Hillcrest (29), CC Palm
   (83), Kingsville (314) — currently no on-tower met in the TCEQ
   system for these; regional feed remains the fallback.
+
+**Update 2026-09-20 (evening) — data landed in Neon.**
+
+Neon MCP was reconfigured to Neon's remote HTTP endpoint
+(`https://mcp.neon.tech/mcp`) after the local `npx` server proved
+unusable on Windows (silent hangs on stdio handshake). After OAuth
+sign-in, the data was pushed:
+
+- `aq.site_weather_hourly` — **382,654 rows** loaded via `COPY FROM`
+  (49 seconds).
+- `aq_coastal_bend.site_weather_hourly` — populated as a filtered
+  fork on `county_code IN (7, 25, 47, 131, 249, 261, 273, 297, 355,
+  391, 409)`; same 382,654 rows (all 4 sites are in Nueces).
+- Data-API grants applied to `anonymous` + `authenticated` roles on
+  both tables.
+- Per-site coverage verified in Neon: 99.3–100% temp, 99.2–99.8%
+  wind speed, 87.7–88.6% scalar wind direction — matches the local
+  parquet check.
+- Pollutant × site-weather join sanity check confirms high match
+  rates on shared (aqsid, date_local, hour) keys for the 4 sites.
 
 ---
 
