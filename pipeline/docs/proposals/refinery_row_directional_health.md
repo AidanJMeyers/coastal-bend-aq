@@ -65,6 +65,17 @@ extension is tabled, dropping the largest scope + data-acquisition
 risk item).
 
 <figure markdown>
+  ![Refinery Row + Corpus Christi monitoring network](../assets/coastal_bend_sites_map.png){ width=100% }
+  <figcaption><strong>Figure 1.</strong> Refinery Row corridor and the
+  Corpus Christi monitoring network. Concentric rings at each site
+  encode which pollutants are measured; distance and bearing from the
+  Refinery Row centroid are annotated. Blue triangles are OpenWeather
+  regional stations; hollow center dots mark historical (deactivated)
+  monitors. Source R script:
+  <a href="https://github.com/AidanJMeyers/coastal-bend-aq/blob/main/scripts/R/coastal_bend_sites_map.R"><code>scripts/R/coastal_bend_sites_map.R</code></a>.</figcaption>
+</figure>
+
+<figure markdown>
   ![Illustrative pollution rose — Corpus Christi Gulf-breeze pattern](../assets/pollution_rose_illustration.svg){ width=440 }
   <figcaption><em>Illustrative pollution rose.</em> Each wedge points
   in the direction the wind is <strong>coming from</strong>; wedge

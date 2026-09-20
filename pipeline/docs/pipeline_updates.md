@@ -10,6 +10,70 @@ supersede.
 
 ---
 
+## 2026-09-20 (evening) · v0.1.9 — Figure 1 site map (R + Python renderers)
+
+**What changed**
+
+1. **Canonical "Figure 1" site map** rendered and embedded at the top of
+   [Data availability](./04_data_availability.md#figure-1--refinery-row-and-the-corpus-christi-monitoring-network)
+   and in the [Refinery-Row scope doc](./proposals/refinery_row_directional_health.md).
+   Matches the ArcGIS-style layout the team already uses:
+   - Esri World Gray Canvas basemap.
+   - Concentric colored rings per AQ site (one ring per pollutant
+     measured — Ozone / SO₂ / PM2.5 / PM10 / VOCs).
+   - Red rectangle over the Port of Corpus Christi Refinery Row
+     corridor.
+   - Blue-triangle OpenWeather regional stations.
+   - Distance + compass bearing from the Refinery Row centroid to each
+     site (Haversine + geosphere).
+   - Historical CC Holly (CAMS 660, deactivated 2018) shown with a
+     hollow center dot as a documented historical monitor.
+   - Inset panel showing the main frame within the broader Coastal
+     Bend for spatial orientation.
+   - Displacement offset (~250 m radial) for co-located monitors so
+     ring stacks stay readable — noted in caption.
+2. **Canonical R source** at
+   [`scripts/R/coastal_bend_sites_map.R`](https://github.com/AidanJMeyers/coastal-bend-aq/blob/main/scripts/R/coastal_bend_sites_map.R)
+   using `sf` + `ggplot2` + `basemaps` + `patchwork` + `geosphere`.
+   Reproduces the embedded figure end-to-end; committed as the sole
+   source-of-truth so future refreshes rebuild identically.
+3. **Rendered PNG** at `pipeline/docs/assets/coastal_bend_sites_map.png`
+   (300 dpi, 774 KB). PDF version rendered by the R script alongside
+   the PNG for publication use.
+4. **Palette matched to the team's ArcGIS convention**:
+   Ozone = coral, SO₂ = yellow, PM2.5 = yellow-green, PM10 = pink,
+   VOCs = purple. See scope doc §5 for how the same rings will drive
+   the analysis-side pollution-rose plots.
+
+**Why**
+
+- Aidan requested a single "Figure 1" map showing the Refinery Row
+  corridor, all included monitors with pollutant annotation, OpenWeather
+  station coordinates, and distance/direction from Refinery Row —
+  matching an ArcGIS sample he shared. The pipeline needed a canonical
+  version that lives alongside the docs and rebuilds deterministically
+  from source data.
+
+**Where the current product lives**
+
+- **Embedded on the docs site:** [Data availability](./04_data_availability.md#figure-1--refinery-row-and-the-corpus-christi-monitoring-network)
+  and [Refinery-Row scope doc](./proposals/refinery_row_directional_health.md).
+- **R source:**
+  [scripts/R/coastal_bend_sites_map.R](https://github.com/AidanJMeyers/coastal-bend-aq/blob/main/scripts/R/coastal_bend_sites_map.R).
+- **Rendered assets:**
+  `pipeline/docs/assets/coastal_bend_sites_map.png` (+ .pdf when the R
+  script runs).
+
+**Follow-up**
+
+- Once Neon MCP is back or `psql` is easy: replace the placeholder
+  OpenWeather station coords with a `SELECT DISTINCT location, lon, lat FROM aq_coastal_bend.weather_hourly` result.
+- After the Refinery-Row polygon is refined (e.g., from an authoritative
+  Port of Corpus Christi shapefile), swap the placeholder bounding-box
+  polygon in the R script.
+
+---
+
 ## 2026-09-20 · v0.1.8 — Site-specific TCEQ meteorology ingested into Neon
 
 **What changed**
@@ -616,6 +680,7 @@ manuscript methods section later.
 
 | Version | Date | Headline |
 |---|---|---|
+| v0.1.9 | 2026-09-20 | Canonical Figure 1 site map — Refinery Row + monitor rings + OpenWeather + distance/bearing annotations; R source + embedded PNG |
 | v0.1.8 | 2026-09-20 | Site-specific TCEQ meteorology ingested — new `site_weather_hourly` table (4 Nueces sites, 383k rows, 2015-2025) + step_02b ingest + SQL DDL + docs |
 | v0.1.7 | 2026-08-26 | Scope-doc restructure — health-outcome extension moved to tabled bottom section; timeline compressed 6 mo (base AQ model only) |
 | v0.1.6 | 2026-08-26 | SharePoint proposal link surfaced + TCEQ↔AQS reference doc + 2026-08-12 label-catch reconciled (no mislabel — CAMS/AQS ID confusion) |

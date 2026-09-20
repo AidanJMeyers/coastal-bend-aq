@@ -7,6 +7,22 @@
 
 Data snapshot: **2026-07-08** from `aq_coastal_bend.*` on Neon.
 
+## Figure 1 — Refinery Row and the Corpus Christi monitoring network
+
+![Coastal Bend AQ sites map — Refinery Row corridor + monitor coverage + on-monitor met availability + OpenWeather stations](./assets/coastal_bend_sites_map.png){ width=100% }
+
+*Concentric colored rings at each site show which pollutants that site
+measures (Ozone / SO₂ / PM2.5 / PM10 / VOCs). The red rectangle is the
+Port of Corpus Christi Refinery Row corridor; distance + compass bearing
+from the Refinery Row centroid to each site is annotated. Blue triangle
+= OpenWeather regional station. Historical CC Holly (CAMS 660,
+deactivated 2018) is shown with a hollow center dot. Monitors sharing
+near-identical coordinates were displaced ~250 m in the rendering for
+readability.*
+
+Source R script: [`scripts/R/coastal_bend_sites_map.R`](https://github.com/AidanJMeyers/coastal-bend-aq/blob/main/scripts/R/coastal_bend_sites_map.R).
+Basemap tiles from Esri World Gray Canvas.
+
 ## Legend
 
 | Cell | Meaning |

@@ -8,7 +8,7 @@ hide:
 # Coastal Bend Air Quality Data Pipeline
 
 <span class="brand-badge">Melaram Lab</span>
-<span class="brand-badge brand-badge-accent">v0.1.8</span>
+<span class="brand-badge brand-badge-accent">v0.1.9</span>
 
 !!! info "About this project"
 
@@ -205,6 +205,12 @@ Why the fork:
 
 See the [Pipeline Updates](./pipeline_updates.md) page. Newest entry:
 
+- **2026-09-20 · v0.1.9** — Canonical [Figure 1 site
+  map](./04_data_availability.md#figure-1--refinery-row-and-the-corpus-christi-monitoring-network)
+  landed: Esri Gray Canvas basemap, concentric pollutant rings per
+  site, Refinery Row rectangle, OpenWeather stations, distance +
+  bearing to each site. R source at
+  [`scripts/R/coastal_bend_sites_map.R`](https://github.com/AidanJMeyers/coastal-bend-aq/blob/main/scripts/R/coastal_bend_sites_map.R).
 - **2026-09-20 · v0.1.8** — Site-specific TCEQ meteorology landed in
   Neon. New table [`site_weather_hourly`](./02_data_sources.md#3b-tceq-site-specific-meteorology-on-monitor-feed-site_weather_hourly)
   with wind + temp on the same tower as the pollutant analyzers for 4
