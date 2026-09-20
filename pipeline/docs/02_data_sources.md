@@ -44,13 +44,19 @@ Files relevant to the Coastal Bend:
 483550025.txt                             Corpus Christi West
 483550026.txt                             Corpus Christi Tuloso
 483550029.txt                             Corpus Christi Hillcrest
-483550032.txt                             Corpus Christi Dona Park
-483550034.txt                             Corpus Christi Holly
+483550032.txt                             Corpus Christi Huisache
+483550034.txt                             Corpus Christi Dona Park
 483550083.txt                             Corpus Christi Palm
 Cameron_VOCs24hrAutoGC.txt                (not Coastal Bend — Cameron)
 Nueces_VOCS1hrAutoGC.txt                  → CC Palm 1hr rows
-Nueces_VOCS24hrAutoGC.txt                 → Hillcrest/Dona Park/Holly 24hr
+Nueces_VOCS24hrAutoGC.txt                 → Hillcrest/Dona Park/Huisache 24hr
 ```
+
+**Site-name note (2026-08-26 reconciliation).** The 32/34 labels above were
+corrected from an earlier "Dona Park / Holly" mislabel that turned out to be
+a CAMS-ID (TCEQ) vs `site_number` (AQS) confusion — see
+[13. TCEQ CAMS ↔ AQS site reference](./13_tceq_cams_aqs_reference.md).
+CC Holly (TCEQ CAMS 660) was deactivated 2018 and is not in the current pull.
 
 ## 2. Site coordinates + registry
 
@@ -69,7 +75,13 @@ first_date, last_date, n_records,
 data_status, notes, lat, lon
 ```
 
-## 3. OpenWeather + Solcast (weather covariates)
+## 3. Weather covariates — two independent feeds
+
+The pipeline exposes **two meteorological datasets** side-by-side so that
+downstream analysis can compare regional-forecast met against
+on-monitor-tower met. Both are queryable via Neon.
+
+### 3a. OpenWeather + Solcast — regional feed (`weather_hourly`)
 
 Unchanged from the upstream south-texas-aq pipeline. The 15-station
 network covers the Coastal Bend with ~4 stations directly inside Nueces +
@@ -79,7 +91,66 @@ for the full sub-source / license / retrieval detail.
 
 For the Coastal Bend fork, `aq_coastal_bend.weather_hourly` is filtered
 to `county_name IN ('Nueces', 'Kleberg')` = 197,124 rows (~4 stations ×
-~11 years × ~8,760 hours).
+~11 years × ~8,760 hours). Variables include temperature, humidity,
+atmospheric pressure, precipitation, cloud cover, and (regional-scale)
+wind speed + direction. Join key: `location` (station name).
+
+### 3b. TCEQ site-specific meteorology — on-monitor feed (`site_weather_hourly`)
+
+**Added v0.4.1 (2026-09-20).** On-tower TCEQ meteorology at 4 Coastal
+Bend sites: wind speed (resultant + scalar), wind direction (resultant +
+scalar), wind gust, and ambient temperature — measured at the same
+physical tower as the pollutant analyzers.
+
+**Why it's separate from `weather_hourly`:** different join key (`aqsid`
+vs `location`), different variable set (site-met has no humidity,
+pressure, precip, or cloud cover), different provenance (TCEQ on-tower
+vs Open Weather regional). This was the 2026-08-12 team decision so
+that Jasmine's "TCEQ per-site vs Open Weather regional" audit for the
+Refinery-Row analysis has direct comparability.
+
+**Coverage snapshot (382,654 wide rows):**
+
+| AQS `site_number` | Site name | Rows | Temp cov | Wind speed cov | Wind dir (scalar) cov |
+|---:|---|---:|---:|---:|---:|
+| 25 | Corpus Christi West | 95,702 | ~100% | ~99% | ~88% |
+| 26 | Corpus Christi Tuloso | 94,159 | ~99% | ~99% | ~88% |
+| 32 | Corpus Christi Huisache | 95,655 | ~100% | ~99% | ~88% |
+| 34 | Corpus Christi Dona Park | 97,138 | ~100% | ~99% | ~88% |
+
+**Sites without on-monitor met** (still use regional `weather_hourly`):
+- **CC Hillcrest (29)** — VOC-only station, no met sensors.
+- **CC Palm (83)** — VOC-only station.
+- **Kingsville (314, Kleberg)** — PM2.5-only, no met sensors.
+
+**Parameters + units:**
+
+| AQS param | Description | Unit | Method codes seen |
+|---:|---|---|---|
+| 61101 | Wind Speed - Resultant | m/s | 050, 069 |
+| 61102 | Wind Direction - Resultant | compass ° | 069 |
+| 61103 | Wind Speed - Scalar | m/s | 020, 069 |
+| 61104 | Wind Direction - Scalar | compass ° | 020, 069 |
+| 61105 | Wind Gust | m/s | 020, 069 |
+| 62101 | Ambient Temperature | °F | 040, 069 |
+
+**Derived columns (added at ingest):**
+
+- `temp_c` = (temp_f − 32) × 5/9
+- `wind_u_ms`, `wind_v_ms` — zonal + meridional decomposition from the
+  RESULTANT pair (mathematically-correct wind-direction encoding).
+- `wind_u_scalar_ms`, `wind_v_scalar_ms` — same decomposition from the
+  SCALAR pair. Included because scalar direction has ~88% coverage vs
+  resultant's ~33% — prefer resultant when available, fall back to
+  scalar.
+
+**POC handling:** POC=01 is used as primary; POC=02 as fallback when
+POC=01 is missing (only 269 rows in the current pull fell to fallback).
+Method codes and POC per parameter are preserved per row as an audit
+trail.
+
+**Ingest source:** [`step_02b_ingest_tceq_site_weather.py`](https://github.com/AidanJMeyers/south-texas-aq-pipeline/blob/main/pipeline/step_02b_ingest_tceq_site_weather.py)
+in the upstream pipeline. DDL: [`sql/site_weather_hourly.sql`](https://github.com/AidanJMeyers/south-texas-aq-pipeline/blob/main/pipeline/sql/site_weather_hourly.sql).
 
 ## 4. Parameter reference (57 AQS codes)
 

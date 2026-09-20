@@ -29,18 +29,25 @@ the pipeline, use the AQS `site_number` (32) or full `aqsid`
 
 ## 1. Active Coastal Bend sites in current pipeline (Neon)
 
-Live snapshot from `aq_coastal_bend.site_registry` on 2026-08-26:
+Live snapshot from `aq_coastal_bend.site_registry` on 2026-08-26 + site-met
+coverage added 2026-09-20:
 
-| AQS ID | site_number | Site name (as in Neon) | County | Hourly pollutants | 24-hr / VOC | Date range | Rows |
-|---|---:|---|---|---|---|---|---:|
-| 482730314 | 314 | Kingsville_0314 | Kleberg | PM2.5 | — | 2015-01-01 → 2025-05-07 | 80,418 |
-| 483550025 | 25 | Corpus Christi West_0025 | Nueces | Ozone; SO₂ | — | 2015-01-01 → 2025-12-31 | 184,842 |
-| 483550026 | 26 | Corpus Christi Tuloso_0026 | Nueces | Ozone; SO₂ | — | 2015-01-01 → 2025-12-31 | 173,063 |
-| 483550029 | 29 | Corpus Christi Hillcrest_0029 | Nueces | — | 24-hr VOCs | 2025-01-01 → 2025-10-28 | 2,352 |
-| 483550032 | **32** | Corpus Christi Huisache_0032 | Nueces | PM2.5; SO₂ | 24-hr VOCs | 2015-01-01 → 2025-12-31 | 211,187 |
-| 483550034 | **34** | Corpus Christi Dona Park_0034 | Nueces | PM10; PM2.5; SO₂ | 24-hr VOCs | 2015-01-01 → 2025-12-31 | 123,533 |
-| 483550083 | 83 | Corpus Christi Palm_0083 | Nueces | — | 1-hr VOCs | 2025-01-01 → 2025-12-31 | 336,922 |
-| 483551024 | 1024 | Williams Park | Nueces | — | — | (disabled) | 0 |
+| AQS ID | site_number | Site name (as in Neon) | County | Hourly pollutants | 24-hr / VOC | On-monitor met? | Date range | Rows |
+|---|---:|---|---|---|---|:---:|---|---:|
+| 482730314 | 314 | Kingsville_0314 | Kleberg | PM2.5 | — | ❌ | 2015-01-01 → 2025-05-07 | 80,418 |
+| 483550025 | 25 | Corpus Christi West_0025 | Nueces | Ozone; SO₂ | — | ✅ | 2015-01-01 → 2025-12-31 | 184,842 |
+| 483550026 | 26 | Corpus Christi Tuloso_0026 | Nueces | Ozone; SO₂ | — | ✅ | 2015-01-01 → 2025-12-31 | 173,063 |
+| 483550029 | 29 | Corpus Christi Hillcrest_0029 | Nueces | — | 24-hr VOCs | ❌ | 2025-01-01 → 2025-10-28 | 2,352 |
+| 483550032 | **32** | Corpus Christi Huisache_0032 | Nueces | PM2.5; SO₂ | 24-hr VOCs | ✅ | 2015-01-01 → 2025-12-31 | 211,187 |
+| 483550034 | **34** | Corpus Christi Dona Park_0034 | Nueces | PM10; PM2.5; SO₂ | 24-hr VOCs | ✅ | 2015-01-01 → 2025-12-31 | 123,533 |
+| 483550083 | 83 | Corpus Christi Palm_0083 | Nueces | — | 1-hr VOCs | ❌ | 2025-01-01 → 2025-12-31 | 336,922 |
+| 483551024 | 1024 | Williams Park | Nueces | — | — | ❌ | (disabled) | 0 |
+
+The **On-monitor met** column tracks which sites have on-tower TCEQ
+meteorology in `aq_coastal_bend.site_weather_hourly` (v0.4.1 addition —
+see [Data sources §3b](./02_data_sources.md#3b-tceq-site-specific-meteorology-on-monitor-feed-site_weather_hourly)).
+Sites without on-monitor met still have coverage from the regional
+`weather_hourly` feed (Open Weather + Solcast).
 
 **8 total (7 active + 1 disabled).** Kleberg has 1 site (Kingsville);
 Nueces has 7. The other 9 Coastal Bend counties — Aransas, Bee, Brooks,

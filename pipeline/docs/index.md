@@ -8,7 +8,7 @@ hide:
 # Coastal Bend Air Quality Data Pipeline
 
 <span class="brand-badge">Melaram Lab</span>
-<span class="brand-badge brand-badge-accent">v0.1.7</span>
+<span class="brand-badge brand-badge-accent">v0.1.8</span>
 
 !!! info "About this project"
 
@@ -99,8 +99,8 @@ flowchart LR
     | **5** | Pollutant groups measured (Ozone, SO₂, PM2.5, PM10, VOCs) |
     | **0** | Sites measuring CO or NOx in the Coastal Bend |
     | **10** | Tables in `aq_coastal_bend` on Neon |
-    | **~1.3M** | Rows across those tables |
-    | **~260 MB** | Storage on Neon |
+    | **~1.7M** | Rows across those tables (pollutants + weather + site-met) |
+    | **~310 MB** | Storage on Neon |
 
 ## Start here
 
@@ -205,6 +205,11 @@ Why the fork:
 
 See the [Pipeline Updates](./pipeline_updates.md) page. Newest entry:
 
+- **2026-09-20 · v0.1.8** — Site-specific TCEQ meteorology landed in
+  Neon. New table [`site_weather_hourly`](./02_data_sources.md#3b-tceq-site-specific-meteorology-on-monitor-feed-site_weather_hourly)
+  with wind + temp on the same tower as the pollutant analyzers for 4
+  Nueces sites (25, 26, 32, 34) × 11 years. Preferred met source for
+  the [Refinery-Row model](./proposals/refinery_row_directional_health.md).
 - **2026-08-26 · v0.1.7** — Scope-doc restructured: health-outcome
   extension moved to tabled bottom section per the 2026-07-29 team
   decision; base AQ model (Random Forest × pollution rose on SO₂ +

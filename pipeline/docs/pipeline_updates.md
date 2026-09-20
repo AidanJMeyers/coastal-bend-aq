@@ -10,6 +10,90 @@ supersede.
 
 ---
 
+## 2026-09-20 · v0.1.8 — Site-specific TCEQ meteorology ingested into Neon
+
+**What changed**
+
+1. **New Neon table `site_weather_hourly`** (both `aq` and
+   `aq_coastal_bend` schemas). On-tower TCEQ meteorology co-located
+   with the pollutant analyzer — distinct from the regional Open
+   Weather feed in `weather_hourly`. **382,654 wide rows** across
+   4 Nueces sites (25 CC West, 26 CC Tuloso, 32 CC Huisache,
+   34 CC Dona Park) × 11 years (2015-2025) × 6 met parameters:
+   wind speed resultant + scalar (61101/61103, m/s), wind direction
+   resultant + scalar (61102/61104, °), wind gust (61105, m/s),
+   ambient temperature (62101, °F).
+2. **Derived columns** added at ingest: `temp_c`; zonal +
+   meridional wind vector components computed from both the resultant
+   pair (`wind_u_ms`/`wind_v_ms`) and the scalar pair
+   (`wind_u_scalar_ms`/`wind_v_scalar_ms`). Ingest also preserves POC
+   per parameter (audit trail — POC=01 primary, POC=02 fallback used
+   for only 269 rows) and method_code per parameter (satisfies the
+   2026-07-08 method-code-preservation action).
+3. **New pipeline step** `step_02b_ingest_tceq_site_weather.py`
+   in the upstream south-texas-aq pipeline. Parses AQS RD v1.6 files,
+   selects POC primary, pivots long → wide, computes derived columns,
+   writes to `data/parquet/site_weather/aqsid=.../year=.../*.parquet`.
+   Config additions: `raw_tceq_site_weather` input path,
+   `parquet_site_weather` output path, `site_weather_hourly`
+   Postgres tables entry.
+4. **New SQL DDL artifact**: [`pipeline/sql/site_weather_hourly.sql`](https://github.com/AidanJMeyers/south-texas-aq-pipeline/blob/main/pipeline/sql/site_weather_hourly.sql)
+   in the upstream pipeline. Idempotent — DROP TABLE IF EXISTS at
+   top; creates aq schema table + county-filtered aq_coastal_bend
+   fork; indexes on aqsid/datetime/year/date; Data-API grants for
+   anonymous + authenticated roles; verification queries at the
+   bottom.
+5. **Documentation updates:**
+   - [Data sources §3](./02_data_sources.md#3-weather-covariates--two-independent-feeds)
+     restructured into §3a (Open Weather regional) + §3b (TCEQ
+     on-monitor). Full site-met coverage table added.
+   - Site-label mismatch in the file-listing table corrected —
+     32 = Huisache, 34 = Dona Park (per 2026-08-26 CAMS/AQS
+     reconciliation).
+   - [TCEQ CAMS ↔ AQS reference](./13_tceq_cams_aqs_reference.md)
+     gained an "On-monitor met?" column so the team knows at a glance
+     which sites have on-tower met vs regional-only.
+   - [Refinery-Row scope doc](./proposals/refinery_row_directional_health.md)
+     updated: data-availability section now names both weather
+     tables; methods §5 step 1 (data harmonization) prefers the
+     new site-met table; step 4 (wind-direction encoding) documents
+     the resultant→scalar fallback pattern; design-evolution log
+     gains a 2026-09-20 entry.
+
+**Why**
+
+- The 2026-08-12 team meeting agreed that on-tower TCEQ meteorology
+  is preferred over regional Open Weather for the Refinery-Row
+  Random-Forest study because the sensor is co-located with the
+  pollutant analyzer (< 100 m offset). Regional wind data at a
+  ~10-km resolution smears over exactly the sea-breeze × industrial-
+  plume dynamics the model needs to see.
+- Jasmine's 2026-08-26 action item to audit "TCEQ per-site vs Open
+  Weather regional" is unblocked by having both tables side-by-side
+  in Neon.
+
+**Where the current product lives**
+
+- **Parquet:** `data/parquet/site_weather/aqsid=NNNNNNNNN/year=YYYY/*.parquet`
+  in the upstream pipeline. 44 partitions, 382,654 rows total.
+- **Neon:** `aq_coastal_bend.site_weather_hourly` (pending DDL run
+  from `pipeline/sql/site_weather_hourly.sql` and `step_07_load_postgres.py`
+  execution — Neon MCP was offline during this session so the DDL is
+  delivered as a versioned artifact for Aidan to run manually).
+- **Live docs site:** [aidanjmeyers.github.io/coastal-bend-aq](https://aidanjmeyers.github.io/coastal-bend-aq/).
+
+**Follow-up (still open)**
+
+- Run the DDL + step_07 to populate the Neon table (Aidan; when Neon
+  MCP is back or via Neon web console).
+- Add site-met verification queries to the analytical tibble build
+  (Q3 2026 target).
+- Consider a similar site-met pull for CC Hillcrest (29), CC Palm
+  (83), Kingsville (314) — currently no on-tower met in the TCEQ
+  system for these; regional feed remains the fallback.
+
+---
+
 ## 2026-08-26 (evening) · v0.1.7 — Scope-doc restructure: health-outcome extension moved to tabled bottom section; timeline compressed 6 mo
 
 **What changed**
@@ -532,6 +616,7 @@ manuscript methods section later.
 
 | Version | Date | Headline |
 |---|---|---|
+| v0.1.8 | 2026-09-20 | Site-specific TCEQ meteorology ingested — new `site_weather_hourly` table (4 Nueces sites, 383k rows, 2015-2025) + step_02b ingest + SQL DDL + docs |
 | v0.1.7 | 2026-08-26 | Scope-doc restructure — health-outcome extension moved to tabled bottom section; timeline compressed 6 mo (base AQ model only) |
 | v0.1.6 | 2026-08-26 | SharePoint proposal link surfaced + TCEQ↔AQS reference doc + 2026-08-12 label-catch reconciled (no mislabel — CAMS/AQS ID confusion) |
 | v0.1.5 | 2026-08-13 | 3 new meeting notes (07-22, 07-29, 08-12) + Manasa PPT mirrored + scope-doc refinement + CAMS 32/34 label catch documented |

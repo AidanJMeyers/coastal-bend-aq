@@ -53,6 +53,7 @@ pending (Schej poll being resent 2026-08-26).
 | 2026-07-29 | Target-data reality check: BREATHE-CC unavailable 1.5–2 yr → **health-outcome layer tabled**; K-fold stacked design (base AQ model now, health stack layered later if data becomes available); Random Forest single-model start |
 | 2026-08-12 | Research question refined to grad-level explicitness (AQ-only); variables table populated; site scope confirmed as 7 Nueces sites; Dr. Niyogi (UT Austin) collaboration signal |
 | 2026-08-26 | Site-label catch reconciled (labels correct all along — CAMS/AQS ID confusion); scope doc restructured with health-outcome extension moved to tabled bottom section |
+| 2026-09-20 | Site-specific TCEQ meteorology landed in Neon (`aq_coastal_bend.site_weather_hourly`) — 4 Nueces sites (25/26/32/34), 6 met parameters + derived u/v, 383k rows 2015-2025. Preferred over regional Open Weather feed for the base model's wind-direction inputs. |
 
 **Team leads (equal weight).** Aidan Meyers, Manasa Kuchavaram, Jasmine
 Trevino. Additional foundational credit to Jasmine for the
@@ -145,10 +146,21 @@ kept exploratory so it doesn't gate the primary analysis.)
 | PM2.5 *(supplementary)* | 🟡 7 yr | 3 sites | 2018–2025; include as secondary analysis |
 | PM10, VOCs, CO, NOₓ | — | | Out of scope for the base model |
 
-Weather + wind: Nueces + Kleberg NWS + Open Weather regional +
-per-site TCEQ meteorology (per-site availability audit is Jasmine's
-open item for 2026-08-26). Sea-breeze pattern uniform across Coastal
-Bend per Jasmine's NWS-office verification.
+Weather + wind:
+
+- **`aq_coastal_bend.weather_hourly`** — regional Open Weather + Solcast
+  (temp, humidity, pressure, precip, cloud cover, regional wind). 197k
+  rows.
+- **`aq_coastal_bend.site_weather_hourly`** *(v0.4.1, 2026-09-20)* —
+  on-tower TCEQ met at 4 Nueces sites (25, 26, 32, 34): wind speed
+  (resultant + scalar), wind direction (resultant + scalar), wind gust,
+  ambient temperature. 383k rows, 2015-2025. This is the preferred
+  wind-direction source for the base model because the sensor is
+  co-located with the pollutant analyzer.
+
+Hillcrest (29), Palm (83), Kingsville (314) do not have on-monitor met
+and rely on the regional feed. Sea-breeze pattern uniform across
+Coastal Bend per Jasmine's NWS-office verification.
 
 See [`13_tceq_cams_aqs_reference.md`](../13_tceq_cams_aqs_reference.md)
 for the authoritative site inventory and CAMS ↔ AQS mapping.
@@ -156,8 +168,13 @@ for the authoritative site inventory and CAMS ↔ AQS mapping.
 ## 5. Methods overview
 
 1. **Data harmonization.** Pull `aq_coastal_bend.pollutant_hourly` +
-   weather; join on aqsid + timestamp. Preserve method_code per row
-   (2026-07-08 action item; part of Aidan's re-download pass).
+   weather; join on aqsid + timestamp. Preferred met join is
+   `aq_coastal_bend.site_weather_hourly` (v0.4.1, on-tower TCEQ met
+   at aqsid = 483550025 / 26 / 32 / 34) with fallback to
+   `weather_hourly` (regional Open Weather) for the 3 sites without
+   on-monitor met. Preserve method_code per row (2026-07-08 action
+   item; ingest already does this for site-met via method_wind_*,
+   method_temp_f columns).
 2. **Site scope.** 7 active Nueces County sites near Refinery Row.
    Excludes CC Holly CAMS 660 (deactivated 2018), Kingsville, Kleberg.
    Optional additions under evaluation: CAMS 660 (Holly, 2015–2018
@@ -166,9 +183,14 @@ for the authoritative site inventory and CAMS ↔ AQS mapping.
    industrial corridor (polygon, ~10 mi long; use midpoint for angular
    calculations, sensitivity-test with polygon boundary).
 4. **Wind-direction encoding — 3 forms in parallel** (2026-08-12):
-   - **Continuous degrees** (raw 0–360) — for reference.
+   - **Continuous degrees** (raw 0–360) — for reference. Prefer
+     `wind_direction_resultant_deg`, fall back to
+     `wind_direction_scalar_deg` (higher coverage: ~88% vs ~33%).
    - **Zonal (u) + meridional (v) decomposition** — standard
      atmospheric-physics encoding, avoids the 0°/360° discontinuity.
+     The ingest pre-computes both `wind_u_ms`/`wind_v_ms` (from
+     resultant) and `wind_u_scalar_ms`/`wind_v_scalar_ms` (from
+     scalar); prefer resultant, fall back to scalar.
    - **16 categorical sectors** — for the pollution-rose visualisation
      only.
 5. **Refinery-Row bearing (derived).** Angular difference between
