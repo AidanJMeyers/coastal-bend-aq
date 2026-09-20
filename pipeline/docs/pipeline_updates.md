@@ -10,6 +10,72 @@ supersede.
 
 ---
 
+## 2026-09-20 (late night) · v0.1.12 — Scientific-paper annotation skill + CC AQ annotation sub-skill + Skills download page
+
+**What changed**
+
+1. **New skill: `scientific-paper-annotation`** (parent). General
+   color-coded PDF annotation workflow for any scientific paper.
+   8-color default palette + boxed-figure/table convention for
+   integration candidates + companion workup doc template.
+   Reference files: color scheme, annotation workflow, workup
+   template, PDF-tool setup, sub-skill integration pattern.
+2. **New skill: `cc-aq-wind-rose-study-annotation`** (sub-skill of
+   parent). Swaps the generic palette for our study-specific
+   categories — each color maps to a hypothesis (H1-H4) or a
+   research question. Adds `[integration:<tag>]` markers for our
+   planned Figs 1-6 + variables/method-code tables. Appends "How
+   this paper informs H1-H4" sections to the workup doc. Includes a
+   worked example (Smargiassi et al. 2009).
+3. **Boxed figure/table annotation type added** across both skills.
+   Dark green 1.5 pt border + 2-5 word margin caption. Reserved
+   for figures/tables that are candidates to inform our own planned
+   figures/tables.
+4. **New site page: [Skills](./skills.md)** — downloadable zips of
+   all three skills, install instructions per OS, which-to-install
+   guidance by role, verification tests, and the parent+sub-skill
+   explainer.
+5. **Skills bundle in `skill_export/`** — three zips + updated
+   INSTALL_README covering all three skills. Direct-download links
+   from the Skills page.
+6. **mkdocs nav update** — Skills page added under the "Access"
+   section (alongside Neon SQL + Python/R cookbook).
+7. **Home page card added** — 5th "Start here" card links to the
+   Skills page.
+
+**Why**
+
+- Aidan (2026-09-20 mid-session): *"can we do the annotation pdf
+  skill now. I have one as part of my CHM350 workup skill, but I
+  would like to generalize it to something that I could provide any
+  scientific paper and have it edited, and since we are creating one
+  for this study, we can have a subskill for this project that gives
+  highlighting criteria toward different hypotheses/aims/background
+  and where we would use it."*
+- Follow-up (same message): *"would also love an inclusion for
+  annotation (like a box) around certain figures/tables that stand
+  out as possible integrations we could use."* Both parent and
+  sub-skill now support boxed annotations with integration tags.
+- Follow-up: *"please also push this to the pipeline website so AI
+  can have one unified link where they can download both."* Skills
+  page + `skill_export/` directory is that unified link.
+
+**Where the current product lives**
+
+- **Skills page (public):** [aidanjmeyers.github.io/coastal-bend-aq/skills/](https://aidanjmeyers.github.io/coastal-bend-aq/skills/)
+- **Direct download folder (raw):** [github.com/AidanJMeyers/coastal-bend-aq/tree/main/skill_export](https://github.com/AidanJMeyers/coastal-bend-aq/tree/main/skill_export)
+- **Skills installed locally:** `~/.claude/skills/scientific-paper-annotation/`,
+  `~/.claude/skills/cc-aq-wind-rose-study-annotation/`,
+  `~/.claude/skills/corpus-christi-aq-wind-rose-study/`
+
+**Follow-up**
+
+- Add a thesis-annotation sub-skill when Aidan is ready.
+- Consider adding a BREATHE-CC-annotation sub-skill for that
+  sibling project.
+
+---
+
 ## 2026-09-20 (night) · v0.1.11 — Removed centralised task dashboard; action items live per meeting; "Meetings & Updates" section consolidated
 
 **What changed**
@@ -799,6 +865,7 @@ manuscript methods section later.
 
 | Version | Date | Headline |
 |---|---|---|
+| v0.1.12 | 2026-09-20 | Scientific-paper annotation skill (parent) + CC AQ annotation sub-skill (with hypothesis mapping + integration-tag boxed figures) + Skills download page |
 | v0.1.11 | 2026-09-20 | Removed centralised task dashboard; action items live per meeting; "Meetings & Updates" nav section consolidated |
 | v0.1.10 | 2026-09-20 | 2026-09-20 meeting notes + nav restructure + home-page slim-down + CC AQ Wind Rose Study skill |
 | v0.1.9 | 2026-09-20 | Canonical Figure 1 site map — Refinery Row + monitor rings + OpenWeather + distance/bearing annotations; R source + embedded PNG |

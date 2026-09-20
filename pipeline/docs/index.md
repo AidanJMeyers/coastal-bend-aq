@@ -8,7 +8,7 @@ hide:
 # Coastal Bend Air Quality Data Pipeline
 
 <span class="brand-badge">Melaram Lab</span>
-<span class="brand-badge brand-badge-accent">v0.1.11</span>
+<span class="brand-badge brand-badge-accent">v0.1.12</span>
 
 Reproducible ambient air quality database + Random-Forest × pollution-rose
 analysis for **Nueces County — Corpus Christi Refinery Row corridor**,
@@ -68,6 +68,16 @@ model output rendered as pollution roses. Full context in the
 
     [Meetings archive →](./meeting_notes/index.md) ·
     [Pipeline changelog →](./pipeline_updates.md)
+
+-   :material-book-multiple: **Team skills (download)**
+
+    ---
+
+    Claude Code skills for the team. Study context + paper
+    annotation. Install locally to give your Claude the same shared
+    knowledge base.
+
+    [Skills page →](./skills.md)
 
 </div>
 
